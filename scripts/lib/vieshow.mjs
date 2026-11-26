@@ -108,7 +108,7 @@ export async function detailPages(browser, wantedTitles, log) {
   for (const id of firstIds) if (!all.has(id)) all.set(id, '');
   const want = new Set(wantedTitles.map(norm));
   const ids = [...all].filter(([id, name]) => name && want.has(norm(name))).map(([id]) => id);
-  log(`威秀電影頁：片單 ${all.size} 部，新竹有上映的 ${ids.length} 部`);
+  log(`威秀電影頁：片單 ${all.size} 部，這些影城有上映的 ${ids.length} 部`);
   const out = [];
   for (const id of ids) {
     try { const d = id === firstIds[0] ? first : await open(id); out.push({ id, ...d, films: undefined }); }
