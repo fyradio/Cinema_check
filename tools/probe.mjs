@@ -1,53 +1,58 @@
 import { chromium } from 'playwright-core';
 import fs from 'node:fs';
-fs.mkdirSync('out/js', { recursive: true });
-const SKIP = /google|facebook|doubleclick|gstatic|clarity|hotjar|criteo|yahoo|line-scdn|tiktok|adsrvr|scorecard|cloudflareinsights|youtube/i;
+fs.rmSync('out', { recursive: true, force: true });
+fs.mkdirSync('out2', { recursive: true });
+const SKIP = /google|facebook|doubleclick|gstatic|clarity|hotjar|criteo|yahoo|line-scdn|tiktok|adsrvr|scorecard|cloudflareinsights|youtube|mpulse|\.png|\.jpg|\.gif|\.woff|\.css/i;
+const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
 const b = await chromium.launch({ executablePath: '/usr/bin/google-chrome', headless: true });
-const ctx = await b.newContext({ locale: 'zh-TW', timezoneId: 'Asia/Taipei', viewport: { width: 1280, height: 900 },
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36' });
-let jsn = 0;
+const ctx = await b.newContext({ locale: 'zh-TW', timezoneId: 'Asia/Taipei', viewport: { width: 1280, height: 900 }, userAgent: UA });
 async function probe(name, url, act) {
   const pg = await ctx.newPage(); const reqs = [];
   pg.on('requestfinished', async r => {
-    const u = r.url(); if (SKIP.test(u)) return;
-    const t = r.resourceType(); let status = 0, body = '';
-    try { const res = await r.response(); status = res.status();
-      if (t === 'script') { const s = await res.text(); if (s.length < 2e6) { const f = `out/js/${name}-${++jsn}.js`; fs.writeFileSync(f, s); body = f; } }
-      else if (['xhr', 'fetch', 'document', 'other'].includes(t)) body = (await res.text()).slice(0, 6000);
-    } catch (e) { body = 'ERR ' + e.message; }
-    if (['xhr', 'fetch', 'document', 'script', 'other'].includes(t)) reqs.push({ t, m: r.method(), u, post: r.postData(), status, body });
+    const u = r.url(); if (SKIP.test(u)) return; const t = r.resourceType(); let status = 0, body = '';
+    try { const res = await r.response(); status = res.status(); const s = await res.text();
+      if (t === 'script') { if (/broadway|vscinemas/.test(u)) { const f = `out2/${name}-${u.split('/').pop().split('?')[0]}`; fs.writeFileSync(f, s); body = f; } }
+      else body = s.slice(0, 20000); } catch (e) { body = 'ERR ' + e.message; }
+    reqs.push({ t, m: r.method(), u, post: r.postData(), status, body });
   });
   let note = '';
-  try { await pg.goto(url, { waitUntil: 'networkidle', timeout: 45000 }); if (act) note = await act(pg); await pg.waitForTimeout(2500); }
-  catch (e) { note += ' ERROR ' + e.message; }
-  try { fs.writeFileSync(`out/${name}.html`, await pg.content()); await pg.screenshot({ path: `out/${name}.png`, fullPage: false }); } catch {}
-  fs.writeFileSync(`out/${name}.json`, JSON.stringify({ url, final: pg.url(), note, reqs }, null, 1));
-  console.log(name, pg.url(), reqs.length, note?.slice?.(0, 300));
-  await pg.close();
+  try { await pg.goto(url, { waitUntil: 'networkidle', timeout: 45000 }); if (act) note = await act(pg); await pg.waitForTimeout(2500); } catch (e) { note += ' ERROR ' + e.message; }
+  try { fs.writeFileSync(`out2/${name}.html`, await pg.content()); await pg.screenshot({ path: `out2/${name}.png`, fullPage: true }); } catch {}
+  fs.writeFileSync(`out2/${name}.json`, JSON.stringify({ url, final: pg.url(), note, reqs }, null, 1));
+  console.log(name, pg.url(), reqs.length, String(note).slice(0, 300)); await pg.close();
 }
-await probe('vs_showtimes', 'https://www.vscinemas.com.tw/ShowTimes/', async pg => {
-  const opts = await pg.$$eval('select option', os => os.map(o => [o.value, o.textContent.trim()]));
-  await pg.selectOption('select', { label: '新竹大遠百威秀影城' }); await pg.waitForTimeout(4000);
-  await pg.selectOption('select', { label: '新竹巨城威秀影城' }); await pg.waitForTimeout(4000);
-  await pg.selectOption('select', { label: '新竹大遠百威秀影城 (GC)' }); await pg.waitForTimeout(4000);
-  return JSON.stringify(opts);
-});
-await probe('vs_theater7', 'https://www.vscinemas.com.tw/theater/detail.aspx?id=7');
-await probe('vs_films', 'https://www.vscinemas.com.tw/film/index.aspx', async pg => {
-  const links = await pg.$$eval('a[href*="detail.aspx"]', as => as.map(a => a.href).slice(0, 5));
-  if (links[0]) { await pg.goto(links[0], { waitUntil: 'networkidle', timeout: 45000 }); fs.writeFileSync('out/vs_filmdetail.html', await pg.content()); }
-  return JSON.stringify(links);
-});
-await probe('bw_home', 'https://www.broadway-cineplex.com.tw/');
-await probe('bw_book', 'https://www.broadway-cineplex.com.tw/book.html?obj=Taipei');
-await probe('ezding_fe21', 'https://www.ezding.com.tw/cinemabooking?cinemaid=40288eb0050f542401050f5573651ca2');
-await probe('at_movie', 'https://www.atmovies.com.tw/movie/fgjp34384661/');
-await probe('imdb_title', 'https://www.imdb.com/title/tt0111161/');
-const extra = {};
-for (const u of ['https://datasets.imdbws.com/title.ratings.tsv.gz', 'https://v3.sg.media-imdb.com/suggestion/x/godzilla%20minus%20zero.json', 'https://www.imdb.com/title/tt0111161/']) {
-  try { const r = await fetch(u, { headers: { 'User-Agent': 'Mozilla/5.0' } }); const buf = Buffer.from(await r.arrayBuffer());
-    extra[u] = { status: r.status, len: buf.length, head: u.endsWith('.gz') ? '' : buf.toString('utf8').slice(0, 3000) };
-  } catch (e) { extra[u] = { err: e.message }; }
+const get = async u => { const r = await fetch(u, { headers: { 'User-Agent': UA } }); return r.text(); };
+// Broadway
+const BW = 'https://www.broadway-cineplex.com.tw/';
+const list = JSON.parse(await get(BW + 'Movie/GetMovieList/Zhubei'));
+fs.writeFileSync('out2/bw_list.json', JSON.stringify(list, null, 1));
+const withDates = list.Data.filter(m => m.datedata && m.datedata.length);
+let q = null;
+for (const m of withDates.slice(0, 3)) {
+  for (const d of m.datedata.slice(0, 2)) {
+    const t = JSON.parse(await get(BW + `Movie/GetMovieAlltime/Zhubei/${m.programid}/${d.date}`));
+    fs.writeFileSync(`out2/bw_time_${m.programid}_${d.date}.json`, JSON.stringify(t, null, 1));
+    const s = t.Data?.flatMap(x => x.subtimedata || []).find(x => !x.disable);
+    if (s && !q) q = `quick-view.html?obj=Zhubei,${m.programid},${s.showdate},${s['時間'].replace(':', '-')},${s.hall}`;
+  }
 }
-fs.writeFileSync('out/extra.json', JSON.stringify(extra, null, 1));
+console.log('quick', q);
+if (q) await probe('bw_quick', BW + q);
+await probe('bw_single', BW + `book.html?obj=Zhubei&pid=${withDates[0]?.programid}`);
+// Vieshow seat page + several film details for li classes
+await probe('vs_seats', 'https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=14&txtSessionId=673560');
+await probe('vs_booking', 'https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=14&txtSessionId=673560');
+const classes = {};
+for (const id of [9029, 8941, 9037, 9138, 8985, 9042]) {
+  const h = await get(`https://www.vscinemas.com.tw/film/detail.aspx?id=${id}`);
+  for (const m of h.matchAll(/<li class="([^"]*)"><a href="https:\/\/www\.vscinemas\.com\.tw\/vsTicketing/g)) classes[m[1]] = (classes[m[1]] || 0) + 1;
+  if (id === 9138) fs.writeFileSync('out2/vs_detail_9138.html', h);
+}
+fs.writeFileSync('out2/vs_li_classes.json', JSON.stringify(classes));
+// css hints
+const css = await get('https://www.unicornpopcorn.com.tw/ForVsWeb/css/style.css').catch(() => '');
+fs.writeFileSync('out2/vs_style_bookList.txt', (css.match(/[^}]*bookList[^}]*}/g) || []).join('\n'));
+// vieshow GetShowTimes direct POST
+const r = await fetch('https://www.vscinemas.com.tw/ShowTimes//ShowTimes/GetShowTimes', { method: 'POST', headers: { 'User-Agent': UA, 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'X-Requested-With': 'XMLHttpRequest' }, body: 'CinemaCode=BC' });
+fs.writeFileSync('out2/vs_getshowtimes_BC.html', await r.text());
 await b.close();
