@@ -1,0 +1,51 @@
+{
+ "status": true,
+ "msg": "",
+ "Data": [
+  {
+   "SubName2": "數位/日語",
+   "subtimedata": [
+    {
+     "SubCode": "DIGJAPCHT",
+     "SubName2": "數位/日語",
+     "時間": "13:20",
+     "hall": "0014",
+     "hallname": "14廳",
+     "active": false,
+     "disable": false,
+     "showdate": "2026-11-27"
+    },
+    {
+     "SubCode": "DIGJAPCHT",
+     "SubName2": "數位/日語",
+     "時間": "16:05",
+     "hall": "0014",
+     "hallname": "14廳",
+     "active": false,
+     "disable": false,
+     "showdate": "2026-11-27"
+    },
+    {
+     "SubCode": "DIGJAPCHT",
+     "SubName2": "數位/日語",
+     "時間": "18:50",
+     "hall": "0014",
+     "hallname": "14廳",
+     "active": false,
+     "disable": false,
+     "showdate": "2026-11-27"
+    },
+    {
+     "SubCode": "DIGJAPCHT",
+     "SubName2": "數位/日語",
+     "時間": "21:35",
+     "hall": "0014",
+     "hallname": "14廳",
+     "active": false,
+     "disable": false,
+     "showdate": "2026-11-27"
+    }
+   ]
+  }
+ ]
+}

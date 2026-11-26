@@ -1,0 +1,817 @@
+<!DOCTYPE html><html><head><!--[if lt IE 9]>
+    <script src="../js/html5.js"></script><![endif]-->
+    <!-- mata資訊-->
+        <!-- meta [start]-->
+        <title>威秀影城 - 訂票</title>
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <!-- meta [end]-->
+    
+<!-- meta [start]-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1, user-scalable=yes">
+<meta name="description" content="威秀影城線上訂票系統。">
+<meta name="keywords" content="威秀, 威秀影城, 線上訂票, 電影訂票">
+<meta name="author" content="威秀影城線上訂票系統">
+<meta name="copyright" content="威秀影城線上訂票系統">
+<meta name="Robots" content="all">
+<meta http-equiv="content-language" content="zh-TW">
+<meta name="revisit-after" content="7 days">
+<meta name="distribution" content="GLOBAL">
+<meta name="GOOGLEBOT" content="index, follow">
+<meta property="og:title" content="威秀影城線上訂票系統">
+<meta property="og:description" content="威秀影城線上訂票系統。">
+<meta property="og:site_name" content="威秀影城線上訂票系統">
+<meta property="og:type" content="company">
+<meta property="og:image" content="https://www.unicornpopcorn.com.tw/ForVsWeb/images/thumbnail.jpg">
+<link rel="image_src" href="https://www.unicornpopcorn.com.tw/ForVsWeb/images/thumbnail.jpg">
+<link rel="shortcut icon" href="https://www.unicornpopcorn.com.tw/ForVsWeb/images/favicon.ico">
+<!-- meta [end]-->
+<!-- Source [jquery] (lib)-->
+<script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-E6VJK8YTMJ&amp;cx=c&amp;_slc=1"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script type="text/javascript" src="https://www.unicornpopcorn.com.tw/ForVsTicket/js/jquery-2.1.0.min.js"></script>
+<!-- [sticky] (For Movie List)-->
+<script type="text/javascript" src="https://www.unicornpopcorn.com.tw/ForVsTicket/js/jquery.sticky.js"></script>
+<!--use iframe-auto-height-->
+<script type="text/javascript" src="https://www.unicornpopcorn.com.tw/ForVsTicket/js/jquery.iframe-auto-height.plugin.js"></script>
+<script type="text/javascript" src="https://www.unicornpopcorn.com.tw/ForVsTicket/js/jquery.browser.js"></script>
+<!-- form check-->
+<link rel="stylesheet" href="https://www.unicornpopcorn.com.tw/ForVsTicket/js/validation/validationEngine.jquery.css">
+<script type="text/javascript" charset="utf-8" src="https://www.unicornpopcorn.com.tw/ForVsTicket/js/validation/jquery-migrate-1.1.0.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://www.unicornpopcorn.com.tw/ForVsTicket/js/validation/languages/jquery.validationEngine-zh_TW.js"></script>
+<script type="text/javascript" charset="utf-8" src="https://www.unicornpopcorn.com.tw/ForVsTicket/js/validation/jquery.validationEngine.js"></script>
+    <script>
+      $(function () {
+      	// form check
+      	// binds form submission and fields to the validation engine
+      	$.validationEngine.defaults.scroll = false;
+      	jQuery("form").validationEngine();
+      });
+
+    </script>    
+    
+    <!--scrolltop [toTop]-->
+    <script type="text/javascript" src="https://www.unicornpopcorn.com.tw/ForVsTicket/js/scrolltopcontrol.js"></script>    
+    <!--Code-->
+	<script type="text/javascript" src="https://www.unicornpopcorn.com.tw/ForVsTicket/js/ticket.js?t=2025120909"></script>
+    <!-- Style-->
+    <link rel="stylesheet" href="https://www.unicornpopcorn.com.tw/ForVsTicket/css/styles.css">
+    <link rel="stylesheet" href="https://www.unicornpopcorn.com.tw/ForVsTicket/css/reset.css">
+	<link href="https://www.unicornpopcorn.com.tw/ForVsTicket/css/ticketing.css?t=2025120901" rel="stylesheet" type="text/css">
+    <!-- POPUP Code-->
+    <script type="text/javascript" src="https://www.unicornpopcorn.com.tw/ForVsTicket/js/share.js?t=2025120901"></script>
+    <link href="https://www.unicornpopcorn.com.tw/ForVsTicket/css/share.css" rel="stylesheet" type="text/css">
+    <style>
+        #loadingOverlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Loading 內容 */
+        .loading-content {
+            text-align: center;
+            color: #fff;
+        }
+
+        /* 簡單轉圈動畫 */
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.2);
+            border-top: 4px solid #fff;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 錯誤視窗 */
+        #errorModal {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 錯誤內容 */
+        .error-content {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .error-content button {
+            margin-top: 15px;
+            padding: 6px 12px;
+        }
+    </style>
+  
+                                <script>!function(e){var n="https://s.go-mpulse.net/boomerang/";if("False"=="True")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n="https://s2.go-mpulse.net/boomerang/";if(window.BOOMR_API_key="GURTP-F59LV-UKQPY-NC5XF-CJNMC",function(){function e(){if(!i){var e=document.createElement("script");e.id="boomr-scr-as",e.src=window.BOOMR.url,e.async=!0,o.parentNode.appendChild(e),i=!0}}function t(e){i=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?"if":"i",t=function(e,n){var t=d.createElement("script");t.id=n||"boomr-if-as",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\./))return window.BOOMR.snippetMethod="s",void t(o.parentNode,"boomr-async");a=document.createElement("IFRAME"),a.src="about:blank",a.title="",a.role="presentation",a.loading="eager",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display="none",o.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src="javascript:var d=document.open();d.domain='"+n+"';void(0);",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write("<bo"+"dy onload='document._boomrl();'>");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener("load",O._boomrl,!1);else if(O.attachEvent)O.attachEvent("onload",O._boomrl);d.close()}function a(e){window.BOOMR_onload=e&&e.timeStamp||(new Date).getTime()}if(!window.BOOMR||!window.BOOMR.version&&!window.BOOMR.snippetExecuted){window.BOOMR=window.BOOMR||{},window.BOOMR.snippetStart=(new Date).getTime(),window.BOOMR.snippetExecuted=!0,window.BOOMR.snippetVersion=12,window.BOOMR.url=n+"GURTP-F59LV-UKQPY-NC5XF-CJNMC";var o=document.currentScript||document.getElementsByTagName("script")[0],i=!1,r=document.createElement("link");if(r.relList&&"function"==typeof r.relList.supports&&r.relList.supports("preload")&&"as"in r)window.BOOMR.snippetMethod="p",r.href=window.BOOMR.url,r.rel="preload",r.as="script",r.addEventListener("load",e),r.addEventListener("error",function(){t(!0)}),setTimeout(function(){if(!i)t(!0)},3e3),BOOMR_lstart=(new Date).getTime(),o.parentNode.appendChild(r);else t(!1);if(window.addEventListener)window.addEventListener("load",a,!1);else if(window.attachEvent)window.attachEvent("onload",a)}}(),"".length>0)if(e&&"performance"in e&&e.performance&&"function"==typeof e.performance.setResourceTimingBufferSize)e.performance.setResourceTimingBufferSize();!function(){if(BOOMR=e.BOOMR||{},BOOMR.plugins=BOOMR.plugins||{},!BOOMR.plugins.AK){var n=""=="true"?1:0,t="",a="asl4psaxfv32k2yibl2a-f-48fdf1e77-clientnsv4-s.akamaihd.net",o="false"=="true"?2:1,i={"ak.v":"41","ak.cp":"1883282","ak.ai":parseInt("1259628",10),"ak.ol":"0","ak.cr":10,"ak.ipv":4,"ak.proto":"h3","ak.rid":"237be927","ak.r":46669,"ak.a2":n,"ak.m":"dscb","ak.n":"ff","ak.cport":54340,"ak.gh":"23.41.249.173","ak.quicv":"0x00000001","ak.tlsv":"tls1.3","ak.0rtt":"","ak.0rtt.ed":"","ak.csrc":"-","ak.acc":"","ak.t":"1795689204","ak.ak":"hOBiQwZUYzCg5VSAfCLimQ==+nPXbXDQjoARCMmayeiSwqB95klCw6ctyPORqt2wbW5N8SM7eFOiQ+Nlf07c/FesJnvn6WNSP291DuwlYonJquwcWbiZN+vKUVSp5G0EJCJTpf5RpeZG/mBHC1HJ6esM7URQIraA7GzLBkDDcL9wXG5J7atVYxsUqL7PE3Kh3sW4gBpRcc5ml5k9kkiijQBr/OjnHvtdnfaWQO3AMtL6jWe1LksDR6A+TkzRnFdAadOAPUW8Jcv7aPd5M7GD9/bHPdayAk+TUHc2WxB/vuMT0k3iJlGIHVZbpzkgg702yxKi9y4FHiU0feov4T+L5AwNFwP9w1W0Pi3jBcTj2LpA7sEQ6lAERDF66SLnD7UXPBZAr2XjeIX7vPxwCxrkAQ9gE6BE2PoHYOVVQ8PS1TfFfquBD2JMekPQoTTyjW5yQH0=","ak.pv":"50","ak.dpoabenc":"","ak.tf":o};if(""!==t)i["ak.ruds"]=t;var r={i:!1,av:function(n){var t="http.initiator";if(n&&(!n[t]||"spa_hard"===n[t]))i["ak.feo"]=void 0!==e.aFeoApplied?1:0,BOOMR.addVar(i)},rv:function(){var e=["ak.cport","ak.cr","ak.csrc","ak.gh","ak.ipv","ak.m","ak.n","ak.ol","ak.proto","ak.quicv","ak.tlsv","ak.0rtt","ak.0rtt.ed","ak.r","ak.acc","ak.t","ak.tf"];BOOMR.removeVar(e)}};BOOMR.plugins.AK={akVars:i,akDNSPreFetchDomain:a,init:function(){if(!r.i){var e=BOOMR.subscribe;e("before_beacon",r.av,null,null),e("onbeacon",r.rv,null,null),r.i=!0}return this},is_complete:function(){return!0}}}}()}(window);</script><link href="https://s.go-mpulse.net/boomerang/GURTP-F59LV-UKQPY-NC5XF-CJNMC" rel="preload" as="script"><script id="boomr-scr-as" src="https://s.go-mpulse.net/boomerang/GURTP-F59LV-UKQPY-NC5XF-CJNMC" async=""></script><meta http-equiv="origin-trial" content="A6MWCkFp/4goXtWiSJNfo09g03RCQpXkuDZDGnlApjvSPZL4CIhvZx3xGfg6bCT4TRppCXmFXWDEkxA7DO3nZgQAAACGeyJvcmlnaW4iOiJodHRwczovL2dvLW1wdWxzZS5uZXQ6NDQzIiwiZmVhdHVyZSI6IlNvZnROYXZpZ2F0aW9uSGV1cmlzdGljcyIsImV4cGlyeSI6MTcwOTY4MzE5OSwiaXNTdWJkb21haW4iOnRydWUsImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="><meta http-equiv="origin-trial" content="A2uWz2bbyoykT6h7LZQlNUdwVAFfb3IL5LU+YR1qxtW5T1dCRKjJ5/h3zur1LmuLWk0B1kyAAwyCxJzDCzNxUAQAAAB6eyJvcmlnaW4iOiJodHRwczovL2FrYW1haS5jb206NDQzIiwiZmVhdHVyZSI6IkJhY2tGb3J3YXJkQ2FjaGVOb3RSZXN0b3JlZFJlYXNvbnMiLCJleHBpcnkiOjE2OTE1MzkxOTksImlzVGhpcmRQYXJ0eSI6dHJ1ZX0="></head>
+  <body>
+    <!--瀏覽器視窗-->
+    <div id="browserBar" class="browserBar">
+      <p>您的瀏覽器版本已過時許久，請更新您的瀏覽器以便獲得更好的體驗!</p>
+    </div>
+    <div id="browser" class="browserWindow">
+      <section class="browserArea">
+        <h1>很抱歉!</h1><a href="#" onclick="closePopup()" id="close" class="icon-delete"></a>
+        <section class="group">
+          <p>您的瀏覽器版本已過時許久，威秀影城無法支援您的版本，請更新您的瀏覽器以便獲得更好的動畫瀏覽體驗!</p>
+          <p>若您開啟相容性，請關閉相容性即可瀏覽!</p>          
+        </section>
+      </section>
+    </div>
+    <div id="top"></div>
+
+    <!--popup說明區塊-->
+    <!--級數說明-->
+    <section id="videoInfo" class="popupArea">
+      <div class="popupBox" style="height: 720px; top: 5%;"><a href="#" class="popupClose"></a>
+        <h2>級數說明</h2>
+        <!--iframe Content - _videoInfo.htm-->
+        <div class="ascxFrame">
+            
+<div class="popupContent">
+  <p>依照新聞局規定，電影分級制度分為四級，詳細規定如下：</p>
+  <p><span class="general">
+      <mark></mark></span>普遍級/G (簡稱 普級)：一般觀眾皆可觀賞。</p>
+  <p><span class="childview">
+      <mark></mark></span>保護級/P (簡稱 護級)：未滿六歲之兒童不得觀賞，<br>六歲以上十二歲未滿之兒童需父母、師長或成年親友陪伴輔導觀賞。</p>
+  <p><span class="pg">
+      <mark></mark></span>輔導級/PG(簡稱 輔級)：未滿十二歲不得觀賞。</p>
+  <p><span class="bigchild">
+      <mark></mark></span>輔12級/PG12(簡稱 輔12級)：未滿十二歲不得觀賞。</p>
+  <p><span class="teenager">
+      <mark></mark></span>輔15級/PG15(簡稱 輔15級)：未滿十五歲不得觀賞。</p>
+  <p><span class="adult">
+      <mark></mark></span>限制級/R (簡稱 限級)：未滿十八歲不得觀賞。</p>
+  <ul>
+    <li>入場驗票時請出示年齡符合之證明文件。</li>
+    <li>本公司網站所列電影介紹裡，皆可看到每一部影片的正確級數。</li>
+    <li>購票及取票時請依照分級制度出示觀賞電影者年齡符合之證明文件。</li>
+  </ul>
+</div>
+        </div>
+        <!--<iframe marginwidth="0" marginheight="0" src="iframeContent/_videoInfo.htm?t=639313148043991633" frameborder="0" scrolling="no"></iframe>-->
+      </div>
+    </section>
+    <!--票種介紹-->
+    <section id="videoType" class="popupArea">
+      <div class="popupBox" style="height: 720px; top: 5%;"><a href="#" class="popupClose"></a>
+        <h2>票種介紹</h2>
+        <!--iframe Content - _videoType.htm-->
+        <div class="ascxFrame">
+            
+<div class="popupContent">
+    <table border="0" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr>
+                <td colspan="2">票種名稱</td>
+                <td>說明</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="2">全 票</td>
+                <td>一般成人且無任何優惠條件者請選擇全票。</td>
+            </tr>
+            <tr>
+                <td colspan="2">愛心票</td>
+                <td>持身心障礙證明(粉紅色)之本人得以購買。臨櫃購票、網路取票、進場驗票時出示皆須出示有效之身心障礙證明，無證件者須補費至全票金額。</td>
+            </tr>
+            <tr>
+                <td colspan="2">敬老票</td>
+                <td>凡滿65歲以上之國民(以場次當日為準)得以購買，臨櫃購票、網路取票、進場驗票時須出示身分證或政府核發附有照片、出生年月日等足以證明身分之證件，無證件者須補費至全票金額。</td>
+            </tr>
+            <tr>
+                <td colspan="2">優待票</td>
+                <td>適用對象：具學生、軍警、孩童身份者。臨櫃購票或網路取票時，須出示相關證件方能享有票價優惠。  持優惠票進場驗票時，請備有效證件，若無證件者須補費至全票金額。</td>
+            </tr>
+            <tr>
+                <td colspan="2">儲值金會員票</td>
+                <td>iShow會員以儲值金消費付款即可享會員票價，每日限10張。</td>
+            </tr>
+            <tr>
+                <td rowspan="11" width="98">銀行優惠票種</td>
+                <td>星展一般卡平日2D</td>
+                <td>需持有任何一種星展信用卡之顧客才可選擇此票種，每日限2張. 
+                    <br>  適用影片為：平日 2D / TITAN SCREEN 2D
+                </td>
+            </tr>
+            <tr>
+                <td>星展一般卡平日3D/IMAX</td>
+                <td>需持有任何一種星展信用卡之顧客才可選擇此票種，每日限4張. 
+                    <br> 適用影片為：平日 3D / IMAX 
+                </td>
+            </tr>
+            <tr>
+                <td>星展一般卡假日優惠</td>
+                <td>
+                    需持有任何一種星展信用卡之顧客才可選擇此票種，每日限4張. 
+                    <br> 適用影片為：假日 2D / 3D / IMAX  / TITAN SCREEN 2D
+                </td>
+            </tr>
+            <tr>
+                <td>星展饗樂生活卡平日2D/3D</td>
+                <td>
+                    需持有星展饗樂生活卡才可選擇此票種，每日限2張。 
+                    <br> 適用影片為：平日 2D / 3D / TITAN SCREEN 2D
+                </td>
+            </tr>
+            <tr>
+                <td>星展饗樂生活卡平日IMAX</td>
+                <td>
+                    需持有星展饗樂生活卡才可選擇此票種，每日限4張。 
+                    <br> 適用影片為：平日 IMAX 
+                </td>
+            </tr>
+            <tr>
+                <td>星展饗樂生活卡假日優惠</td>
+                <td>需持有星展饗樂生活卡才可選擇此票種，每日限4張。 
+                    <br> 適用影片為：假日 2D / 3D / IMAX / TITAN SCREEN 2D
+                </td>
+            </tr>
+            <tr>
+                <td>星展極耀無限卡平日2D</td>
+                <td>需持有以下任何一種信用卡之顧客才可選擇此票種：
+                    <br> 星展極耀無限卡，每日限2張. 
+                    <br> 適用影片為：平日 2D  / TITAN SCREEN 2D
+                </td>
+            </tr>
+            <tr>
+                <td>星展極耀無限卡平日3DIMAX</td>
+                <td>需持有以下任何一種信用卡之顧客才可選擇此票種：
+                    <br> 星展極耀無限卡，每日限4張. 
+                    <br> 適用影片為：平日 3D / IMAX 
+                </td>
+            </tr>
+            <tr>
+                <td>星展極耀無限卡假日優惠</td>
+                <td>需持有以下任何一種信用卡之顧客才可選擇此票種：
+                    <br> 星展極耀無限卡，每日限4張. 
+                    <br> 適用影片為：假日 2D / 3D / IMAX /  TITAN SCREEN 2D
+                </td>
+            </tr>
+
+            <!--台新-->
+            <tr>
+                <td>台新銀行優惠平日</td>
+                <td>凡持台新信用卡即可享有此優惠。每日限4張.
+                    <br> 適用影片為：平日 2D / TITAN SCREEN 2D</td>
+            </tr>
+            <!--中信-->
+            <tr>
+                <td>中國信託銀行平日優惠
+                    <br>(限中和環球威秀影城適用)
+                </td>
+                <td>僅限中國信託GlobalMall聯名信用卡於影城現場臨櫃購買2D數位版本，每日限2張。
+                    <br> 適用影片為：平日2D</td>
+            </tr>
+            <!--
+<tr>
+  <td rowspan="3" width="98">含餐套票票種</td>
+  <td>單人獨享組</td>
+  <td>全票x1<br>中杯碳酸飲料 x1<br>中爆米花 x1</td>
+</tr>
+<tr>
+  <td>雙人豪華組</td>
+  <td>全票 x2<br>中杯碳酸飲料 x2<br>中爆米花 x1<br>吉拿棒/熱狗 (2選1)x1</td>
+</tr>
+<tr>
+  <td>家庭分享組</td>
+  <td>全票 x4<br>小杯碳酸飲料 x4<br>中爆米花 x2<br>熱食 x2</td>
+</tr>
+-->
+            <tr>
+                <td rowspan="2" colspan="2">團體優待票券</td>
+                <td>◎票券類訂票說明</td>
+            </tr>
+            <tr>
+                <td>使用【團體優待票券】之有價票券訂票，請在網路訂票系統填上票券條碼前三碼英文字母作認證，再按 [確認]
+                    ，然後選擇您本次訂票要使用的張數數量。
+                    <br> 『電影交換券』跟『預售票券』類，無法於威秀影城網路訂票系統使用，請持票券至影城現場劃位。
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+        </div>
+        <!--<iframe marginwidth="0" marginheight="0" src="iframeContent/_videoType.htm" frameborder="0" scrolling="no"></iframe>-->
+      </div>
+    </section>
+    <!--版本介紹-->
+    <section id="videoView" class="popupArea">
+      <div class="popupBox" style="height: 720px; top: 5%;"><a href="#" class="popupClose"></a>
+        <h2>版本介紹</h2>
+        <!--iframe Content - _videoView.htm-->
+          <div class="ascxFrame">
+            
+<div class="popupContent">
+  <p>電影名稱前()內的文字代表的是上映電影的版本種類；電影語言版本為示範說明，其他請依此類推。（除非片商未提供，否則所有的影片語言版本皆會有中文字幕）</p>
+  <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+          <tr>
+              <td>電影語言</td>
+              <td>說明</td>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>(CHI) (國)</td>
+              <td>表示是國語配音，中文字幕。</td>
+          </tr>
+          <tr>
+              <td>(ENG) (英)</td>
+              <td>表示是英文原音，中文字幕。</td>
+          </tr>
+          <tr>
+              <td>(JAN) (日)</td>
+              <td>表示是日文原音，中文字幕。</td>
+          </tr>
+      </tbody>
+  </table>
+  <table border="0" cellspacing="0" cellpadding="0">
+      <thead>
+          <tr>
+              <td>電影版本</td>
+              <td>說明</td>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>
+                  <mark class="type">2D</mark>數位版
+                  <br>(DIG)(數位)</td>
+              <td>為數位放映設備播放的影片，畫質較為明亮且色澤較飽和。</td>
+          </tr>
+          <tr>
+              <td>
+                  <mark class="type">3D</mark>數位3D版
+                  <br>(3D 數位)(3D DIG)</td>
+              <td>為數位放映設備播放的3D立體版影片，需配戴3D立體眼鏡才能獲得3D效果。</td>
+          </tr>
+          <tr>
+              <td>
+                  <mark class="type">GC</mark>GC數位(GC DIG)/
+                  <br>GC 3D 數位(GC 3D DIG)</td>
+              <td>為威秀影城特殊影廳『Gold Class頂級影廳』播放的電影。為數位放映設備播放的影片，影廳也可放映3D立體版影片，需配戴3D立體眼鏡才能獲得3D效果。『Gold Class頂級影廳』設有專業酒吧提供各式調酒與現做精緻料理，影廳內座椅採進口豪華舒適沙發座椅，觀眾可依喜好調整角度，並由專人將餐點送至座席中。</td>
+          </tr>
+          <tr>
+              <td>
+                  <mark class="type">IMAX</mark>IMAX / IMAX 3D</td>
+              <td>是以數位IMAX技術播放的影片，IMAX係使用全球統一制定的影廳設置標準、音響系統、影像校正等設計，畫質與音響效果也為目前所有系統中表現最佳的，觀眾觀賞IMAX版影片時可有如身歷其境般的感覺。也會有以數位IMAX技術播放的3D立體版影片，觀賞時需配戴IMAX 3D立體眼鏡才能獲得3D效果。
+                  <br><a href="https://www.vscinemas.com.tw/brand/editor.aspx?A=2&amp;B=21" target="_blank">歡迎參考IMAX說明</a></td>
+          </tr>
+          <tr>
+              <td>
+                  <mark class="type">4DX</mark>4DX / 4DX 3D</td>
+              <td>使用3-DOF動態座椅以及製造環境特效，依照影片情節呈現空氣、水霧、香氣、動態座椅效果與震動感等，會讓觀眾感受除了既定的聲光效果之外，更精彩的感官全體驗。也會有以數位3D立體版影片，觀賞時需配戴3D立體眼鏡才能獲得3D效果。
+                  <br><a href="https://www.vscinemas.com.tw/brand/editor.aspx?A=1&amp;B=22" target="_blank">歡迎參考4DX說明</a></td>
+          </tr>
+
+
+          <tr>
+              <td>
+                  <mark class="type">TITAN SCREEN</mark>TITAN SCREEN</td>
+              <td>擁有22公尺巨幅銀幕 搭配<br>
+                  業界最高等級 4K、RGB 雷射高亮度放映設備<br>
+                  頂尖四迴路音響系統 及 7.1聲道環繞音效<br>
+                  隱藏於富含聲學處理的大理石紋牆面<br>
+                  燈光效果系統、升降舞台、尊榮皮質座椅<br>
+                  影廳播放之畫面色彩、對比度、聲音響度及音場頻率皆達最高規格<br>
+                  以最頂級的設備，打造全新開創性影音概念及聲光饗宴
+                  <br><a href="https://www.vscinemas.com.tw/brand/editor.aspx?A=12&amp;B=112" target="_blank">歡迎參考TITAN相關說明</a></td>
+          </tr>
+
+          <tr>
+              <td>
+                  <mark class="type">MUCROWN</mark>MUCROWN｜LEXUS</td>
+              <td>為MUVIE CINEMAS影城的『頂級影廳』。結合特色料理 &amp; 亞洲TOP 50酒吧Draft Land調酒，影廳內座椅採「可調式包廂沙發座椅」，輕鬆坐臥130度感受舒適尊榮，恣意調整觀影角度。備有服務鈴、無線充電座、置物櫃、可調式桌面、抱枕、毛毯等，並由專人將餐點送至座席中。<br>
+                  獨立休憩大廳備有無線網路、充電座，並與亞洲最佳50大酒吧調酒 Draft Land合作，「汲取式雞尾酒」打破既定調酒框架即取即飲，嚴選台灣當令食材，以細膩的烹調技巧將一般食材昇華為精緻佳餚，讓賓客舒適自在享用美食、電影，專人服務無微不至。
+                  <br><a href="https://www.vscinemas.com.tw/brand/editor.aspx?A=13&amp;B=113" target="_blank">歡迎參考MUCROWN相關說明</a></td>
+          </tr>
+
+      </tbody>
+  </table>
+</div>
+        </div>
+        <!--<iframe marginwidth="0" marginheight="0" src="iframeContent/_videoView.htm" frameborder="0" scrolling="no"></iframe>-->
+      </div>
+    </section>
+
+    
+<script type="text/javascript">
+  if (document.URL == 'http://www.vscinemas.com.tw/vsTicketing/')
+    document.location.href = "http://www.vscinemas.com.tw/vsTicketing/ticketing/ticket.aspx";
+</script>
+
+<header class="ticketHeader">
+    <section>
+        <a href="#" class="icon-menu"></a>
+        <a href="http://www.vscinemas.com.tw/" class="logo" target="_blank">
+            <img src="https://www.unicornpopcorn.com.tw/ForVsTicket/images/vscinemas_logo.png" alt="威秀影城線上訂票系統" title="威秀影城線上訂票系統"></a>
+        <ul class="ticketMenu">
+						<!-- <li><a href="https://sales.vscinemas.com.tw/VieShowTicket/Member/Deposit" target="_blank">會員登入</a></li> -->
+						<!-- <li><a href="https://sales.vscinemas.com.tw/VieShowTicket/PaymentHistory" target="_blank">訂票記錄</a></li> -->
+						<!-- <li><a href="https://sales.vscinemas.com.tw/VieShowTicket/Member/Deposit" target="_blank">線上儲值</a></li> -->
+						<li><a href="https://sales.vscinemas.com.tw/VieShowTicketT2/Member/Deposit" target="_blank">會員登入</a></li>
+						<li><a href="https://sales.vscinemas.com.tw/VieShowTicketT2/PaymentHistory" target="_blank">訂票記錄</a></li>
+						<li><a href="https://sales.vscinemas.com.tw/VieShowTicketT2/Member/Deposit" target="_blank">線上儲值</a></li>
+            <!--<li><a href="https://sales.vscinemas.com.tw/Browsing/Loyalty/Signin">會員首頁</a></li>-->
+            <li><a href="https://www.vscinemas.com.tw/Service/" target="_blank">會員服務</a></li>
+            <li><a href="../../2017PaidBooking/" target="_blank">操作說明</a></li>
+        </ul>
+    </section>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-76067694-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</header>
+
+    <!-- Content/First Page -->
+        <article class="ticketArticle">
+          <section class="ticketRule">
+            <div class="ticketInfo bookBtn">
+			    <div style="font-size:20px;width:750px;margin-left:auto;margin-right:auto;color:#FF0000">
+	
+				    <p><strong>請注意！威秀影城絕不會要求顧客至 ATM操作解除分期或補繳金額，請貴賓提高警覺避免受騙。威秀影城與您一起防範詐騙；歡迎致電影城查詢更多反詐騙資訊。</strong></p>				
+
+			    </div>
+              <ul>
+	            <li><a href="#bookNormal" class="icon-vsgeneral"> 
+	                <h1><strong>線上即時付款</strong><br>
+                        一般 / 銀行優惠 / iShow會員票種</h1>
+	                <h2>GENERAL / BANK PRIVILEGE TICKET / iShow SVC DISCOUNT TICKET</h2></a></li>
+	            <li><a href="#bookGroup" class="icon-vsgroup">
+	                <h1><strong>影城臨櫃付款</strong><br>
+                        團體優待票券 / 愛心票 / 敬老票 / 免費兌換券</h1>
+	                <h2>CORPORATE MOVIE MONEY / DISABILITY TICKET / ELDERLY TICKET / READMISSION</h2></a></li>
+	          </ul>
+              <div class="bookInfo">
+                <h1>注意事項</h1>
+                <ol>
+	              <li>一般電影票種 / 銀行優惠票種將於交易後，立即由您的信用卡帳戶中進行扣款。</li>
+	              <li>iShow會員票種每日訂票張數以 10 張為限，於交易後立即由您的儲值金中進行扣款。</li>
+	              <li>「團體優待票券 / 愛心票 / 敬老票」無法和「一般電影票種 / 銀行優惠/ iShow會員票種」同時訂票，請分次訂購。</li>
+	              <li>銀行優惠票種與iShow會員票種無法於同筆訂單中，請分次訂購，唯兩筆訂票無法保證座位。</li>
+		      <li>為維護顧客權益，惡意佔位或影響他人正常訂位使用者，威秀影城保有調整或取消訂位之權利。</li>
+                </ol>
+              </div>
+            </div>            
+            <!--一般票種-->
+            <div id="bookNormal" class="ticketInfo hidden">
+              <!--iframe Content - _bookNormal.htm-->
+              <div class="ascxFrame">
+                
+<div class="ticketInfo">
+  <h1>一、訂票及取票規定[一般票種]</h1>
+  <ol>
+      <li>網路訂票每張票需加收NT$20手續費。</li>
+      <li>片長 150分鐘(含)以上之電影需加價NT$20，每增加30分鐘需另再加價NT$10，HFR 版本放映加價NT$10。</li>
+      <li>每筆訂票張數以 4 張為限。儲值金會員票每日訂票張數以10張為限。</li>
+      <li>銀行優惠票種與儲值金會員票無法於同筆訂單中，請分次訂購，唯兩筆訂票無法保證座位。</li>
+      <li>各銀行優惠票種之張數與折扣金額，請依各銀行信用卡優惠規則為準。銀行優惠票種預訂以電影播放日期為準，非刷卡日計算。每卡每日購買張數限制依影片版本與觀影日期相關規定限制。</li>
+      <li>請注意此交易金額將於購票步驟完成後，即刻於您的信用卡帳戶或儲值金帳戶中進行扣款。</li>
+      <li>購票完成後，請憑「訂票序號」至購票影城進行取票，亦可至超商進行取票，但若交易內含餐飲品項，須至購票影城臨櫃領取電影票與餐點。</li>
+      <li>消費者訂購電影票後，威秀影城仍保留影廳更換之權利，如有任何變更將於場次當日臨櫃告知，敬請見諒；其餘未盡事項依影城現場公告為主。</li>        
+  </ol>
+  <h1>二、退換票規定[一般票種]</h1>
+  <ol>
+    <li>線上購票後若已領取電影票，因故無法如期觀影，請於開演前 20 分鐘持未使用之電影票與原訂購之信用卡親至觀影影城辦理退換票。已取票或取餐者，無法進行線上退款。</li>
+    <li>線上購票後若尚未領取電影票，因故無法如期觀影，可於威秀影城官網登入會員訂票紀錄中進行線上退票，電影票最遲應於影片開演2小時前完成線上退票程序。</li>
+    <li>電影票遺失恕不補發，亦無法辦理退換票。線上購票完成後退、換票，訂票手續費恕不退還，且不保證相同座位。</li>
+    <li>因天災或特殊事故取消電影放映時，請於購票場次7日內憑『未使用之原票券』至原購票影城櫃台辦理退換票，影城未營業期間均不收取手續費。</li>
+    <li>退、換票注意事項：若是信用卡付款，則需攜帶購票之信用卡辦理退票（如未攜帶原購票信用卡，恕無法辦理退換票）。</li>
+    <li>其餘未盡事項依影城現場公告為主。</li>
+  </ol>
+</div>
+              </div>
+              <!--<iframe marginwidth="0" marginheight="0" src="iframeContent/_bookNormal.htm" frameborder="0" scrolling="no"></iframe>-->
+              <!--link 請修改-->
+                <!--https://sales.vscinemas.com.tw/LiveTicket/-->                      
+              <form id="checkform" action="https://sales.vscinemas.com.tw/VieShowTicketT2/" class="formArea">
+                <section class="btnTicket">
+                  <p>
+                    <input type="checkbox" name="agree" class="validate[required] checkbox" id="agree">
+                     <label for="agree" style="cursor:pointer">我已閱讀並同意上述規定</label>
+                  </p><a href="#" class="btnBack">返回票種選擇</a>
+                  <input type="submit" value=" g 前往訂票 ">
+                  <input type="hidden" name="cinemacode" value="14">
+                  <input type="hidden" name="txtSessionId" value="673560">
+    
+                </section>
+              </form>
+            </div>
+            <!--團體票種-->
+            <div id="bookGroup" class="ticketInfo hidden">
+              <!--iframe Content - _bookGroup.htm-->
+              <div class="ascxFrame">
+                
+<div class="ticketInfo">
+  <h1>一、訂票規定[團體票種]</h1>
+  <ol>
+      <li>每個帳號每日最多可接受2筆訂票，每筆訂票總張數限6張。</li>
+      <li>每個月累計超過3筆(含)訂票未取票，將停用帳號6個月。</li>
+      <li>若須取消訂票，請於該場次開演前30分鐘至訂票紀錄取消。</li>
+      <li>若因選擇錯誤票種而需要更換，威秀影城不保證相同座位。</li>
+      <li>網路訂票每張票需加收NT$20手續費。</li>
+      <li>片長 150分鐘(含)以上之電影需加價NT$20，每增加30分鐘需另再加價NT$10。</li>
+      <li>ishow兌點票僅供現場劃位使用，不適用於網路訂票。</li>
+      <li>為維護顧客權益，惡意佔位或影響他人正常訂位使用者，威秀影城保有調整或取消訂位之權利。</li>
+      <li>消費者訂購電影票後，威秀影城仍保留影廳更換之權利，如有任何變更將於場次當日臨櫃告知，敬請見諒；其餘未盡事項依影城現場公告為主。</li>
+  </ol>
+  <h1>二、取票規定[團體票種]</h1>
+  <ol>
+    <li>使用『團體優待票券』之觀眾完成網路訂票後，請於取票時間內，憑訂票序號以及「實體團體優待票券」至購票影城進行取票。</li>
+    <li>訂購『愛心票』與『敬老票』之觀眾完成網路訂票後，請於取票時間內，憑訂票序號並持票種有效證件或手冊正本，至購票影城進行驗證與取票。</li>
+    <li>持『愛心票』與『敬老票』入場觀影者，請於入場時出示本人之有效身分證件，無證件者須補費至全票金額。</li>
+	<li>請於場次開演前30分鐘至影城完成取票動作，否則訂票將自動被取消。</li>
+  </ol>
+  <h1>三、退換票規定[團體票種]</h1>
+  <ol>
+    <li>退換票只接受電影開演前20分鐘至影城櫃檯辦理。</li>
+    <li>退換票請持原電影票辨理，電影票遺失恕不補發，亦無法辦理退換票。</li>
+    <li>退、換票恕不退還手續費。</li>
+    <li>因天災或特殊事故取消電影放映時，請於購票場次7日內憑『未使用之原票券』至原購票影城櫃台辦理退換票。影城未營業期間均不收取手續費。</li>
+    <li>其餘未盡事項依影城現場公告為主。</li>
+  </ol>
+</div>
+              </div>
+              <!--<iframe marginwidth="0" marginheight="0" src="iframeContent/_bookGroup.htm" frameborder="0" scrolling="no"></iframe>-->
+              <!--link 請修改-->
+              <form action="https://sales.vscinemas.com.tw/VoucherTicketing/SelectTickets.aspx" class="formArea" id="bookGroupForm">
+                <section class="btnTicket">
+                  <p>
+                    <input type="checkbox" name="agree" class="validate[required] checkbox" id="agree2">
+                    <label for="agree2" style="cursor:pointer">我已閱讀並同意上述規定</label>
+                  </p><a href="#" class="btnBack">返回票種選擇</a>
+                  <input type="submit" value=" g 前往訂票 ">
+                    
+                    <input type="hidden" name="cinemacode" value="14">
+                    
+                    <input type="hidden" name="txtSessionId" value="673560">
+      
+                </section>
+              </form>
+            </div>
+            <div class="ticketTab">
+              <ul>
+                <li><span class="icon-video"></span>級數說明</li>
+                <li><span class="icon-type"></span>票種介紹</li>
+                <li><span class="icon-eyeglasses"></span>版本介紹</li>
+              </ul>
+            </div>
+          </section>
+        </article>
+        <!-- Loading 全螢幕遮罩 -->
+         <div id="loadingOverlay" style="display:none;">
+             <div class="loading-content">
+                 <div class="spinner"></div>
+                 <div class="loading-text">連線中，請稍候...</div>
+             </div>
+         </div>
+
+         <!-- 錯誤訊息彈跳視窗 -->
+         <div id="errorModal" style="display:none;">
+             <div class="error-content">
+                 <div class="error-message">目前訂票系統較為繁忙，請於幾分鐘後再試。</div>
+                 <button onclick="closeError()">確認</button>
+            </div>
+        </div>
+        <script>
+            window.addEventListener('pageshow', function (event) {
+                hideLoading();
+                sessionStorage.removeItem('isLoading');
+            });
+
+            function testImage(url, timeout = 20000) {
+                return new Promise((resolve, reject) => {
+                    const img = new Image();
+                    let done = false;
+
+                    img.onload = () => !done && resolve(true);
+                    img.onerror = () => !done && reject(false);
+
+                    img.src = url;
+
+                    setTimeout(() => {
+                        if (!done) {
+                            done = true;
+                            reject(false);
+                        }
+                    }, timeout);
+                });
+            }
+
+
+            // 顯示 loading
+            function showLoading() {
+                document.getElementById('loadingOverlay').style.display = 'flex';
+                sessionStorage.setItem('isLoading', 'true');
+            }
+
+            // 隱藏 loading
+            function hideLoading() {
+                document.getElementById('loadingOverlay').style.display = 'none';
+                sessionStorage.removeItem('isLoading');
+            }
+
+            // 顯示錯誤
+            function showError() {
+                hideLoading();
+                document.getElementById('errorModal').style.display = 'flex';
+            }
+
+            // 關閉錯誤
+            function closeError() {
+                document.getElementById('errorModal').style.display = 'none';
+            }
+
+            document.getElementById('checkform').addEventListener('submit', function (e) {
+
+                var isAgree = $("#checkform").validationEngine("validate");                
+                if (!isAgree) {
+                    return;
+                }
+                e.preventDefault();
+                
+                const agree = this.agree.value;
+                const cinemacode = this.cinemacode.value;
+                const txtSessionId = this.txtSessionId.value;
+                const targetBaseUrl = 'https://sales.vscinemas.com.tw/VieShowTicketT2/';
+                const pingUrl = `${targetBaseUrl}favicon.ico`;                
+                const realUrl = `${targetBaseUrl}`;
+
+                //showLoading()
+
+                testImage(pingUrl)
+                    .then(() => {
+                        const realForm = document.createElement('form');
+                        realForm.method = 'post';
+                        //realForm.action = realUrl;
+                        realForm.action = "https://www.vscinemas.com.tw/order/";
+
+                        const input0 = document.createElement('input');
+                        input0.type = 'hidden';
+                        input0.name = 'url';
+                        input0.value = realUrl;
+                        realForm.appendChild(input0);
+
+                        const input1 = document.createElement('input');
+                        input1.type = 'hidden';
+                        input1.name = 'agree';
+                        input1.value = agree;
+                        realForm.appendChild(input1);
+
+                        const input2 = document.createElement('input');
+                        input2.type = 'hidden';
+                        input2.name = 'cinemacode';
+                        input2.value = cinemacode;
+                        realForm.appendChild(input2);
+
+                        const input3 = document.createElement('input');
+                        input3.type = 'hidden';
+                        input3.name = 'txtSessionId';
+                        input3.value = txtSessionId;
+                        realForm.appendChild(input3);
+
+                        document.body.appendChild(realForm);                        
+                        realForm.submit();
+                    })
+                    .catch(() => {
+                        showError();
+                    });                
+            });
+
+        </script>
+        <script>
+            let config;
+
+            let serviceStartTime;
+            let serviceEndTime;
+
+            async function loadMaintenanceTime() {
+                try {
+                    const response = await fetch('./voucherMaintenance.json', {
+                        cache: 'no-store'
+                    });
+
+                    if (!response.ok) {
+                        throw new Error('voucherMaintenance.json 讀取失敗');
+                    }
+
+                    config = await response.json();
+
+                    serviceStartTime = new Date(config.startTime);
+                    serviceEndTime = new Date(config.endTime);
+                    console.log(serviceStartTime);
+
+                } catch (error) {
+                    console.error('無法讀取維護時間：', error);
+                }
+            }
+
+            loadMaintenanceTime();            
+
+            function isServicePaused() {
+                if (!serviceStartTime || !serviceEndTime) {
+                    return false;
+                }
+
+                const now = new Date();
+
+                return now >= serviceStartTime && now <= serviceEndTime;
+            }
+
+            function formatDateTime(date) {
+                const weekDays = ['日', '一', '二', '三', '四', '五', '六'];
+
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                const weekDay = weekDays[date.getDay()];
+                const hour = String(date.getHours()).padStart(2, '0');
+                const minute = String(date.getMinutes()).padStart(2, '0');
+
+                return `${month}/${day}(${weekDay})${hour}:${minute}`;
+            }
+            
+            function formatTime(date) {
+                const hour = String(date.getHours()).padStart(2, '0');
+                const minute = String(date.getMinutes()).padStart(2, '0');
+
+                return `${hour}:${minute}`;
+            }
+
+            function getServicePausedMessage() {
+                const maintenanceTime =
+                    `${formatDateTime(serviceStartTime)} 至 ${formatTime(serviceEndTime)}`;
+
+                return (
+                    `${maintenanceTime}「影城臨櫃付款」系統維護作業中。\n\n` +
+                    `✅ 愛心票、敬老票、未過期團體電影優待票：請改用「官方 App」進行訂購。\n` +
+                    `✅ 免費兌換券、已過期團體電影優待票：請親洽全台「影城臨櫃」劃位使用。\n\n` +
+                    `造成不便，敬請見諒。`
+                );
+            }
+            
+            document.getElementById('bookGroupForm').addEventListener('submit', function (e) {
+
+                if (isServicePaused()) {
+                    e.preventDefault();
+
+                    alert(getServicePausedMessage());
+
+                    return false;
+                }
+
+            });
+            
+            document.querySelector('a[href="#bookGroup"]').addEventListener('click', function (e) {
+
+                if (isServicePaused()) {
+                    // 阻止 href="#bookGroup" 原本的動作
+                    e.preventDefault();
+
+                    // 如果網站上還有其他 click event，
+                    // 也一起阻止後續事件
+                    e.stopPropagation();
+                    e.stopImmediatePropagation();
+
+                    alert(getServicePausedMessage());
+
+                    return false;
+                }
+
+            });
+        </script>        
+    
+	<footer class="ticketfooter">
+		<address class="copyright">
+			<p>Copyright © 2016 威秀影城 VIESHOW Cinemas. All Rights Reserved.&nbsp; <a href="https://www.vscinemas.com.tw/about/privacy.aspx" target="_blank">隱私權政策</a></p>
+			<div style="text-align:end;padding-right:15px;margin-top:-30px">
+				<p style="font-size:10px;">V 105347635R10</p>
+			</div>
+		</address>
+	</footer>
+  
+<div id="topcontrol" title="Scroll Back to Top" style="position: fixed; bottom: 5px; right: 5px; opacity: 0; cursor: pointer;"><a class="toTop"> </a></div><div class="hidden baseWidth">1280</div></body></html>

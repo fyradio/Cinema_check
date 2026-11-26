@@ -1,0 +1,2191 @@
+{
+ "status": true,
+ "msg": "",
+ "Data": [
+  {
+   "programid": "0000988",
+   "cname": "沙丘：第三部",
+   "ename": "Dune: Part Three",
+   "ReleaseDate": "2026-12-15",
+   "filmlevel": "movie-level s-font",
+   "CodeName": "未定",
+   "ShowTimes": "151",
+   "Director": "丹尼維勒納夫",
+   "Actors": "提摩西夏勒梅、蕾貝卡弗格森、辛蒂亞",
+   "Introduction": "《沙丘：第三部》故事背景發生在保羅亞崔迪奪取帝國統治權的近二十年之後。如今已成為冷酷皇帝的保羅，在昔日盟友重現、可怕的新威脅接踵而至，而背叛的陰影更潛伏在每個角落之際，保羅必須面對他極權統治所帶來的後果。帝國崩塌的幻象與不幸身亡的愛人重現的交織景象不斷地困擾著保羅，將他捲入一場縝密又宏大的陰謀之中，而荃妮正是這重重謎團中的核心人物。隨著叛亂暗流湧動、強敵步步緊逼，保羅必須面對終極權力的真正代價，以及他摯愛之人的命運。",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0000988.jpg",
+   "SubName2": "數位/英文",
+   "datedata": [
+    {
+     "date": "2026-12-15",
+     "日期": "12.15",
+     "星期": "星期二",
+     "active": true
+    },
+    {
+     "date": "2026-12-16",
+     "日期": "12.16",
+     "星期": "星期三",
+     "active": false
+    },
+    {
+     "date": "2026-12-17",
+     "日期": "12.17",
+     "星期": "星期四",
+     "active": false
+    },
+    {
+     "date": "2026-12-18",
+     "日期": "12.18",
+     "星期": "星期五",
+     "active": false
+    },
+    {
+     "date": "2026-12-19",
+     "日期": "12.19",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-12-20",
+     "日期": "12.20",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-12-21",
+     "日期": "12.21",
+     "星期": "星期一",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/英文",
+     "subtimedata": [
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "15:00",
+       "hall": "0010",
+       "hallname": "10廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-12-15"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "17:55",
+       "hall": "0010",
+       "hallname": "10廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-12-15"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "20:50",
+       "hall": "0010",
+       "hallname": "10廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-12-15"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0000991",
+   "cname": "門當父不對之親家駕到",
+   "ename": "Focker-In-Law",
+   "ReleaseDate": "2026-11-27",
+   "filmlevel": "movie-level s-font yp",
+   "CodeName": "保護",
+   "ShowTimes": "106",
+   "Director": "約翰漢柏",
+   "Actors": "勞勃狄尼洛 班史提勒",
+   "Introduction": "本集劇情中，讓班史提勒最頭痛的，是兒子帶回家的準媳婦亞莉安娜（飾演　奧莉薇亞）！\n\n他似乎對未來媳婦頗有意見，認為她並不適合自己的兒子，於是想盡辦法從中作梗、不斷試探對方，沒想到亞莉安娜聰明美麗又能幹，很迅速地融入這個大家庭，甚至成功打進勞勃狄尼洛的「信任圈圈」，這讓班史提勒不僅沒能給她下馬威，反而越來越不是滋味，更因此鬧出一連串令人捧腹大笑的家庭風波。",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0000991.jpg",
+   "SubName2": "數位/英文",
+   "datedata": [
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": true
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    },
+    {
+     "date": "2026-12-03",
+     "日期": "12.03",
+     "星期": "星期四",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/英文",
+     "subtimedata": [
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "13:10",
+       "hall": "0013",
+       "hallname": "13廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "15:15",
+       "hall": "0013",
+       "hallname": "13廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "17:20",
+       "hall": "0013",
+       "hallname": "13廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "19:25",
+       "hall": "0013",
+       "hallname": "13廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "21:30",
+       "hall": "0013",
+       "hallname": "13廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0000996",
+   "cname": "大搜查線 N.E.W.",
+   "ename": "Bayside Shakedown N.E.W.",
+   "ReleaseDate": "2026-11-27",
+   "filmlevel": "movie-level s-font y12",
+   "CodeName": "輔導十二級",
+   "ShowTimes": "142",
+   "Director": "本廣克行",
+   "Actors": "織田裕二 趣里 白洲迅",
+   "Introduction": "故事發生在世界首屈一指的大都市．東京。某日，發生了一起被稱為「225案件」的綁架案，犯人指定由剛到警視廳刑事部搜查第一課任職的青島俊作（織田裕二 飾）負責交付贖金，如果無法滿足要求就會炸毀街道。此外，還發生了以3D列印手槍行凶的連續殺人案與被威脅要在街上散播被偷走的有毒病毒的事件。另一方面，警察組織開始以AI判斷搜查的優先順序，甚至由AI判斷是否批准拘捕令……面對這樣的變化，青島仍懷抱著不變的信念，在東京奔馳辦案！",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0000996.jpg",
+   "SubName2": "數位/日語",
+   "datedata": [
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": true
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    },
+    {
+     "date": "2026-12-03",
+     "日期": "12.03",
+     "星期": "星期四",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/日語",
+     "subtimedata": [
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "13:20",
+       "hall": "0014",
+       "hallname": "14廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      },
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "16:05",
+       "hall": "0014",
+       "hallname": "14廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      },
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "18:50",
+       "hall": "0014",
+       "hallname": "14廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      },
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "21:35",
+       "hall": "0014",
+       "hallname": "14廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0001004",
+   "cname": "晚窒息",
+   "ename": "Suffocation",
+   "ReleaseDate": "2026-11-27",
+   "filmlevel": "movie-level s-font y15",
+   "CodeName": "輔導十五級",
+   "ShowTimes": "97",
+   "Director": "詹家維、張佑維",
+   "Actors": "姚愛寗、王渝屏、初孟軒",
+   "Introduction": "松杉高中流傳著一則恐怖傳說：數年前六名遭霸凌的少女在宿舍集體自殺，據傳只要用生命獻祭，就能重啟詛咒。多年後的考試前夕，游泳隊長陸曼曼（姚愛寗 飾）為了備戰期末考，要求隊員小年（王渝屏 飾）等人留校晚自習，陸曼曼的男友小四（初孟軒 飾）則與靈異社同學留校密謀裝鬼惡作劇。看似和樂的游泳隊，實則暗潮洶湧，許多隊員早已不滿陸曼曼的強勢。這晚，各懷心思的一行人在晚自習時聊起泳池傳說，卻全然不知當天清晨學校泳池早已發生一起自殺命案，死亡詛咒已被開啟……",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0001004.jpg",
+   "SubName2": "數位/中文",
+   "datedata": [
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": true
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    },
+    {
+     "date": "2026-12-03",
+     "日期": "12.03",
+     "星期": "星期四",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/中文",
+     "subtimedata": [
+      {
+       "SubCode": "DIGCHTCHT",
+       "SubName2": "數位/中文",
+       "時間": "13:10",
+       "hall": "0011",
+       "hallname": "11廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      },
+      {
+       "SubCode": "DIGCHTCHT",
+       "SubName2": "數位/中文",
+       "時間": "15:05",
+       "hall": "0011",
+       "hallname": "11廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      },
+      {
+       "SubCode": "DIGCHTCHT",
+       "SubName2": "數位/中文",
+       "時間": "19:00",
+       "hall": "0011",
+       "hallname": "11廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      },
+      {
+       "SubCode": "DIGCHTCHT",
+       "SubName2": "數位/中文",
+       "時間": "21:00",
+       "hall": "0011",
+       "hallname": "11廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0001007",
+   "cname": "庫洛魔法使 劇場版：被封印的卡片",
+   "ename": "CARDCAPTOR Sakura：The Sealed Card",
+   "ReleaseDate": "2026-11-27",
+   "filmlevel": "movie-level s-font yn",
+   "CodeName": "普通",
+   "ShowTimes": "93",
+   "Director": "淺香守生",
+   "Actors": "丹下櫻",
+   "Introduction": "小狼在回香港前曾向小櫻表白過『我喜歡妳』，然而再次相逢的兩人卻無法自然坦率地相處。就在兩人處在尷尬又微妙的告白時刻，魔法無邊的小櫻庫洛牌卻被不明的魔咒所封印，並且一張張地消失，小櫻感受到被一陣陣莫名的魔法所籠罩，但是卻又發現手中所剩的小櫻牌已經消失魔法，更無法應戰接踵而來緊急狀況.....",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0001007.jpg",
+   "SubName2": "數位/日語",
+   "datedata": [
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": true
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    },
+    {
+     "date": "2026-12-03",
+     "日期": "12.03",
+     "星期": "星期四",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/日語",
+     "subtimedata": [
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "10:50",
+       "hall": "0005",
+       "hallname": "5廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      },
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "16:00",
+       "hall": "0005",
+       "hallname": "5廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      },
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "18:00",
+       "hall": "0005",
+       "hallname": "5廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0001008",
+   "cname": "我們不是陌生人",
+   "ename": "We are all Strangers",
+   "ReleaseDate": "2026-11-27",
+   "filmlevel": "movie-level s-font yp",
+   "CodeName": "保護",
+   "ShowTimes": "158",
+   "Director": "陳哲藝",
+   "Actors": "許家樂 楊雁雁 林偉文 林詠誼",
+   "Introduction": "當代新加坡，21歲的俊陽（許家樂 飾）正在享受著青春的自由，但他的父親卻為了維持父子倆簡樸的生活而苦苦掙扎。當俊陽與女友的戀情出現意想不到的轉折，徹底改變了他們的人生軌跡時，這對年輕情侶被迫提早面對成人世界的種種現實。與此同時，一名充滿活力的女子闖進了父親的生活和內心，也悄悄改變了父子之間原本脆弱的平衡。",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0001008.jpg",
+   "SubName2": "數位/中文",
+   "datedata": [
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": true
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    },
+    {
+     "date": "2026-12-03",
+     "日期": "12.03",
+     "星期": "星期四",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/中文",
+     "subtimedata": [
+      {
+       "SubCode": "DIGCHTCHT",
+       "SubName2": "數位/中文",
+       "時間": "15:30",
+       "hall": "0009",
+       "hallname": "9廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      },
+      {
+       "SubCode": "DIGCHTCHT",
+       "SubName2": "數位/中文",
+       "時間": "18:30",
+       "hall": "0009",
+       "hallname": "9廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0001009",
+   "cname": "袒裎相見 口碑場",
+   "ename": "YOU CAN SEE EVERYTHING",
+   "ReleaseDate": "2026-11-27",
+   "filmlevel": "movie-level s-font y12",
+   "CodeName": "輔導十二級",
+   "ShowTimes": "175",
+   "Director": "內森·費爾德",
+   "Actors": "伊莉莎白·霍姆斯 比利·伊凡斯",
+   "Introduction": "曾以「一滴血就能檢測上百種疾病」震撼矽谷的賽拉諾斯（Theranos）創辦人伊莉莎白霍姆斯，從備受追捧的新創女王跌落神壇，最終因詐欺罪名成立。入獄前夕，她邀請拍攝團隊走進家中，在鏡頭前吐露真心。導演原想挖掘騙局背後的秘辛，沒想到隨著朝夕相處，她與丈夫堅定的說詞，竟讓原本抱持懷疑的導演也逐漸動搖。",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0001009.jpg",
+   "SubName2": "數位/英文",
+   "datedata": [
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": true
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    },
+    {
+     "date": "2026-12-03",
+     "日期": "12.03",
+     "星期": "星期四",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/英文",
+     "subtimedata": [
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "20:00",
+       "hall": "0005",
+       "hallname": "5廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0001010",
+   "cname": "神隱少女",
+   "ename": "Spirited Away",
+   "ReleaseDate": "2026-11-27",
+   "filmlevel": "movie-level s-font yn",
+   "CodeName": "普通",
+   "ShowTimes": "125",
+   "Director": "宮崎駿",
+   "Actors": "柊瑠美 入野自由 夏木麻里 神木隆之介",
+   "Introduction": "年僅十歲的少女千尋與父母一同驅車前往新家，途中迷路車子來到一道拱門前，千尋與父母下車穿越拱門到達一處荒廢的日式小鎮。千尋心生害怕，但是千尋的父母卻在未經主人同意的情況下，大大方方的取用食物，轉眼間，他們變成了兩頭豬。原來千尋與父母來到神靈休憩的小城，所有的食物都是呈現給神靈的供品，千尋的父母為了自己的慾望，取用了不屬於他們的食物。",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0001010.jpg",
+   "SubName2": "數位/日語",
+   "datedata": [
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": true
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    },
+    {
+     "date": "2026-12-03",
+     "日期": "12.03",
+     "星期": "星期四",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/日語",
+     "subtimedata": [
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "13:10",
+       "hall": "0010",
+       "hallname": "10廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      },
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "18:00",
+       "hall": "0010",
+       "hallname": "10廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-27"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0000984",
+   "cname": "歡迎光臨魔法秘境",
+   "ename": "Disney’s Hexed",
+   "ReleaseDate": "2026-11-26",
+   "filmlevel": "movie-level s-font yn",
+   "CodeName": "普通",
+   "ShowTimes": "110",
+   "Director": "傑森漢德",
+   "Actors": "海莉史坦菲德 崔西鄔曼",
+   "Introduction": "個性衝動且不按牌理出牌的少女比莉以及她謹慎小心的母親愛麗絲兩人關係一向緊繃。當比莉意外釋放出隱藏的魔法能力後，她被帶到了一個魔法秘境。在那裡，她受到掌門人羽毛筆與魔法日誌的歡迎。隨著這場充滿奇幻魔法的冒險展開，比莉逐漸揭開家族塵封已久的秘密，而這些秘密可能徹底改變女巫魔法世界的未來。",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0000984.jpg",
+   "SubName2": "數位/中文",
+   "datedata": [
+    {
+     "date": "2026-11-26",
+     "日期": "11.26",
+     "星期": "星期四",
+     "active": true
+    },
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": false
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/中文",
+     "subtimedata": [
+      {
+       "SubCode": "DIGCHTCHT",
+       "SubName2": "數位/中文",
+       "時間": "10:20",
+       "hall": "0001",
+       "hallname": "1廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGCHTCHT",
+       "SubName2": "數位/中文",
+       "時間": "10:50",
+       "hall": "0003",
+       "hallname": "3廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGCHTCHT",
+       "SubName2": "數位/中文",
+       "時間": "13:05",
+       "hall": "0003",
+       "hallname": "3廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGCHTCHT",
+       "SubName2": "數位/中文",
+       "時間": "14:50",
+       "hall": "0001",
+       "hallname": "1廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGCHTCHT",
+       "SubName2": "數位/中文",
+       "時間": "15:50",
+       "hall": "0012",
+       "hallname": "12廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGCHTCHT",
+       "SubName2": "數位/中文",
+       "時間": "17:05",
+       "hall": "0001",
+       "hallname": "1廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGCHTCHT",
+       "SubName2": "數位/中文",
+       "時間": "17:35",
+       "hall": "0003",
+       "hallname": "3廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGCHTCHT",
+       "SubName2": "數位/中文",
+       "時間": "18:10",
+       "hall": "0012",
+       "hallname": "12廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGCHTCHT",
+       "SubName2": "數位/中文",
+       "時間": "19:20",
+       "hall": "0001",
+       "hallname": "1廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-26"
+      }
+     ]
+    },
+    {
+     "SubName2": "數位/英文",
+     "subtimedata": [
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "12:35",
+       "hall": "0001",
+       "hallname": "1廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "13:35",
+       "hall": "0012",
+       "hallname": "12廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "15:20",
+       "hall": "0003",
+       "hallname": "3廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "20:00",
+       "hall": "0003",
+       "hallname": "3廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "20:30",
+       "hall": "0012",
+       "hallname": "12廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "21:35",
+       "hall": "0001",
+       "hallname": "1廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-26"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0000982",
+   "cname": "飢餓遊戲：黎明收割",
+   "ename": "The Hunger Games: Sunrise on the Reaping",
+   "ReleaseDate": "2026-11-20",
+   "filmlevel": "movie-level s-font y12",
+   "CodeName": "輔導十二級",
+   "ShowTimes": "159",
+   "Director": "法蘭西斯勞倫斯",
+   "Actors": "珍妮佛勞倫斯 喬許哈契遜 約瑟夫扎達",
+   "Introduction": "故事發生在首集《飢餓遊戲》的24年前，年輕的黑密契（約瑟夫扎達 飾）被選中參加第50屆飢餓遊戲，同時也是第2屆「大旬祭」。大旬祭每25年舉行一次，規則會與往年有所不同。這一屆大旬祭，每一個行政區都必須派出兩倍數量的貢品，他們將在飢餓遊戲之中展開生死搏鬥。",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0000982.jpg",
+   "SubName2": "巨幕/英文",
+   "datedata": [
+    {
+     "date": "2026-11-26",
+     "日期": "11.26",
+     "星期": "星期四",
+     "active": true
+    },
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": false
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "VIP/英文",
+     "subtimedata": [
+      {
+       "SubCode": "VIPENGCHT",
+       "SubName2": "VIP/英文",
+       "時間": "11:30",
+       "hall": "0007",
+       "hallname": "VIP廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "VIPENGCHT",
+       "SubName2": "VIP/英文",
+       "時間": "14:30",
+       "hall": "0007",
+       "hallname": "VIP廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "VIPENGCHT",
+       "SubName2": "VIP/英文",
+       "時間": "17:30",
+       "hall": "0007",
+       "hallname": "VIP廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "VIPENGCHT",
+       "SubName2": "VIP/英文",
+       "時間": "20:30",
+       "hall": "0007",
+       "hallname": "VIP廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-26"
+      }
+     ]
+    },
+    {
+     "SubName2": "巨幕/英文",
+     "subtimedata": [
+      {
+       "SubCode": "GSCENGCHT",
+       "SubName2": "巨幕/英文",
+       "時間": "10:20",
+       "hall": "0008",
+       "hallname": "巨幕廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "GSCENGCHT",
+       "SubName2": "巨幕/英文",
+       "時間": "16:00",
+       "hall": "0008",
+       "hallname": "巨幕廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "GSCENGCHT",
+       "SubName2": "巨幕/英文",
+       "時間": "19:00",
+       "hall": "0008",
+       "hallname": "巨幕廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      }
+     ]
+    },
+    {
+     "SubName2": "數位/英文",
+     "subtimedata": [
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "10:40",
+       "hall": "0004",
+       "hallname": "4廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "11:00",
+       "hall": "0002",
+       "hallname": "2廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "13:40",
+       "hall": "0004",
+       "hallname": "4廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "14:00",
+       "hall": "0002",
+       "hallname": "2廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "16:40",
+       "hall": "0004",
+       "hallname": "4廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "17:00",
+       "hall": "0002",
+       "hallname": "2廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "19:40",
+       "hall": "0004",
+       "hallname": "4廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "20:00",
+       "hall": "0002",
+       "hallname": "2廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-26"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0000983",
+   "cname": "重返巔峰北壁",
+   "ename": "BACK ON NORTH FACE",
+   "ReleaseDate": "2026-11-20",
+   "filmlevel": "movie-level s-font yn",
+   "CodeName": "普通",
+   "ShowTimes": "90",
+   "Director": "王一訢",
+   "Actors": "徐耀群",
+   "Introduction": "導演王一訢執導，記錄台灣登山家徐耀群與加拿大攀登家Patrick Lindsay的深厚情誼。徐耀群離世後，Patrick帶領台灣與加拿大攀登者再度挑戰玉山東峰北壁，在惡劣天候與高山風險中完成未竟心願，並將新開闢的路線命名為「Shiu be here」，讓摯友的名字再次留在他深愛的山壁上。",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0000983.jpg",
+   "SubName2": "數位/中文",
+   "datedata": [
+    {
+     "date": "2026-11-26",
+     "日期": "11.26",
+     "星期": "星期四",
+     "active": true
+    },
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": false
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/中文",
+     "subtimedata": [
+      {
+       "SubCode": "DIGCHTCHT",
+       "SubName2": "數位/中文",
+       "時間": "13:00",
+       "hall": "0011",
+       "hallname": "11廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGCHTCHT",
+       "SubName2": "數位/中文",
+       "時間": "17:20",
+       "hall": "0011",
+       "hallname": "11廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0000998",
+   "cname": "樂園追放 心之共鳴",
+   "ename": "Liberated from Paradise",
+   "ReleaseDate": "2026-11-20",
+   "filmlevel": "movie-level s-font yp",
+   "CodeName": "保護",
+   "ShowTimes": "128",
+   "Director": "水島精二",
+   "Actors": "釘宮理惠 佐倉綾音",
+   "Introduction": "精通宏大世界觀與機械飛行戰鬥的導演水島精二，搭配以嚴謹世界觀、深刻探討人性的編劇虛淵玄，將科幻冒險、性感美少女、人工智慧，大型機械人戰鬥與人類存續等議題巧妙融合，深刻探討科技發展與人類本質之間的相互關係，當虛擬世界能夠提供相對安全、穩定且近乎完美的美好生活，人們是否還有必要回到充滿危險與不確定性的現實，而真正的自由，又是否能單靠數位化的意識實現？",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0000998.jpg",
+   "SubName2": "數位/日語",
+   "datedata": [
+    {
+     "date": "2026-11-26",
+     "日期": "11.26",
+     "星期": "星期四",
+     "active": true
+    },
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": false
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/日語",
+     "subtimedata": [
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "14:50",
+       "hall": "0011",
+       "hallname": "11廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "19:10",
+       "hall": "0011",
+       "hallname": "11廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0001002",
+   "cname": "純愛上等",
+   "ename": "Love Punch",
+   "ReleaseDate": "2026-11-20",
+   "filmlevel": "movie-level s-font y12",
+   "CodeName": "輔導十二級",
+   "ShowTimes": "102",
+   "Director": "八重樫風雅",
+   "Actors": "山中柔太朗 高松 白鳥晴都 嵐翔真 淺野竣哉",
+   "Introduction": "紅櫻高中的龜井圓（高松Aloha 飾）是備受愛戴的混混首腦，但因為某件事而讓他決定不再打架也不談戀愛，即使因為留級而遭夥伴們嘲笑，他仍過著十分安穩的日子。某天，白岩高中的不良少年領袖佐藤美鶴（山中柔太朗 飾），突然出現在圓的面前，讓原本就是死對頭的兩所高中緊張不已。但美鶴的目的是要寄宿圓的祖母所經營的柑仔店的2樓。圓以寬容的心接受了沉默寡言的美鶴，一起生活的兩人在不知不覺間，漸漸縮短了彼此的距離……",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0001002.jpg",
+   "SubName2": "數位/日語",
+   "datedata": [
+    {
+     "date": "2026-11-26",
+     "日期": "11.26",
+     "星期": "星期四",
+     "active": true
+    },
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": false
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/日語",
+     "subtimedata": [
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "14:40",
+       "hall": "0009",
+       "hallname": "9廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "18:30",
+       "hall": "0009",
+       "hallname": "9廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0001003",
+   "cname": "劇場版 來自深淵：覺醒的神秘",
+   "ename": "MADE IN ABYSS AWAKENING MYSTERY",
+   "ReleaseDate": "2026-11-20",
+   "filmlevel": "movie-level s-font yn",
+   "CodeName": "普通",
+   "ShowTimes": "80",
+   "Director": "小島正幸",
+   "Actors": "(配音)富田美憂、伊瀬茉莉也、井澤詩織、久野美咲、諸星堇、格萊瓦利",
+   "Introduction": "在已被徹底探索殆盡的世界裡，名為「深淵」的大洞是碩果僅存的祕境。\n這個深不見底的巨大垂直洞穴中，不僅棲息著各種稀奇古怪的生物，還沉睡著現今人類所做不出來的珍貴遺物。\n「深淵」那處處充滿不可思議的神祕樣貌，吸引人們前仆後繼地前去冒險。漸漸地，大家開始將那些一次次挑戰大洞的冒險者們稱為「探窟家」。",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0001003.jpg",
+   "SubName2": "數位/日語",
+   "datedata": [
+    {
+     "date": "2026-11-26",
+     "日期": "11.26",
+     "星期": "星期四",
+     "active": true
+    },
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": false
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/日語",
+     "subtimedata": [
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "13:00",
+       "hall": "0009",
+       "hallname": "9廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "16:45",
+       "hall": "0009",
+       "hallname": "9廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0000987",
+   "cname": "聖誕驚奇夜",
+   "ename": "Ebenezer: A Christmas Carol",
+   "ReleaseDate": "2026-11-13",
+   "filmlevel": "movie-level s-font y12",
+   "CodeName": "輔導十二級",
+   "ShowTimes": "116",
+   "Director": "提威斯特",
+   "Actors": "強尼戴普、魯柏葛林特、安德莉亞瑞絲柏、山姆克萊弗林",
+   "Introduction": "今年11月，強尼戴普就是艾比尼澤史古基，眾所周知的名字，卻不為人知的故事。",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0000987.jpg",
+   "SubName2": "數位/英文",
+   "datedata": [
+    {
+     "date": "2026-11-26",
+     "日期": "11.26",
+     "星期": "星期四",
+     "active": true
+    },
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": false
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/英文",
+     "subtimedata": [
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "15:15",
+       "hall": "0010",
+       "hallname": "10廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "21:40",
+       "hall": "0011",
+       "hallname": "11廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-26"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0000990",
+   "cname": "黑潮",
+   "ename": "Dead Tide",
+   "ReleaseDate": "2026-11-13",
+   "filmlevel": "movie-level s-font y12",
+   "CodeName": "輔導十二級",
+   "ShowTimes": "106",
+   "Director": "池家慶",
+   "Actors": "陳澤耀 李沐",
+   "Introduction": "故事改編自導演池家慶家鄉的真人真事，描寫兩個被世界放逐的孤獨靈魂，在馬來西亞漁村的夜色與潮汐之間相遇，一段如暖流般的愛悄然誕生，為彼此殘破的生命帶來希望。導演池家慶以「黑潮」為隱喻，將悲傷的人生經歷轉化為關於愛與希望的溫柔凝視，他表示：「黑潮是一股能讓冰冷海水變得適合生命生存的暖流，就像電影裡的忠與雪，在殘酷現實中依然找到屬於他們的愛與溫度。」",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0000990.jpg",
+   "SubName2": "數位/中文",
+   "datedata": [
+    {
+     "date": "2026-11-26",
+     "日期": "11.26",
+     "星期": "星期四",
+     "active": true
+    },
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": false
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/中文",
+     "subtimedata": [
+      {
+       "SubCode": "DIGCHTCHT",
+       "SubName2": "數位/中文",
+       "時間": "13:10",
+       "hall": "0010",
+       "hallname": "10廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0000997",
+   "cname": "搶銀行先修班",
+   "ename": "How to Rob a Bank",
+   "ReleaseDate": "2026-11-13",
+   "filmlevel": "movie-level s-font y15",
+   "CodeName": "輔導十五級",
+   "ShowTimes": "121",
+   "Director": "大衛雷奇",
+   "Actors": "澤井杏奈 尼可拉斯霍特 柔伊克拉維茲 約翰萊利",
+   "Introduction": "一群深諳社群媒體操作的 銀行搶匪，將一場場大膽搶案全程直播，卻不知道日益暴漲的網路聲量，已讓他們成為一名資深 FBI 探員與一位天才軟體工程師鎖定的目標。即使這對意想不到的追緝搭檔步步逼近，這群大盜仍不打算收手，反而決定突破極限，為了他們的信念押上一切，籌劃至今最野心勃勃的終極搶案。",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0000997.jpg",
+   "SubName2": "數位/英文",
+   "datedata": [
+    {
+     "date": "2026-11-26",
+     "日期": "11.26",
+     "星期": "星期四",
+     "active": true
+    },
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": false
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/英文",
+     "subtimedata": [
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "20:35",
+       "hall": "0009",
+       "hallname": "9廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-26"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0000974",
+   "cname": "哥吉拉-0.0",
+   "ename": "Godzilla Minus Zero",
+   "ReleaseDate": "2026-11-06",
+   "filmlevel": "movie-level s-font yp",
+   "CodeName": "保護",
+   "ShowTimes": "135",
+   "Director": "山崎貴",
+   "Actors": "神木隆之介 濱邊美波",
+   "Introduction": "《哥吉拉-𝟬.𝟬》的故事背景設定於1949年，延續《哥吉拉-1.0》事件發生兩年後，敘述敷島一家再次面對全新災難的故事。",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0000974.jpg",
+   "SubName2": "數位/日語",
+   "datedata": [
+    {
+     "date": "2026-11-26",
+     "日期": "11.26",
+     "星期": "星期四",
+     "active": true
+    },
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": false
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "巨幕/日語",
+     "subtimedata": [
+      {
+       "SubCode": "GSCJAPCHT",
+       "SubName2": "巨幕/日語",
+       "時間": "13:20",
+       "hall": "0008",
+       "hallname": "巨幕廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      }
+     ]
+    },
+    {
+     "SubName2": "數位/日語",
+     "subtimedata": [
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "11:10",
+       "hall": "0006",
+       "hallname": "6廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "13:45",
+       "hall": "0006",
+       "hallname": "6廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "16:20",
+       "hall": "0006",
+       "hallname": "6廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "18:55",
+       "hall": "0006",
+       "hallname": "6廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "21:30",
+       "hall": "0006",
+       "hallname": "6廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-26"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0000981",
+   "cname": "名偵探柯南 第30號殺人事件",
+   "ename": "Detective Conan: The Counterfeit Case of Ultra 30",
+   "ReleaseDate": "2026-11-06",
+   "filmlevel": "movie-level s-font yp",
+   "CodeName": "保護",
+   "ShowTimes": "94",
+   "Director": "鎌仲史陽",
+   "Actors": "高山南 山口勝平 岡村明美 小山力也",
+   "Introduction": "印有「東都鐵塔」的新版萬圓紙鈔問世，社會大眾為之沸騰。柯南與少年偵探團、阿笠博士、小蘭以及園子一同參觀日本紙幣印刷局的長野工廠。\n\n另一方面，警視廳在命案現場發現偽鈔，隨即成立搜查本部。假鈔流通的消息震撼社會的同時，柯南與平次也前往疑似印製偽鈔的大阪。面對因偽造新鈔而引發的國家級危機，柯南將以史上最大規模的全明星陣容迎戰！",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0000981.jpg",
+   "SubName2": "數位/日語",
+   "datedata": [
+    {
+     "date": "2026-11-26",
+     "日期": "11.26",
+     "星期": "星期四",
+     "active": true
+    },
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": false
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/日語",
+     "subtimedata": [
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "10:40",
+       "hall": "0005",
+       "hallname": "5廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "12:35",
+       "hall": "0005",
+       "hallname": "5廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "14:30",
+       "hall": "0005",
+       "hallname": "5廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "16:25",
+       "hall": "0005",
+       "hallname": "5廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "18:20",
+       "hall": "0005",
+       "hallname": "5廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      },
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "20:15",
+       "hall": "0005",
+       "hallname": "5廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-26"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0000978",
+   "cname": "致遙不可及彼方的你",
+   "ename": "To You in the Beyond",
+   "ReleaseDate": "2026-10-30",
+   "filmlevel": "movie-level s-font y12",
+   "CodeName": "輔導十二級",
+   "ShowTimes": "116",
+   "Director": "和田純一",
+   "Actors": "",
+   "Introduction": "故事發生在初夏的某一天，在遠離日本本土的一座風景秀麗的小島「采岐島」上，高中轉學生月瀨和希與男子高津在被稱為「神隱之灣」的白色沙灘上，發現並收留了一名意識不清的神祕少女：秋鹿七緒。",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0000978.jpg",
+   "SubName2": "數位/日語",
+   "datedata": [
+    {
+     "date": "2026-11-26",
+     "日期": "11.26",
+     "星期": "星期四",
+     "active": true
+    },
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": false
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/日語",
+     "subtimedata": [
+      {
+       "SubCode": "DIGJAPCHT",
+       "SubName2": "數位/日語",
+       "時間": "17:35",
+       "hall": "0010",
+       "hallname": "10廳",
+       "active": false,
+       "disable": true,
+       "showdate": "2026-11-26"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "programid": "0000963",
+   "cname": "泥面人",
+   "ename": "Clayface",
+   "ReleaseDate": "2026-10-22",
+   "filmlevel": "movie-level s-font R",
+   "CodeName": "限制",
+   "ShowTimes": "108",
+   "Director": "詹姆士瓦金斯",
+   "Actors": "湯姆瑞斯哈里斯",
+   "Introduction": "電影揭露了一名男子從嶄露頭角的好萊塢新星，淪為復仇怪物的墮落過程，故事探討了身份與人性的喪失、腐蝕人心的愛及科學野心背後的黑暗面。",
+   "image": "https://www.broadway-cineplex.com.tw/uploads/0000963.jpg",
+   "SubName2": "數位/英文",
+   "datedata": [
+    {
+     "date": "2026-11-26",
+     "日期": "11.26",
+     "星期": "星期四",
+     "active": true
+    },
+    {
+     "date": "2026-11-27",
+     "日期": "11.27",
+     "星期": "星期五",
+     "active": false
+    },
+    {
+     "date": "2026-11-28",
+     "日期": "11.28",
+     "星期": "星期六",
+     "active": false
+    },
+    {
+     "date": "2026-11-29",
+     "日期": "11.29",
+     "星期": "星期日",
+     "active": false
+    },
+    {
+     "date": "2026-11-30",
+     "日期": "11.30",
+     "星期": "星期一",
+     "active": false
+    },
+    {
+     "date": "2026-12-01",
+     "日期": "12.01",
+     "星期": "星期二",
+     "active": false
+    },
+    {
+     "date": "2026-12-02",
+     "日期": "12.02",
+     "星期": "星期三",
+     "active": false
+    }
+   ],
+   "timedata": [
+    {
+     "SubName2": "數位/英文",
+     "subtimedata": [
+      {
+       "SubCode": "DIGENGCHT",
+       "SubName2": "數位/英文",
+       "時間": "20:00",
+       "hall": "0010",
+       "hallname": "10廳",
+       "active": false,
+       "disable": false,
+       "showdate": "2026-11-26"
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
