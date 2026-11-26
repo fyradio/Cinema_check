@@ -1,10 +1,8 @@
 // 威秀影城：一週場次（GetShowTimes，一般 fetch 即可）＋電影頁的訂票連結與售完狀態（要用真瀏覽器）
 import { clean, getText, norm, mdToDate, RATING, UA } from './util.mjs';
+import { THEATERS } from './theaters.mjs';
 
-export const VS = {
-  fe21: { codes: { HS: '', HSGC: 'Gold Class' }, theaterIds: ['7', '8'], cinemacode: '2' },
-  bigcity: { codes: { BC: '' }, theaterIds: ['9'], cinemacode: '14' }
-};
+export const VS = Object.fromEntries(THEATERS.filter(t => t.source === 'vieshow').map(t => [t.key, t]));
 const BASE = 'https://www.vscinemas.com.tw';
 
 // 解析 GetShowTimes 回傳的 HTML

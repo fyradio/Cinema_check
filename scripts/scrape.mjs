@@ -10,6 +10,7 @@ import { VS, weekSchedule, detailPages, bookUrl, seatUrl, filmUrl } from './lib/
 import { broadway, bwBook, bwSeat } from './lib/broadway.mjs';
 import { resolveImdb, loadRatings } from './lib/imdb.mjs';
 import { savePosters } from './lib/posters.mjs';
+import { THEATERS, REGIONS, publicTheaters } from './lib/theaters.mjs';
 
 const require = createRequire(import.meta.url);
 const atParser = require('../parser.js');
@@ -50,13 +51,24 @@ let bw = { sessions: [] };
 try { bw = await broadway({ seatDays: 2, today, log }); }
 catch (e) { errors.push(`百老匯：${e.message}`); log(`百老匯失敗：${e.message}`); }
 
-// ---------- 開眼（只拿今天的 IMDb 編號提示） ----------
+// ---------- 開眼：桃園其他影城的當天場次，以及 IMDb 編號提示 ----------
+const AT_RATING = { G: '普', P: '護', F2: '輔12', PG: '輔12', F5: '輔15', PG15: '輔15', R: '限' };
 const atHint = {};
-for (const code of ['t03505', 't03508', 't03510']) {
+const atSessions = [];
+const atCodes = [
+  ...THEATERS.filter(t => t.source === 'atmovies').map(t => ({ code: t.at, key: t.key })),
+  { code: 't03505' }, { code: 't03508' }, { code: 't03510' }, { code: 't03701' }, { code: 't03308' }, { code: 't03317' }
+];
+for (const { code, key } of atCodes) {
   try {
-    const d = atParser.parse(await getText(`https://www.atmovies.com.tw/showtime/${code}/a35/`));
-    for (const m of d.movies) { const n = (m.id.match(/(\d{7,9})$/) || [])[1]; if (n) atHint[norm(m.title)] = 'tt' + n; }
-  } catch (e) { log(`開眼 ${code}：${e.message}`); }
+    const area = code.slice(1, 3) === '35' ? 'a35' : code.slice(1, 3) === '37' ? 'a37' : 'a03';
+    const d = atParser.parse(await getText(`https://www.atmovies.com.tw/showtime/${code}/${area}/`));
+    for (const m of d.movies) {
+      const n = (m.id.match(/(\d{7,9})$/) || [])[1]; if (n) atHint[norm(m.title)] = 'tt' + n;
+      if (key && d.date === today) for (const t of m.times) atSessions.push({ cinema: key, title: m.title, version: m.version, rating: AT_RATING[m.rating] || '', runtime: m.runtime, date: d.date, time: t });
+    }
+    if (key) log(`開眼 ${code}（${key}）：${d.date}，${d.movies.length} 筆`);
+  } catch (e) { log(`開眼 ${code}：${e.message}`); if (key) errors.push(`開眼 ${code}：${e.message}`); }
 }
 
 // ---------- 合併電影 ----------
@@ -121,6 +133,12 @@ for (const s of bw.sessions) {
   });
 }
 
+const officialOf = Object.fromEntries(THEATERS.map(t => [t.key, t.official]));
+for (const s of atSessions) {
+  const m = movieOf(s.title, { rating: s.rating, runtime: s.runtime });
+  sessions.push({ m: m.key, c: s.cinema, d: s.date, t: s.time, v: s.version, st: '', b: officialOf[s.cinema], s: '' });
+}
+
 // ---------- IMDb ----------
 for (const m of movies.values()) {
   m.hint = atHint[m.key] || '';
@@ -167,7 +185,7 @@ const dedup = outSessions.filter(s => { const k = [s.m, s.c, s.d, s.t, s.v].join
 for (const k of Object.keys(outMovies)) if (!dedup.some(s => s.m === k)) delete outMovies[k];
 
 if (!dedup.length) { console.error('沒有任何場次，不更新檔案'); process.exit(1); }
-const out = { v: 2, generated: new Date().toISOString(), today, errors, movies: outMovies, sessions: dedup };
+const out = { v: 2, generated: new Date().toISOString(), today, errors, regions: REGIONS, theaters: publicTheaters(), movies: outMovies, sessions: dedup };
 await mkdir(new URL('data/', root), { recursive: true });
 await writeFile(new URL('data/showtimes.json', root), JSON.stringify(out) + '\n');
 await writeFile(new URL('data/imdb-cache.json', root), JSON.stringify(imdbCache, null, 1) + '\n');
