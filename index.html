@@ -10,84 +10,113 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 /* VOICE: 影城大廳的場次看板，快速、清楚、一眼找到下一場
-   IDEA: 戲院門口那塊紅絲絨底的場次牌
-   PICTURE: 場次清單本身；最近的一場用爆米花黃點亮
+   IDEA: 戲院門口那塊紅絲絨底的場次牌，每張片配海報
+   PICTURE: 海報＋場次牌；最近的一場用爆米花黃點亮，座位用綠黃紅
    COLOUR and TYPE: 絲絨紅主色、暖白底、爆米花黃強調；Noto Sans TC + Barlow Condensed 數字
-   LAYOUT: 紅色頂帶放日期與篩選，下方一欄卡片，寬螢幕兩欄 */
+   LAYOUT: 紅色頂帶放日期與篩選，下方卡片，寬螢幕兩欄 */
 :root{color-scheme:light dark;
 --bg:light-dark(#fbf8f6,#140a0d);--card:light-dark(#ffffff,#22131a);--ink:light-dark(#241015,#f5ecee);
 --mute:light-dark(#7a6468,#b49ea4);--line:light-dark(#eadfe1,#3a2730);--red:#9e1430;--red2:#c21f3f;
 --pop:#ffcc33;--popInk:#3a2a00;--chip:light-dark(#f4ecee,#2e1b24);
+--ok:light-dark(#18794e,#5fd39a);--few:light-dark(#9a6200,#ffc94d);--out:light-dark(#b4232f,#ff7a84);
 --c-fe21:#0e8a8c;--c-bigcity:#7048a8;--c-shown:#d9661a}
 :root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Noto Sans TC",system-ui,sans-serif;overflow-x:clip}
 a{color:inherit}
 .num{font-family:"Barlow Condensed","Noto Sans TC",sans-serif;font-variant-numeric:tabular-nums}
-header{background:radial-gradient(120% 140% at 85% -20%,#d8304f 0,var(--red) 45%,#6d0c20 100%);color:#fff;padding:22px max(5vw,16px) 18px}
+header{background:radial-gradient(120% 140% at 85% -20%,#d8304f 0,var(--red) 45%,#6d0c20 100%);color:#fff;padding:20px max(5vw,16px) 16px}
 .top{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:8px 16px}
 h1{margin:0;font-size:clamp(30px,6vw,46px);line-height:1.05;font-weight:900;letter-spacing:.02em}
-.today{font-size:17px;opacity:.92;margin-top:6px}
-.clock{font-size:clamp(40px,8vw,60px);line-height:1;font-weight:700;color:var(--pop)}
-.ctrl{max-width:1240px;margin:16px auto 0;display:grid;gap:10px}
+.today{font-size:16px;opacity:.92;margin-top:6px}
+.clock{font-size:clamp(34px,8vw,60px);line-height:1;font-weight:700;color:var(--pop)}
+.ctrl{max-width:1240px;margin:14px auto 0;display:grid;gap:10px}
 .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 input[type=search]{flex:1 1 220px;font:inherit;font-size:16px;padding:11px 14px;border-radius:12px;border:0;background:#fff;color:#241015;min-height:44px}
-input[type=search]:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(--pop);outline-offset:2px}
+:focus-visible{outline:3px solid var(--pop);outline-offset:2px}
 button,select{font:inherit;font-size:15px;min-height:44px;border-radius:999px;cursor:pointer}
 .cin{border:2px solid rgba(255,255,255,.45);background:transparent;color:#fff;padding:6px 14px;display:inline-flex;align-items:center;gap:8px}
 .cin[aria-pressed=true]{background:#fff;color:#241015;border-color:#fff}
 .cin i{width:11px;height:11px;border-radius:50%;background:var(--c);flex:none;box-shadow:0 0 0 2px #fff}
 .cin small{opacity:.7}
-.seg{display:inline-flex;background:rgba(0,0,0,.25);border-radius:999px;padding:3px}
-.seg button{border:0;background:transparent;color:#fff;padding:6px 16px;min-height:38px}
+.days{display:flex;gap:8px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:4px;scrollbar-width:thin}
+.day{flex:none;scroll-snap-align:start;border:0;background:rgba(0,0,0,.25);color:#fff;border-radius:14px;padding:6px 14px;min-width:74px;line-height:1.2;text-align:center}
+.day b{display:block;font-size:15px}.day span{font-size:13px;opacity:.85}
+.day[aria-pressed=true]{background:#fff;color:#241015}
+.day[disabled]{opacity:.35;cursor:default}
+.seg{display:inline-flex;flex-wrap:wrap;background:rgba(0,0,0,.25);border-radius:22px;padding:3px}
+.seg button{border:0;background:transparent;color:#fff;padding:6px 14px;min-height:38px}
 .seg button[aria-pressed=true]{background:var(--pop);color:var(--popInk);font-weight:700}
 .tog{border:2px solid rgba(255,255,255,.45);background:transparent;color:#fff;padding:6px 14px}
 .tog[aria-pressed=true]{border-color:var(--pop);color:var(--pop)}
 select{border:0;padding:6px 14px;background:rgba(0,0,0,.25);color:#fff}
 select option{color:#241015}
 main{max-width:1240px;margin:0 auto;padding:18px max(5vw,16px) 40px}
-.status{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;color:var(--mute);font-size:14px;margin-bottom:14px}
-.status button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:4px 14px;min-height:36px}
+.status{color:var(--mute);font-size:14px;margin-bottom:12px}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;color:var(--mute);font-size:13px;margin-bottom:14px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:4px;vertical-align:-1px}
 .warn{background:light-dark(#fff4d1,#3a2e08);color:light-dark(#5c4300,#ffe08a);border-radius:12px;padding:10px 14px;margin-bottom:14px;font-size:15px}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr));gap:14px;align-items:start}
-.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:0 1px 0 rgba(0,0,0,.03),0 8px 24px -18px rgba(80,0,20,.35)}
-.card h2{margin:0;font-size:21px;line-height:1.25;font-weight:900;text-wrap:balance}
-.card h2 a{text-decoration:none}.card h2 a:hover{text-decoration:underline}
-.meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;color:var(--mute);font-size:14px;margin:4px 0 10px}
-.rate{font-size:13px;font-weight:700;padding:1px 8px;border-radius:6px;color:#fff;background:#888}
-.rate.G{background:#2e9b4f}.rate.P{background:#2f6fd0}.rate.F2,.rate.PG{background:#e3a10b}.rate.F5,.rate.PG15{background:#e2671b}.rate.R{background:#d11f2f}
-.line{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:4px 10px;padding:8px 0;border-top:1px dashed var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,540px),1fr));gap:14px;align-items:start}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;box-shadow:0 1px 0 rgba(0,0,0,.03),0 8px 24px -18px rgba(80,0,20,.35)}
+.mv{display:grid;grid-template-columns:96px minmax(0,1fr);gap:4px 14px}
+.post{width:96px;aspect-ratio:2/3;border-radius:10px;overflow:hidden;background:var(--chip);border:0;padding:0;min-height:0;cursor:zoom-in;position:relative}
+.post img{width:100%;height:100%;object-fit:cover;display:block}
+.post.none{cursor:default;display:grid;place-items:center;color:var(--mute);font-size:12px}
+.card h2{margin:0;font-size:20px;line-height:1.25;font-weight:900;text-wrap:balance}
+.en{color:var(--mute);font-size:13px;margin-top:2px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;color:var(--mute);font-size:14px;margin:6px 0 2px}
+.rate{font-size:12px;font-weight:700;padding:1px 7px;border-radius:6px;color:#fff;background:#888}
+.rate.r普{background:#2e9b4f}.rate.r護{background:#2f6fd0}.rate.r輔12{background:#d99a07}.rate.r輔15{background:#e2671b}.rate.r限{background:#d11f2f}
+.imdb{display:inline-flex;align-items:center;gap:4px;text-decoration:none;font-weight:700;color:var(--ink)}
+.imdb b{background:#f5c518;color:#000;font-size:11px;font-weight:900;padding:0 5px;border-radius:4px;font-family:Arial,sans-serif}
+.imdb small{font-weight:400;color:var(--mute)}
+.lines{grid-column:1/-1}
+.line{display:grid;grid-template-columns:7.6em minmax(0,1fr);gap:4px 10px;padding:8px 0;border-top:1px dashed var(--line)}
 .who{font-size:14px;font-weight:700;display:flex;flex-direction:column;gap:2px}
 .who b{display:flex;align-items:center;gap:6px}.who b:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--c);flex:none}
 .who span{font-weight:400;color:var(--mute);font-size:13px}
 .times{display:flex;flex-wrap:wrap;gap:6px}
-.t{font-size:19px;font-weight:500;padding:2px 10px;border-radius:8px;background:var(--chip);white-space:nowrap;line-height:1.5}
-.t.past{opacity:.35;text-decoration:line-through}
-.t.next{background:var(--pop);color:var(--popInk);font-weight:700}
-.t sup{font-family:"Noto Sans TC";font-size:10px;margin-left:2px}
+.t{border:0;font:inherit;color:inherit;font-size:19px;font-weight:500;padding:2px 10px;border-radius:9px;background:var(--chip);white-space:nowrap;line-height:1.3;min-height:44px;display:inline-flex;flex-direction:column;justify-content:center;align-items:center;cursor:pointer}
+.t small{font-family:"Noto Sans TC";font-size:11px;font-weight:700;line-height:1.1}
+.t.ok small{color:var(--ok)}.t.few small{color:var(--few)}
+.t.soldout,.t.closed{opacity:.55}.t.soldout .hm,.t.closed .hm{text-decoration:line-through}.t.soldout small{color:var(--out)}
+.t.past{opacity:.35}.t.past .hm{text-decoration:line-through}
+.t.next{background:var(--pop);color:var(--popInk);font-weight:700}.t.next small{color:var(--popInk)}
 .sec{margin:26px 0 10px;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline}
 .sec h2{margin:0;font-size:24px;font-weight:900;display:flex;align-items:center;gap:8px}
 .sec h2:before{content:"";width:14px;height:14px;border-radius:50%;background:var(--c)}
 .sec a{font-size:14px;color:var(--mute)}
-.mini{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
-.mini .line{grid-template-columns:minmax(0,13em) minmax(0,1fr)}
-.mini .who{font-size:15px}
-.tl{list-style:none;margin:0;padding:0;display:grid;gap:0}
-.mini .line:first-child{border-top:0}
-.tl li{display:grid;grid-template-columns:max-content minmax(0,1fr) auto;gap:4px 14px;align-items:baseline;padding:12px 4px;border-bottom:1px solid var(--line)}
-.tl .big{font-size:34px;font-weight:700;line-height:1;white-space:nowrap}
-.tl .what{font-weight:700;font-size:17px}
+.mini .line{grid-template-columns:minmax(0,14em) minmax(0,1fr)}.mini .line:first-child{border-top:0}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:max-content 44px minmax(0,1fr) auto;gap:4px 12px;align-items:center;padding:10px 4px;border-bottom:1px solid var(--line);cursor:pointer}
+.tl li:hover{background:var(--chip)}
+.tl .big{font-size:32px;font-weight:700;line-height:1;white-space:nowrap}
+.tl img,.tl .ph{width:44px;height:66px;object-fit:cover;border-radius:6px;background:var(--chip)}
+.tl .what{font-weight:700;font-size:16px}
 .tl .where{display:block;font-weight:400;font-size:14px;color:var(--mute)}
 .tl .where i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c);margin-right:5px}
-.tl .soon{font-size:14px;color:var(--mute);text-align:right;white-space:nowrap}
+.tl .soon{font-size:13px;color:var(--mute);text-align:right;white-space:nowrap}
+.tl .soon b{display:block;font-size:13px}
 .tl li.hot .soon{color:var(--red2);font-weight:700}
+.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
+.wall figure{margin:0}.wall .post{width:100%}.wall figcaption{font-size:14px;font-weight:700;margin-top:6px;line-height:1.3}
+.wall figcaption small{display:block;font-weight:400;color:var(--mute)}
 .empty{text-align:center;color:var(--mute);padding:50px 10px}
 footer{max-width:1240px;margin:0 auto;padding:10px max(5vw,16px) 40px;color:var(--mute);font-size:14px}
 footer ul{padding-left:1.2em;margin:6px 0}
-.load{height:4px;background:linear-gradient(90deg,transparent,var(--pop),transparent);background-size:200% 100%;animation:sweep 1.2s linear infinite;border-radius:4px;margin-bottom:12px}
-@keyframes sweep{from{background-position:200% 0}to{background-position:-200% 0}}
-@media(prefers-reduced-motion:reduce){.load{animation:none}}
-@media(max-width:600px){.line{grid-template-columns:minmax(0,1fr)}.mini .line{grid-template-columns:minmax(0,1fr)}.tl li{grid-template-columns:max-content minmax(0,1fr);gap:2px 12px}.clock{font-size:34px}.today{font-size:14px}header{padding-top:16px}.tl .soon{grid-column:2;text-align:left}.tl .big{font-size:28px}}
+dialog{border:0;padding:0;border-radius:18px;background:var(--card);color:var(--ink);max-width:min(560px,94vw);width:100%;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+dialog::backdrop{background:rgba(20,5,10,.6)}
+.sheet{padding:18px 18px 16px}
+.sheet h3{margin:0 0 2px;font-size:20px;line-height:1.3}
+.sheet .big{font-size:40px;font-weight:700;line-height:1.1;margin:6px 0}
+.sheet .seat{font-weight:700;margin:6px 0}
+.btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:8px 18px;border-radius:12px;text-decoration:none;font-weight:700;border:1px solid var(--line);background:var(--chip);color:var(--ink);font-size:15px}
+.btn.main{background:var(--red);border-color:var(--red);color:#fff}
+.close{position:absolute;top:8px;right:8px;border:0;background:transparent;color:var(--mute);font-size:26px;width:44px;height:44px;min-height:44px;border-radius:50%}
+.lb img{display:block;width:100%;max-height:72vh;object-fit:contain;background:#000;border-radius:18px 18px 0 0}
+.note{font-size:13px;color:var(--mute);margin-top:10px}
+@media(max-width:600px){.line,.mini .line{grid-template-columns:minmax(0,1fr)}.mv{grid-template-columns:80px minmax(0,1fr)}.post{width:80px}.wall .post{width:100%}.today{font-size:13px}.tl li{grid-template-columns:max-content 40px minmax(0,1fr)}.tl img,.tl .ph{width:40px;height:60px}.tl .soon{grid-column:3;text-align:left}.tl .soon b{display:inline;margin-right:6px}.tl .big{font-size:26px}.wall{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -100,17 +129,18 @@ footer ul{padding-left:1.2em;margin:6px 0}
     <div class="clock num" id="clock" aria-label="現在時間"></div>
   </div>
   <div class="ctrl">
-    <div class="row">
-      <input type="search" id="q" placeholder="搜尋片名，例如：哥吉拉、柯南、IMAX" aria-label="搜尋片名或版本">
-    </div>
+    <div class="days" id="days" role="group" aria-label="選擇日期"></div>
+    <div class="row"><input type="search" id="q" placeholder="搜尋片名或版本，例如：哥吉拉、IMAX、Gold Class" aria-label="搜尋片名或版本"></div>
     <div class="row" id="cins" role="group" aria-label="選擇影城"></div>
     <div class="row">
       <div class="seg" role="group" aria-label="檢視方式">
-        <button data-view="movie">依電影</button><button data-view="time">依時間</button><button data-view="cinema">依影城</button>
+        <button data-view="movie">依電影</button><button data-view="time">依時間</button><button data-view="cinema">依影城</button><button data-view="wall">海報</button>
       </div>
       <button class="tog" id="hidePast" aria-pressed="true">只看還沒開演</button>
+      <button class="tog" id="hideFull" aria-pressed="false">只看有位子</button>
       <select id="sort" aria-label="電影排序">
         <option value="next">最快開演的在前</option>
+        <option value="imdb">IMDb 分數高的在前</option>
         <option value="count">場次多的在前</option>
         <option value="title">依片名</option>
       </select>
@@ -118,28 +148,24 @@ footer ul{padding-left:1.2em;margin:6px 0}
   </div>
 </header>
 <main>
-  <div id="loading" class="load" hidden></div>
   <div id="warn"></div>
-  <div class="status" id="status"></div>
+  <div class="status" id="status">讀取場次中…</div>
+  <div class="legend"><span><i style="background:var(--ok)"></i>剩餘座位（享平方）</span><span><i style="background:var(--few)"></i>快滿／即將售完</span><span><i style="background:var(--out)"></i>完售</span><span>點時間可以訂票、看座位</span></div>
   <div id="out"></div>
 </main>
 <footer>
-  場次資料來自<a href="https://www.atmovies.com.tw/showtime/a35/">開眼電影網</a>，每小時自動更新；實際場次與訂票請以影城官網為準。開眼只提供當天場次，明天以後請到官網查詢：
+  場次來自威秀影城與百老匯影城官網，評分來自 IMDb，每小時自動更新；實際場次、座位與票價以影城為準。官網：
   <ul id="links"></ul>
 </footer>
-<script src="parser.js"></script>
+<dialog id="dlg"><div id="dlgBody"></div></dialog>
 <script>
 {
 const THEATERS = [
-  {key:'fe21', name:'新竹大遠百威秀影城', short:'大遠百威秀', code:'t03505', official:'https://www.vscinemas.com.tw/theater/detail.aspx?id=7'},
-  {key:'bigcity', name:'新竹巨城威秀影城', short:'巨城威秀', code:'t03508', official:'https://www.vscinemas.com.tw/theater/detail.aspx?id=9'},
-  {key:'shown', name:'享平方 百老匯影城竹北店', short:'享平方百老匯', code:'t03510', official:'https://www.broadway-cineplex.com.tw/'}
+  {key:'fe21', name:'新竹大遠百威秀影城', short:'大遠百威秀', official:'https://www.vscinemas.com.tw/theater/detail.aspx?id=7'},
+  {key:'bigcity', name:'新竹巨城威秀影城', short:'巨城威秀', official:'https://www.vscinemas.com.tw/theater/detail.aspx?id=9'},
+  {key:'shown', name:'享平方 百老匯影城竹北店', short:'享平方百老匯', official:'https://www.broadway-cineplex.com.tw/book.html?obj=Zhubei'}
 ];
-const PROXIES = [
-  u => 'https://corsproxy.io/?url=' + encodeURIComponent(u),
-  u => 'https://api.allorigins.win/raw?url=' + encodeURIComponent(u),
-  u => 'https://api.codetabs.com/v1/proxy/?quest=' + encodeURIComponent(u)
-];
+const TH = Object.fromEntries(THEATERS.map(t => [t.key, t]));
 const WEEK = '日一二三四五六';
 const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const $ = id => document.getElementById(id);
@@ -147,199 +173,199 @@ const store = {
   get(k, d) { try { const v = localStorage.getItem('hcm.' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
   set(k, v) { try { localStorage.setItem('hcm.' + k, JSON.stringify(v)); } catch (e) {} }
 };
-
 const state = {
-  data: {},            // key -> {date, updated, movies, via}
+  data: null, day: null,
   on: store.get('on', THEATERS.map(t => t.key)),
-  view: store.get('view', 'movie'),
-  hidePast: store.get('hidePast', true),
-  sort: store.get('sort', 'next'),
-  q: ''
+  view: store.get('view2', 'movie'),
+  hidePast: store.get('hidePast', true), hideFull: store.get('hideFull', false),
+  sort: store.get('sort2', 'next'), q: ''
 };
 
-function taipeiNow() {
+function now() {
   const p = {};
   new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Taipei', year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', hourCycle:'h23'})
     .formatToParts(new Date()).forEach(x => p[x.type] = x.value);
-  const date = `${p.year}-${p.month}-${p.day}`;
-  const wd = new Date(date + 'T12:00:00Z').getUTCDay();
-  return {date, wd, h: +p.hour, m: +p.minute, mins: +p.hour * 60 + +p.minute, hm: `${p.hour}:${p.minute}`};
+  return {date:`${p.year}-${p.month}-${p.day}`, mins: +p.hour * 60 + +p.minute, hm:`${p.hour}:${p.minute}`};
 }
-// 凌晨 0～5 點的場次算在當天深夜
 const toMin = t => { const [h, m] = t.split(':').map(Number); return (h < 5 ? h + 24 : h) * 60 + m; };
 const fromMin = n => { n = ((n % 1440) + 1440) % 1440; return String(Math.floor(n / 60)).padStart(2, '0') + ':' + String(n % 60).padStart(2, '0'); };
 const dur = n => n ? (n >= 60 ? `${Math.floor(n / 60)}小時${n % 60 ? (n % 60) + '分' : ''}` : n + '分') : '';
-const md = d => { const [, m, day] = d.split('-'); const wd = new Date(d + 'T12:00:00Z').getUTCDay(); return `${+m}/${+day}（${WEEK[wd]}）`; };
+const wd = d => WEEK[new Date(d + 'T12:00:00Z').getUTCDay()];
+const md = d => `${+d.slice(5, 7)}/${+d.slice(8, 10)}`;
+const addDays = (d, n) => { const t = new Date(d + 'T12:00:00Z'); t.setUTCDate(t.getUTCDate() + n); return t.toISOString().slice(0, 10); };
+const dayName = d => { const t = now().date; return d === t ? '今天' : d === addDays(t, 1) ? '明天' : d === addDays(t, 2) ? '後天' : '週' + wd(d); };
+const votes = v => v >= 1e4 ? (v / 1e4).toFixed(v >= 1e5 ? 0 : 1) + ' 萬票' : v + ' 票';
 
-async function fetchLive(t) {
-  const url = `https://www.atmovies.com.tw/showtime/${t.code}/a35/`;
-  for (const p of PROXIES) {
-    const ctl = new AbortController(); const timer = setTimeout(() => ctl.abort(), 12000);
-    try {
-      const r = await fetch(p(url), {signal: ctl.signal, cache: 'no-store'});
-      if (!r.ok) throw new Error(r.status);
-      const html = await r.text();
-      const d = AtParser.parse(html);
-      if (d.movies.length) return {...d, via: 'live', fetched: new Date().toISOString()};
-    } catch (e) { /* 換下一個代理 */ } finally { clearTimeout(timer); }
-  }
-  throw new Error('live failed');
-}
-
-async function load(forceLive) {
-  const now = taipeiNow();
-  $('loading').hidden = false;
-  if (!forceLive) {
-    try {
-      const r = await fetch('data/showtimes.json?t=' + Date.now(), {cache: 'no-store'});
-      if (r.ok) { const j = await r.json(); for (const k in j.theaters || {}) state.data[k] = {...j.theaters[k], via: 'saved'}; }
-    } catch (e) {}
-    if (!Object.keys(state.data).length) {
-      const c = store.get('cache', null);
-      if (c) for (const k in c) state.data[k] = {...c[k], via: 'cache'};
-    }
-    render();
-  }
-  const need = THEATERS.filter(t => forceLive || !state.data[t.key] || state.data[t.key].date !== now.date);
-  await Promise.all(need.map(async t => {
-    try { state.data[t.key] = await fetchLive(t); }
-    catch (e) { if (state.data[t.key]) state.data[t.key].liveFailed = true; else state.data[t.key] = {failed: true, movies: []}; }
-  }));
-  const keep = {};
-  for (const k in state.data) if (state.data[k].movies && state.data[k].movies.length) keep[k] = {date: state.data[k].date, updated: state.data[k].updated, movies: state.data[k].movies, fetched: state.data[k].fetched};
-  store.set('cache', keep);
-  $('loading').hidden = true;
+async function load() {
+  try {
+    const r = await fetch('data/showtimes.json?t=' + Date.now(), {cache: 'no-store'});
+    const j = await r.json();
+    if (j.v !== 2) throw new Error('舊格式');
+    state.data = j;
+  } catch (e) { $('status').textContent = '場次資料讀取失敗，請稍後再試。'; return; }
+  const ds = dates();
+  if (!state.day || !ds.includes(state.day)) state.day = ds.includes(now().date) ? now().date : ds[0];
   render();
 }
-
-// 把三家影城的資料攤平成「一部片 × 一家影城 × 一種版本」的列
-function rows() {
-  const now = taipeiNow(), q = state.q.trim().toLowerCase();
-  const out = [];
-  for (const t of THEATERS) {
-    if (!state.on.includes(t.key)) continue;
-    const d = state.data[t.key];
-    if (!d || !d.movies) continue;
-    const isToday = d.date === now.date;
-    const merged = {};
-    for (const m of d.movies) {
-      const k = m.id + '|' + m.version;
-      if (!merged[k]) merged[k] = {...m, times: []};
-      merged[k].times.push(...m.times);
-    }
-    for (const m of Object.values(merged)) {
-      if (q && !(m.title + ' ' + m.version).toLowerCase().includes(q)) continue;
-      const times = [...new Set(m.times)].sort((a, b) => toMin(a) - toMin(b)).map(x => ({
-        x, min: toMin(x), past: isToday && toMin(x) < now.mins, late: +x.slice(0, 2) < 5
-      }));
-      out.push({t, m, times, upcoming: times.filter(s => !s.past)});
-    }
-  }
-  return out;
+function dates() {
+  const t = now().date;
+  return [...new Set(state.data.sessions.map(s => s.d))].filter(d => d >= t).sort();
 }
 
-function chips(r, nextMin) {
-  const list = state.hidePast ? r.upcoming : r.times;
-  if (!list.length) return '<span class="t past">今天已演完</span>';
-  if (nextMin === undefined) nextMin = r.upcoming.length ? r.upcoming[0].min : -1;
-  return list.map(s => {
-    const end = r.m.runtime ? '，散場約 ' + fromMin(s.min + r.m.runtime) : '';
-    const cls = s.past ? 'past' : (s.min === nextMin ? 'next' : '');
-    return `<span class="t num ${cls}" title="${esc(s.x + ' 開演' + end)}">${esc(s.x)}${s.late ? '<sup>深夜</sup>' : ''}</span>`;
-  }).join('');
+function filtered() {
+  const D = state.data, n = now(), q = state.q.trim().toLowerCase();
+  return D.sessions.filter(s => {
+    if (s.d !== state.day || !state.on.includes(s.c)) return false;
+    const m = D.movies[s.m]; if (!m) return false;
+    if (q && !`${m.title} ${m.en} ${s.v}`.toLowerCase().includes(q)) return false;
+    s.past = s.d === n.date && toMin(s.t) < n.mins;
+    if (state.hidePast && s.past) return false;
+    if (state.hideFull && (s.st === 'soldout' || s.st === 'closed')) return false;
+    return true;
+  }).sort((a, b) => toMin(a.t) - toMin(b.t));
 }
-const rate = m => m.ratingLabel ? `<span class="rate ${esc(m.rating)}">${esc(m.ratingLabel)}</span>` : '';
-const movieLink = m => `https://www.atmovies.com.tw/movie/${encodeURIComponent(m.id)}/`;
 
-function viewMovie(rs) {
-  const by = {};
-  for (const r of rs) (by[r.m.id] = by[r.m.id] || {m: r.m, lines: []}).lines.push(r);
-  let list = Object.values(by).filter(g => !state.hidePast || g.lines.some(r => r.upcoming.length));
-  const next = g => Math.min(...g.lines.map(r => r.upcoming.length ? r.upcoming[0].min : 9999));
-  const count = g => g.lines.reduce((n, r) => n + (state.hidePast ? r.upcoming : r.times).length, 0);
-  list.sort(state.sort === 'title' ? (a, b) => a.m.title.localeCompare(b.m.title, 'zh-Hant')
-    : state.sort === 'count' ? (a, b) => count(b) - count(a) : (a, b) => next(a) - next(b));
-  if (!list.length) return empty();
-  return '<div class="grid">' + list.map(g => {
-    const lines = g.lines.filter(r => !state.hidePast || r.upcoming.length)
-      .sort((a, b) => THEATERS.indexOf(a.t) - THEATERS.indexOf(b.t) || (a.upcoming[0]?.min ?? 9999) - (b.upcoming[0]?.min ?? 9999));
-    const nx = next(g);
-    return `<article class="card"><h2><a href="${movieLink(g.m)}" target="_blank" rel="noopener">${esc(g.m.title)}</a></h2>
-      <div class="meta">${rate(g.m)}<span>${esc(dur(g.m.runtime))}</span><span>${count(g)} 場</span></div>
-      ${lines.map(r => `<div class="line"><div class="who" style="--c:var(--c-${r.t.key})"><b>${esc(r.t.short)}</b>${r.m.version ? `<span>${esc(r.m.version)}</span>` : ''}</div><div class="times">${chips(r, nx)}</div></div>`).join('')}
+const rate = m => m.rating ? `<span class="rate r${esc(m.rating)}">${esc(m.rating)}</span>` : '';
+const imdb = m => m.imdb && m.imdb.id ? `<a class="imdb" href="https://www.imdb.com/title/${esc(m.imdb.id)}/" target="_blank" rel="noopener"><b>IMDb</b>${m.imdb.r ? `★ ${m.imdb.r.toFixed(1)} <small>${esc(votes(m.imdb.v))}</small>` : '<small>尚無評分</small>'}</a>` : '';
+const poster = (id, m, cls = '') => m.poster && m.poster.thumb
+  ? `<button class="post ${cls}" data-poster="${esc(id)}" aria-label="看 ${esc(m.title)} 海報"><img src="${esc(m.poster.thumb)}" alt="" loading="lazy"></button>`
+  : `<div class="post none ${cls}">無海報</div>`;
+function seatLabel(s) {
+  if (s.st === 'closed') return '停售';
+  if (s.st === 'soldout') return '完售';
+  if (s.to) return s.st === 'few' ? `剩${s.fr}` : `剩${s.fr}`;
+  if (s.st === 'few') return '快滿';
+  return '';
+}
+const seatClass = s => s.past ? 'past' : s.st === 'soldout' ? 'soldout' : s.st === 'closed' ? 'closed' : s.st === 'few' ? 'few' : s.to ? 'ok' : '';
+let SID = [];
+function chip(s, nextKey) {
+  const i = SID.push(s) - 1, lab = seatLabel(s);
+  const cls = seatClass(s) + (s === nextKey ? ' next' : '');
+  return `<button class="t num ${cls}" data-s="${i}"><span class="hm">${esc(s.t)}</span>${lab ? `<small>${esc(lab)}</small>` : ''}</button>`;
+}
+const isOpen = s => !s.past && s.st !== 'soldout' && s.st !== 'closed';
+
+function viewMovie(list) {
+  const D = state.data, by = {};
+  for (const s of list) (by[s.m] = by[s.m] || []).push(s);
+  let groups = Object.entries(by).map(([id, ss]) => ({id, m: D.movies[id], ss, next: ss.find(isOpen)}));
+  const nx = g => g.next ? toMin(g.next.t) : 9999;
+  groups.sort(state.sort === 'title' ? (a, b) => a.m.title.localeCompare(b.m.title, 'zh-Hant')
+    : state.sort === 'count' ? (a, b) => b.ss.length - a.ss.length
+    : state.sort === 'imdb' ? (a, b) => ((b.m.imdb && b.m.imdb.r) || 0) - ((a.m.imdb && a.m.imdb.r) || 0) || nx(a) - nx(b)
+    : (a, b) => nx(a) - nx(b));
+  if (!groups.length) return empty();
+  return '<div class="grid">' + groups.map(g => {
+    const lines = {};
+    for (const s of g.ss) (lines[s.c + '|' + s.v] = lines[s.c + '|' + s.v] || []).push(s);
+    const keys = Object.keys(lines).sort((a, b) => THEATERS.findIndex(t => t.key === a.split('|')[0]) - THEATERS.findIndex(t => t.key === b.split('|')[0]) || a.localeCompare(b));
+    return `<article class="card mv">${poster(g.id, g.m)}<div>
+      <h2>${esc(g.m.title)}</h2>${g.m.en ? `<div class="en">${esc(g.m.en)}</div>` : ''}
+      <div class="meta">${rate(g.m)}${imdb(g.m)}<span>${esc(dur(g.m.runtime))}</span><span>${g.ss.length} 場</span></div></div>
+      <div class="lines">${keys.map(k => { const [c, v] = k.split('|'); return `<div class="line"><div class="who" style="--c:var(--c-${c})"><b>${esc(TH[c].short)}</b>${v ? `<span>${esc(v)}</span>` : ''}</div><div class="times">${lines[k].map(s => chip(s, g.next)).join('')}</div></div>`; }).join('')}</div>
     </article>`;
   }).join('') + '</div>';
 }
 
-function viewTime(rs) {
-  const now = taipeiNow();
-  const all = [];
-  for (const r of rs) for (const s of (state.hidePast ? r.upcoming : r.times)) all.push({r, s});
-  all.sort((a, b) => a.s.min - b.s.min || a.r.m.title.localeCompare(b.r.m.title, 'zh-Hant'));
-  if (!all.length) return empty();
-  return '<ul class="tl">' + all.map(({r, s}) => {
-    const left = s.min - now.mins;
-    const soon = s.past ? '已開演' : left <= 0 ? '現在' : left < 60 ? `${left} 分後` : `${Math.floor(left / 60)} 小時 ${left % 60} 分後`;
-    const end = r.m.runtime ? `散場 ${fromMin(s.min + r.m.runtime)}` : '';
-    return `<li class="${!s.past && left <= 30 ? 'hot' : ''}"${s.past ? ' style="opacity:.45"' : ''}>
-      <span class="big num">${esc(s.x)}</span>
-      <span class="what">${esc(r.m.title)} ${rate(r.m)}<span class="where" style="--c:var(--c-${r.t.key})"><i></i>${esc(r.t.short)}${r.m.version ? '・' + esc(r.m.version) : ''}${end ? '・' + end : ''}</span></span>
-      <span class="soon">${esc(soon)}</span></li>`;
+function viewTime(list) {
+  const D = state.data, n = now();
+  if (!list.length) return empty();
+  return '<ul class="tl">' + list.map(s => {
+    const m = D.movies[s.m], i = SID.push(s) - 1;
+    const left = s.d === n.date ? toMin(s.t) - n.mins : null;
+    const soon = left === null ? '' : s.past ? '已開演' : left <= 0 ? '現在' : left < 60 ? `${left} 分後` : `${Math.floor(left / 60)} 小時 ${left % 60} 分後`;
+    const lab = seatLabel(s);
+    const img = m.poster && m.poster.thumb ? `<img src="${esc(m.poster.thumb)}" alt="" loading="lazy">` : '<span class="ph"></span>';
+    return `<li data-s="${i}" class="${left !== null && !s.past && left <= 30 ? 'hot' : ''}"${s.past ? ' style="opacity:.45"' : ''}>
+      <span class="big num">${esc(s.t)}</span>${img}
+      <span class="what">${esc(m.title)} ${rate(m)}<span class="where" style="--c:var(--c-${s.c})"><i></i>${esc(TH[s.c].short)}${s.v ? '・' + esc(s.v) : ''}${m.runtime ? '・散場 ' + fromMin(toMin(s.t) + m.runtime) : ''}</span></span>
+      <span class="soon">${lab ? `<b class="t ${seatClass(s)}" style="all:unset;font-weight:700;color:var(--${s.st === 'soldout' ? 'out' : s.st === 'few' ? 'few' : 'ok'})">${esc(lab)}</b>` : ''}${esc(soon)}</span></li>`;
   }).join('') + '</ul>';
 }
 
-function viewCinema(rs) {
-  let html = '';
+function viewCinema(list) {
+  const D = state.data; let html = '';
   for (const t of THEATERS) {
     if (!state.on.includes(t.key)) continue;
-    const mine = rs.filter(r => r.t === t && (!state.hidePast || r.upcoming.length))
-      .sort((a, b) => (a.upcoming[0]?.min ?? 9999) - (b.upcoming[0]?.min ?? 9999));
-    html += `<div class="sec" style="--c:var(--c-${t.key})"><h2>${esc(t.name)}</h2><a href="${t.official}" target="_blank" rel="noopener">官網訂票</a><a href="https://www.atmovies.com.tw/showtime/${t.code}/a35/" target="_blank" rel="noopener">開眼原始頁面</a></div>`;
-    html += mine.length ? `<div class="card mini">${mine.map(r => `<div class="line"><div class="who" style="--c:var(--c-${t.key})"><b>${esc(r.m.title)} ${rate(r.m)}</b><span>${esc([r.m.version, dur(r.m.runtime)].filter(Boolean).join('・'))}</span></div><div class="times">${chips(r)}</div></div>`).join('')}</div>`
-      : `<div class="card empty">${state.data[t.key]?.failed ? '這家的場次暫時抓不到，請點上面的官網查看。' : '沒有符合的場次'}</div>`;
+    const mine = list.filter(s => s.c === t.key), by = {};
+    for (const s of mine) (by[s.m + '|' + s.v] = by[s.m + '|' + s.v] || []).push(s);
+    html += `<div class="sec" style="--c:var(--c-${t.key})"><h2>${esc(t.name)}</h2><a href="${t.official}" target="_blank" rel="noopener">官網</a></div>`;
+    const keys = Object.keys(by);
+    html += keys.length ? `<div class="card mini">${keys.map(k => { const [id, v] = k.split('|'), m = D.movies[id]; return `<div class="line"><div class="who" style="--c:var(--c-${t.key})"><b>${esc(m.title)} ${rate(m)}</b><span>${esc([v, dur(m.runtime)].filter(Boolean).join('・'))}</span></div><div class="times">${by[k].map(s => chip(s)).join('')}</div></div>`; }).join('')}</div>`
+      : '<div class="card empty">這天沒有符合的場次</div>';
   }
   return html || empty();
 }
-const empty = () => `<div class="empty">${state.q ? '找不到「' + esc(state.q) + '」的場次' : (state.hidePast ? '今天剩下的場次都演完了，可以關掉「只看還沒開演」看全部。' : '沒有場次')}</div>`;
+
+function viewWall(list) {
+  const D = state.data, ids = [...new Set(list.map(s => s.m))];
+  const all = ids.length ? ids : [];
+  if (!all.length) return empty();
+  return '<div class="wall">' + all.map(id => { const m = D.movies[id]; return `<figure>${poster(id, m)}<figcaption>${esc(m.title)}<small>${m.imdb && m.imdb.r ? 'IMDb ★ ' + m.imdb.r.toFixed(1) : (m.en || '')}</small></figcaption></figure>`; }).join('') + '</div>';
+}
+const empty = () => `<div class="empty">${state.q ? '找不到「' + esc(state.q) + '」的場次' : state.hidePast && state.day === now().date ? '今天剩下的場次都演完了，可以選明天，或關掉「只看還沒開演」。' : '這天沒有符合的場次'}</div>`;
 
 function renderHeader() {
-  const now = taipeiNow();
-  $('clock').textContent = now.hm;
-  $('today').textContent = `${md(now.date)}・大遠百威秀・巨城威秀・享平方百老匯`;
-  const counts = {};
-  for (const t of THEATERS) {
-    const d = state.data[t.key];
-    counts[t.key] = d && d.movies ? new Set(d.movies.map(m => m.id)).size : 0;
-  }
-  $('cins').innerHTML = THEATERS.map(t => `<button class="cin" data-key="${t.key}" aria-pressed="${state.on.includes(t.key)}" style="--c:var(--c-${t.key})"><i></i>${esc(t.short)}${counts[t.key] ? ` <small>${counts[t.key]} 部</small>` : ''}</button>`).join('');
+  const n = now(), D = state.data;
+  $('clock').textContent = n.hm;
+  $('today').textContent = `${md(n.date)}（${wd(n.date)}）・大遠百威秀・巨城威秀・享平方百老匯`;
+  if (!D) return;
+  const ds = dates(), cnt = {};
+  for (const s of D.sessions) if (state.on.includes(s.c)) cnt[s.d] = (cnt[s.d] || 0) + 1;
+  $('days').innerHTML = ds.map(d => `<button class="day" data-day="${d}" aria-pressed="${d === state.day}"${cnt[d] ? '' : ' disabled'}><b>${dayName(d)}</b><span class="num">${md(d)}（${wd(d)}）</span></button>`).join('');
+  const mc = {};
+  for (const s of D.sessions) if (s.d === state.day) (mc[s.c] = mc[s.c] || new Set()).add(s.m);
+  $('cins').innerHTML = THEATERS.map(t => `<button class="cin" data-key="${t.key}" aria-pressed="${state.on.includes(t.key)}" style="--c:var(--c-${t.key})"><i></i>${esc(t.short)}${mc[t.key] ? ` <small>${mc[t.key].size} 部</small>` : ''}</button>`).join('');
   document.querySelectorAll('.seg button').forEach(b => b.setAttribute('aria-pressed', b.dataset.view === state.view));
   $('hidePast').setAttribute('aria-pressed', state.hidePast);
-  $('sort').value = state.sort;
-  $('sort').hidden = state.view !== 'movie';
+  $('hideFull').setAttribute('aria-pressed', state.hideFull);
+  $('sort').value = state.sort; $('sort').hidden = state.view !== 'movie';
 }
-
-function renderStatus() {
-  const now = taipeiNow(), warn = [], parts = [];
-  for (const t of THEATERS) {
-    const d = state.data[t.key];
-    if (!d) continue;
-    if (d.failed) { warn.push(`${t.short}：暫時抓不到場次`); continue; }
-    if (d.date && d.date !== now.date) warn.push(`${t.short}：目前只有 ${md(d.date)} 的資料，今天的還沒更新`);
-    else if (d.liveFailed) warn.push(`${t.short}：剛才重新抓取沒成功，先顯示開眼 ${d.updated ? d.updated.slice(11) : ''} 的資料`);
-    if (d.updated) parts.push(`${t.short} ${d.updated.slice(11)}`);
-  }
-  $('warn').innerHTML = warn.length ? `<div class="warn">${warn.map(esc).join('<br>')}</div>` : '';
-  $('status').innerHTML = parts.length ? `<span>開眼更新時間：${esc(parts.join('・'))}</span><button id="reload">重新抓取</button>` : '<span>讀取場次中…</span>';
-  const btn = $('reload'); if (btn) btn.onclick = () => load(true);
-}
-
 function render() {
-  renderHeader(); renderStatus();
-  const rs = rows();
-  $('out').innerHTML = state.view === 'time' ? viewTime(rs) : state.view === 'cinema' ? viewCinema(rs) : viewMovie(rs);
+  renderHeader();
+  const D = state.data; if (!D) return;
+  const g = new Date(D.generated);
+  const gt = new Intl.DateTimeFormat('zh-TW', {timeZone:'Asia/Taipei', month:'numeric', day:'numeric', hour:'2-digit', minute:'2-digit', hourCycle:'h23'}).format(g);
+  $('status').textContent = `資料更新：${gt}（每小時自動更新）・${dayName(state.day)} ${md(state.day)}（${wd(state.day)}）`;
+  $('warn').innerHTML = D.errors && D.errors.length ? `<div class="warn">這次更新有部分資料沒抓到：${esc(D.errors.join('；'))}</div>` : '';
+  SID = [];
+  const list = filtered();
+  $('out').innerHTML = state.view === 'time' ? viewTime(list) : state.view === 'cinema' ? viewCinema(list) : state.view === 'wall' ? viewWall(list) : viewMovie(list);
+}
+
+// ---- 場次細節 ----
+function openSession(s) {
+  const m = state.data.movies[s.m], t = TH[s.c];
+  const end = m.runtime ? fromMin(toMin(s.t) + m.runtime) : '';
+  let seat = '';
+  if (s.st === 'closed') seat = '這場已停止售票';
+  else if (s.st === 'soldout') seat = '這場已完售';
+  else if (s.to) seat = `剩 ${s.fr} 個座位（共 ${s.to} 位）`;
+  else if (s.st === 'few') seat = '即將售完';
+  else seat = s.c === 'shown' ? '座位數量只算未來兩天的場次，可以點「看座位圖」' : '目前還有位子（威秀只標示快售完／完售）';
+  const col = s.st === 'soldout' || s.st === 'closed' ? 'out' : s.st === 'few' ? 'few' : 'ok';
+  $('dlgBody').innerHTML = `<div class="sheet" style="position:relative"><button class="close" data-close aria-label="關閉">×</button>
+    <h3>${esc(m.title)}</h3><div class="en">${esc(t.name)}${s.v ? '・' + esc(s.v) : ''}</div>
+    <div class="big num">${dayName(s.d)} ${md(s.d)}（${wd(s.d)}）${esc(s.t)}${end ? `<span style="font-size:20px;color:var(--mute)"> → ${end} 散場</span>` : ''}</div>
+    <div class="seat" style="color:var(--${col})">${esc(seat)}</div>
+    <div class="btns">${s.b ? `<a class="btn main" href="${esc(s.b)}" target="_blank" rel="noopener">訂票</a>` : ''}${s.s ? `<a class="btn" href="${esc(s.s)}" target="_blank" rel="noopener">看座位圖</a>` : ''}${m.imdb && m.imdb.id ? `<a class="btn" href="https://www.imdb.com/title/${esc(m.imdb.id)}/" target="_blank" rel="noopener">IMDb</a>` : ''}</div>
+    <div class="note">${s.c === 'shown' ? '百老匯的訂票頁要再選一次日期和場次，並需要登入會員。' : '威秀的訂票頁會直接帶到這一場；訂票與座位圖人多時可能要排隊。'}</div></div>`;
+  $('dlg').showModal();
+}
+function openPoster(id) {
+  const m = state.data.movies[id], p = m.poster || {};
+  const big = p.zh || p.hd;
+  const name = m.title.replace(/[\\/:*?"<>|]/g, '');
+  $('dlgBody').innerHTML = `<div class="lb" style="position:relative"><img src="${esc(big)}" alt="${esc(m.title)} 海報"><button class="close" data-close aria-label="關閉" style="color:#fff">×</button>
+    <div class="sheet"><h3>${esc(m.title)}</h3>${m.en ? `<div class="en">${esc(m.en)}</div>` : ''}
+    <div class="btns">${p.zh ? `<a class="btn main" href="${esc(p.zh)}" download="${esc(name)}-中文海報.${esc(p.zh.split('.').pop())}">下載中文海報 <span class="num" style="font-weight:400;margin-left:6px">${esc(p.zhSize)}</span></a>` : ''}${p.hd ? `<a class="btn ${p.zh ? '' : 'main'}" href="${esc(p.hd)}" download="${esc(name)}-高畫質.${esc(p.hd.split('.').pop())}">下載高畫質原版 <span class="num" style="font-weight:400;margin-left:6px">${esc(p.hdSize)}</span></a>` : ''}</div>
+    <div class="note">海報原圖存在這個網站上；手機若沒有直接下載，長按圖片也可以存到相簿。</div></div></div>`;
+  $('dlg').showModal();
 }
 
 $('links').innerHTML = THEATERS.map(t => `<li><a href="${t.official}" target="_blank" rel="noopener">${esc(t.name)}</a></li>`).join('');
+$('days').addEventListener('click', e => { const b = e.target.closest('.day'); if (!b || b.disabled) return; state.day = b.dataset.day; render(); });
 $('cins').addEventListener('click', e => {
   const b = e.target.closest('.cin'); if (!b) return;
   const k = b.dataset.key;
@@ -347,23 +373,23 @@ $('cins').addEventListener('click', e => {
   if (!state.on.length) state.on = [k];
   store.set('on', state.on); render();
 });
-document.querySelector('.seg').addEventListener('click', e => {
-  const b = e.target.closest('button'); if (!b) return;
-  state.view = b.dataset.view; store.set('view', state.view); render();
-});
+document.querySelector('.seg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; state.view = b.dataset.view; store.set('view2', state.view); render(); });
 $('hidePast').addEventListener('click', () => { state.hidePast = !state.hidePast; store.set('hidePast', state.hidePast); render(); });
-$('sort').addEventListener('change', e => { state.sort = e.target.value; store.set('sort', state.sort); render(); });
+$('hideFull').addEventListener('click', () => { state.hideFull = !state.hideFull; store.set('hideFull', state.hideFull); render(); });
+$('sort').addEventListener('change', e => { state.sort = e.target.value; store.set('sort2', state.sort); render(); });
 let qt; $('q').addEventListener('input', e => { clearTimeout(qt); qt = setTimeout(() => { state.q = e.target.value; render(); }, 120); });
+$('out').addEventListener('click', e => {
+  const p = e.target.closest('[data-poster]'); if (p) { openPoster(p.dataset.poster); return; }
+  const s = e.target.closest('[data-s]'); if (s) openSession(SID[+s.dataset.s]);
+});
+$('dlg').addEventListener('click', e => { if (e.target.closest('[data-close]') || e.target === $('dlg')) $('dlg').close(); });
 
-let lastDate = taipeiNow().date;
-const tick = setInterval(() => {
-  const now = taipeiNow();
-  if (now.date !== lastDate) { lastDate = now.date; load(false); } else render();
-}, 60000);
-document.addEventListener('visibilitychange', () => { if (!document.hidden) render(); });
-
-render();
-load(false);
+let lastDate = now().date;
+setInterval(() => { const n = now(); if (n.date !== lastDate) { lastDate = n.date; state.day = n.date; load(); } else render(); }, 60000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden && state.data) render(); });
+renderHeader();
+load();
+setInterval(load, 15 * 60000);
 }
 </script>
 </body>
