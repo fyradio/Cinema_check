@@ -1,10 +1,10 @@
 {
- "generated": "2026-11-26T04:17:12.702Z",
+ "generated": "2026-11-26T10:14:19.183Z",
  "source": "atmovies",
  "theaters": {
   "fe21": {
    "date": "2026-11-26",
-   "updated": "2026-11-26 12:10",
+   "updated": "2026-11-26 18:10",
    "movies": [
     {
      "id": "fhen38077943",
@@ -151,8 +151,8 @@
      "id": "fljp31068334",
      "title": "樂園追放 心之共鳴",
      "date": "2026-11-26",
-     "rating": "X",
-     "ratingLabel": "",
+     "rating": "P",
+     "ratingLabel": "護",
      "runtime": 127,
      "version": "",
      "times": [
@@ -190,8 +190,8 @@
      "id": "fbcn49610505",
      "title": "重返巔峰北壁",
      "date": "2026-11-26",
-     "rating": "X",
-     "ratingLabel": "",
+     "rating": "G",
+     "ratingLabel": "普",
      "runtime": 89,
      "version": "",
      "times": [
@@ -228,8 +228,8 @@
      "id": "fmcn32525303",
      "title": "偵戰",
      "date": "2026-11-26",
-     "rating": "X",
-     "ratingLabel": "",
+     "rating": "F2",
+     "ratingLabel": "輔12",
      "runtime": 88,
      "version": "",
      "times": [
@@ -264,8 +264,8 @@
      "id": "fbin37893389",
      "title": "巴霍巴利王：王者再臨",
      "date": "2026-11-26",
-     "rating": "X",
-     "ratingLabel": "",
+     "rating": "F5",
+     "ratingLabel": "輔15",
      "runtime": 100,
      "version": "",
      "times": [
@@ -276,8 +276,8 @@
      "id": "fujp39931233",
      "title": "皎潔深宵之月",
      "date": "2026-11-26",
-     "rating": "X",
-     "ratingLabel": "",
+     "rating": "G",
+     "ratingLabel": "普",
      "runtime": 118,
      "version": "",
      "times": [
@@ -312,8 +312,8 @@
      "id": "fbes35511966",
      "title": "黑球",
      "date": "2026-11-26",
-     "rating": "X",
-     "ratingLabel": "",
+     "rating": "F5",
+     "ratingLabel": "輔15",
      "runtime": 160,
      "version": "",
      "times": [
@@ -362,11 +362,11 @@
      ]
     }
    ],
-   "fetched": "2026-11-26T04:17:12.702Z"
+   "fetched": "2026-11-26T10:14:19.183Z"
   },
   "bigcity": {
    "date": "2026-11-26",
-   "updated": "2026-11-26 12:10",
+   "updated": "2026-11-26 18:10",
    "movies": [
     {
      "id": "fhen38077943",
@@ -548,11 +548,11 @@
      ]
     }
    ],
-   "fetched": "2026-11-26T04:17:12.702Z"
+   "fetched": "2026-11-26T10:14:19.183Z"
   },
   "shown": {
    "date": "2026-11-26",
-   "updated": "2026-11-26 12:00",
+   "updated": "2026-11-26 18:00",
    "movies": [
     {
      "id": "fhen38077943",
@@ -632,8 +632,8 @@
      "id": "fbcn49610505",
      "title": "重返巔峰北壁",
      "date": "2026-11-26",
-     "rating": "X",
-     "ratingLabel": "",
+     "rating": "G",
+     "ratingLabel": "普",
      "runtime": 89,
      "version": "",
      "times": [
@@ -645,8 +645,8 @@
      "id": "fljp31068334",
      "title": "樂園追放 心之共鳴",
      "date": "2026-11-26",
-     "rating": "X",
-     "ratingLabel": "",
+     "rating": "P",
+     "ratingLabel": "護",
      "runtime": 127,
      "version": "",
      "times": [
@@ -776,7 +776,7 @@
      ]
     }
    ],
-   "fetched": "2026-11-26T04:17:12.702Z"
+   "fetched": "2026-11-26T10:14:19.183Z"
   }
  }
 }
