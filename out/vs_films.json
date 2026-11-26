@@ -1,0 +1,343 @@
+{
+ "url": "https://www.vscinemas.com.tw/film/index.aspx",
+ "final": "https://www.vscinemas.com.tw/film/detail.aspx?id=9029",
+ "note": "[\"https://www.vscinemas.com.tw/film/detail.aspx?id=9029\",\"https://www.vscinemas.com.tw/film/detail.aspx?id=9029\",\"https://www.vscinemas.com.tw/film/detail.aspx?id=8941\",\"https://www.vscinemas.com.tw/film/detail.aspx?id=8941\",\"https://www.vscinemas.com.tw/film/detail.aspx?id=9037\"]",
+ "reqs": [
+  {
+   "t": "document",
+   "m": "GET",
+   "u": "https://www.vscinemas.com.tw/film/index.aspx",
+   "post": null,
+   "status": 200,
+   "body": "\r\n<!DOCTYPE html>\r\n<html>\r\n  <head><!--[if lt IE 9]>\r\n    <script src=\"../js/html5.js\"></script><![endif]-->\r\n    <!-- mata資訊-->\r\n        <!-- meta [start]-->\r\n        <title>威秀影城 - 熱售中</title>\r\n        <!-- meta [end]-->\r\n    \r\n    <!-- meta [start]-->\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1, maximum-scale=1, user-scalable=yes\">\r\n    <meta name=\"description\" content=\"威秀影城（VIESHOW CINEMAS），自1998年營業至今，為台灣最大的連鎖影城，全台共計13座據點。威秀影城擁有最出色的播映設備，包括數位IMAX和3D設備，也是全台首座結合商場而成的複合式影城，也因影城多角化經營而讓威秀影城成為台灣影城界的領導品牌。\">\r\n    <meta name=\"keywords\" content=\"威秀,電影訂票,電影,影城,戲院\">\r\n    <meta name=\"author\" content=\"威秀影城 - VIESHOW CINEMAS\">\r\n    <meta name=\"copyright\" content=\"威秀影城 - VIESHOW CINEMAS\">\r\n    <meta name=\"Robots\" content=\"all\">\r\n    <meta http-equiv=\"content-language\" content=\"zh-TW\">\r\n    <meta name=\"revisit-after\" content=\"7 days\">\r\n    <meta name=\"distribution\" content=\"GLOBAL\">\r\n    <meta name=\"GOOGLEBOT\" content=\"index, follow\">\r\n    <meta property=\"og:title\" content=\"威秀影城 - VIESHOW CINEMAS\">\r\n    <meta property=\"og:description\" content=\"威秀影城（VIESHOW CINEMAS），自1998年營業至今，為台灣最大的連鎖影城，全台共計13座據點。威秀影城擁有最出色的播映設備，包括數位IMAX和3D設備，也是全台首座結合商場而成的複合式影城，也因影城多角化經營而讓威秀影城成為台灣影城界的領導品牌。\">\r\n    <meta property=\"og:site_name\" content=\"威秀影城 - VIESHOW CINEMAS\">\r\n    <meta property=\"og:type\" content=\"company\">\r\n    <meta property=\"og:image\" content=\"https://www.unicornpopcorn.com.tw/ForVsWeb/images/thumbnail.jpg\">\r\n    <link rel=\"image_src\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/images/thumbnail.jpg\">\r\n    <link rel=\"shortcut icon\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/images/favicon.ico\">\r\n    <link rel=\"icon\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/images/favicon.ico\">\r\n    <!-- meta [end]-->\r\n    <!-- Source [jquery] (lib)-->\r\n    <script type=\"text/javascript\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/jquery-2.1.0.min.js\"></script>\r\n    <!-- Jssor Slider-->\r\n    <script type=\"text/javascript\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/jssor.slider/jssor.slider.min.js\"></script>\r\n    <!-- Photo Swipe [photo display ]-->\r\n    <link rel=\"stylesheet\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/photoSwipe/photoswipe.css\">\r\n    <link rel=\"stylesheet\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/photoSwipe/default-skin/default-skin.css\">\r\n    <script type=\"text/javascript\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/photoSwipe/photoswipe.min.js\"></script>\r\n    <script type=\"text/javascript\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/photoSwipe/photoswipe-ui-default.min.js\"></script>\r\n    <!--SEO hreflang -->\r\n    <link rel=\"alternate\" href=\"http://www.vscinemas.com.tw/\" hreflang=\"zh-TW\" />\r\n    <link rel=\"alternate\" href=\"https://www.vscinemas.com.tw/\" hreflang=\"zh-TW\" />\r\n    <!-- form check-->\r\n    <link rel=\"stylesheet\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/validation/validationEngine.jquery.css\">\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/validation/jquery-migrate-1.1.0.js\"></script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/validation/languages/jquery.validationEngine-zh_TW.js\"></script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/validation/jquery.validationEngine.js\"></script>\r\n    <!-- Code-->\r\n    <script type=\"text/javascript\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/share.js\"></script>\r\n    <script type=\"text/javascript\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/inside.js\"></script>\r\n    <!-- Style-->\r\n    <link rel=\"stylesheet\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/css/styles.css\">\r\n    <link rel=\"stylesheet\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/css/reset.css\">\r\n    <link rel=\"stylesheet\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/css/share.css?v=2026053002\">\r\n    <link rel=\"stylesheet\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/css/inside.css\">\r\n    <!--scrolltop [toTop]-->\r\n    <script type=\"text/javascript\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/scrolltopcontrol.js\"></script>\r\n    <style type=\"text/css\">\r\n\r\n      .type05 { background-color: #AA7700; } .type05 mark{ color: #ffffff;}\r\n\r\n      .type02 { background-color: #7700BB; } .type02 mark{ color: #ffffff;}\r\n\r\n      .type03 { background-color: #F50000; } .type03 mark{ color: #ffffff;}\r\n\r\n      .type12 { background-color: #C30D23; } .type12 mark{ color: #ffffff;}\r\n\r\n      .type20 { background-color: #8C0044; } .type20 mark{ color: #ffffff;}\r\n\r\n      .type32 { background-color: #F50000; } .type32 mark{ color: #ffffff;}\r\n\r\n      .type35 { background-color: #7D7D7D; } .type35 mark{ color: #ffffff;}\r\n\r\n      .type61 { background-color: #C30D23; } .type61 mark{ color: #ffffff;}\r\n\r\n      .type67 { background-color: #8C0044; } .type67 mark{ color: #ffffff;}\r\n\r\n      .type70 { background-color: #F50000; } .type70 mark{ color: #ffffff;}\r\n\r\n      .type75 { background-color: #009393; } .type75 mark{ color: #ffffff;}\r\n\r\n      .type76 { background-color: #009393; } .type76 mark{ color: #ffffff;}\r\n\r\n      .type77 { background-color: #CD5C5C; } .type77 mark{ color: #ffffff;}\r\n\r\n      .type78 { background-color: #292421; } .type78 mark{ color: #ffffff;}\r\n\r\n      .type72 { background-color: #0080FF; } .type72 mark{ color: #ffffff;}\r\n\r\n      .type73 { background-color: #009393; } .type73 mark{ color: #ffffff;}\r\n\r\n      .type01 { background-color: #EE7700; } .type01 mark{ color: #ffffff;}\r\n\r\n      .type04 { background-color: #EE7700; } .type04 mark{ color: #ffffff;}\r\n\r\n      .type38 { background-color: #EEB100; } .type38 mark{ color: #ffffff;}\r\n\r\n      .type45 { background-color: #EEB100; } .type45 mark{ color: #ffffff;}\r\n\r\n      .type52 { background-color: #7700BB; } .type52 mark{ color: #ffffff;}\r\n\r\n      .type55 { background-color: #AE8F00; } .type55 mark{ color: #ffffff;}\r\n\r\n      .type58 {"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/validation/jquery-migrate-1.1.0.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-22.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/jssor.slider/jssor.slider.min.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-23.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/jquery-2.1.0.min.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-24.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/photoSwipe/photoswipe-ui-default.min.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-25.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/photoSwipe/photoswipe.min.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-26.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/share.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-27.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/inside.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-28.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/scrolltopcontrol.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-29.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/validation/languages/jquery.validationEngine-zh_TW.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-30.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/validation/jquery.validationEngine.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-31.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/modal.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-32.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/helper.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-33.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://ssllogo.twca.com.tw/twcaseal_v3.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-34.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/time-range.js?639313143824578967",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-35.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://s.go-mpulse.net/boomerang/GURTP-F59LV-UKQPY-NC5XF-CJNMC",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-36.js"
+  },
+  {
+   "t": "fetch",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/time-range.json?_=1795688783124",
+   "post": null,
+   "status": 200,
+   "body": "{\"specialRange\":{\"start\":\"2026-11-25T10:30:30\",\"end\":\"2026-11-25T12:59:45\"},\"weeklyRange\":{\"week\":3,\"start\":\"11:30\",\"end\":\"13:00\"}}"
+  },
+  {
+   "t": "xhr",
+   "m": "GET",
+   "u": "https://c.go-mpulse.net/api/config.json?key=GURTP-F59LV-UKQPY-NC5XF-CJNMC&d=www.vscinemas.com.tw&t=5985629&v=1.792.0&sl=0&si=1fd5144b-e9d9-41f1-853e-958bb7e64d24-tp3uby&plugins=AK,ConfigOverride,Continuity,PageParams,IFrameDelay,AutoXHR,SPA,History,Angular,Backbone,Ember,RT,CrossDomain,BW,PaintTiming,NavigationTiming,ResourceTiming,Memory,CACHE_RELOAD,Errors,TPAnalytics,UserTiming,Akamai,Early,EventTiming,BFCache,LOGN&acao=&ak.ai=1259628",
+   "post": null,
+   "status": 200,
+   "body": "{\"h.key\":\"GURTP-F59LV-UKQPY-NC5XF-CJNMC\",\"h.d\":\"arlid:1259628\",\"h.t\":1795688783305,\"h.cr\":\"782708730b199e285561cd143cb891100af90080-1b6431c-3bbd02b3\",\"session_id\":\"a679b876-6e85-4ccd-8f07-e7937c9705c2\",\"site_domain\":\"arlid:1259628\",\"beacon_url\":\"//ace99add.akstat.io/\",\"autorun\":true,\"BW\":{\"enabled\":false},\"RT\":{\"cookie\":null,\"session_exp\":1800},\"ResourceTiming\":{\"enabled\":true,\"splitAtPath\":true},\"PageParams\":{\"xhr\":\"none\",\"pageGroups\":[],\"customMetrics\":[],\"customTimers\":[],\"customDimensions\":[],\"urlPatterns\":[],\"params\":true},\"Akamai\":{\"enabled\":true,\"mapping_xhr_base_url\":\"akamaihd.net\",\"mapping_xhr_url_path\":\"/eum/getdns.txt\",\"mapping_xhr_url_v4_prefix\":\"trial-eum-clientnsv4-s\",\"mapping_xhr_url_v6_prefix\":\"trial-eum-clienttons-s\"},\"user_ip\":\"b1371e4d9\"}"
+  },
+  {
+   "t": "xhr",
+   "m": "GET",
+   "u": "https://www.vscinemas.com.tw/api/GetLstDicCinema",
+   "post": null,
+   "status": 200,
+   "body": "[\r\n  {\r\n    \"strText\": \"台北信義威秀影城\",\r\n    \"strValue\": \"1|TP\"\r\n  },\r\n  {\r\n    \"strText\": \"MUVIE CINEMAS 台北松仁\",\r\n    \"strValue\": \"21|MU\"\r\n  },\r\n  {\r\n    \"strText\": \"MUVIE CINEMAS 台北松仁(MUCROWN)\",\r\n    \"strValue\": \"21|MUC\"\r\n  },\r\n  {\r\n    \"strText\": \"台北南港 LaLaport威秀影城\",\r\n    \"strValue\": \"35|NL\"\r\n  },\r\n  {\r\n    \"strText\": \"台北京站威秀影城\",\r\n    \"strValue\": \"12|QS\"\r\n  },\r\n  {\r\n    \"strText\": \"台北西門威秀影城\",\r\n    \"strValue\": \"34|TX\"\r\n  },\r\n  {\r\n    \"strText\": \"板橋大遠百威秀影城\",\r\n    \"strValue\": \"16|BQ\"\r\n  },\r\n  {\r\n    \"strText\": \"中和環球威秀影城\",\r\n    \"strValue\": \"30|GM\"\r\n  },\r\n  {\r\n    \"strText\": \"新店裕隆城威秀影城\",\r\n    \"strValue\": \"32|HU\"\r\n  },\r\n  {\r\n    \"strText\": \"林口MITSUI OUTLET PARK威秀影城\",\r\n    \"strValue\": \"19|LK\"\r\n  },\r\n  {\r\n    \"strText\": \"桃園統領威秀影城\",\r\n    \"strValue\": \"20|TY\"\r\n  },\r\n  {\r\n    \"strText\": \"桃園桃知道威秀影城\",\r\n    \"strValue\": \"33|TG\"\r\n  },\r\n  {\r\n    \"strText\": \"新竹大遠百威秀影城\",\r\n    \"strValue\": \"2|HS\"\r\n  },\r\n  {\r\n    \"strText\": \"新竹大遠百威秀影城(Gold Class)\",\r\n    \"strValue\": \"2|HSGC\"\r\n  },\r\n  {\r\n    \"strText\": \"新竹巨城威秀影城\",\r\n    \"strValue\": \"14|BC\"\r\n  },\r\n  {\r\n    \"strText\": \"頭份尚順威秀影城\",\r\n    \"strValue\": \"18|TF\"\r\n  },\r\n  {\r\n    \"strText\": \"台中大遠百威秀影城\",\r\n    \"strValue\": \"15|TZ\"\r\n  },\r\n  {\r\n    \"strText\": \"MUVIE CINEMAS 台中TIGER CITY\",\r\n    \"strValue\": \"3|TT01\"\r\n  },\r\n  {\r\n    \"strText\": \"MUVIE CINEMAS 台中TIGER CITY(Gold Class)\",\r\n    \"strValue\": \"3|TT02\"\r\n  },\r\n  {\r\n    \"strText\": \"台中iFG 遠雄廣場威秀影城\",\r\n    \"strValue\": \"31|MM\"\r\n  },\r\n  {\r\n    \"strText\": \"台南大遠百威秀影城\",\r\n    \"strValue\": \"5|TN\"\r\n  },\r\n  {\r\n    \"strText\": \"台南FOCUS威秀影城\",\r\n    \"strValue\": \"25|FC\"\r\n  },\r\n  {\r\n    \"strText\": \"台南南紡威秀影城\",\r\n    \"strValue\": \"17|NF\"\r\n  },\r\n  {\r\n    \"strText\": \"台南南紡威秀影城(Gold Class)\",\r\n    \"strValue\": \"17|NFGC\"\r\n  },\r\n  {\r\n    \"strText\": \"高雄大遠百威秀影城\",\r\n    \"strValue\": \"6|KS\"\r\n  },\r\n  {\r\n    \"strText\": \"高雄大遠百威秀影城(Gold Class)\",\r\n    \"strValue\": \"6|KSGC\"\r\n  },\r\n  {\r\n    \"strText\": \"花蓮新天堂樂園威秀影城\",\r\n    \"strValue\": \"22|HL\"\r\n  }\r\n]"
+  },
+  {
+   "t": "xhr",
+   "m": "GET",
+   "u": "https://www.vscinemas.com.tw/api/GetLstDicArea",
+   "post": null,
+   "status": 200,
+   "body": "[\r\n  {\r\n    \"strText\": \"雙北\",\r\n    \"strValue\": 1\r\n  },\r\n  {\r\n    \"strText\": \"桃竹苗\",\r\n    \"strValue\": 2\r\n  },\r\n  {\r\n    \"strText\": \"中部\",\r\n    \"strValue\": 3\r\n  },\r\n  {\r\n    \"strText\": \"南部\",\r\n    \"strValue\": 4\r\n  },\r\n  {\r\n    \"strText\": \"東部\",\r\n    \"strValue\": 5\r\n  }\r\n]"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/jquery-2.1.0.min.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-37.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/jssor.slider/jssor.slider.min.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-38.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/photoSwipe/photoswipe.min.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-39.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/photoSwipe/photoswipe-ui-default.min.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-40.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/validation/jquery-migrate-1.1.0.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-41.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/validation/languages/jquery.validationEngine-zh_TW.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-42.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/validation/jquery.validationEngine.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-43.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/share.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-44.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/inside.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-45.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/scrolltopcontrol.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-46.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/modal.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-47.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/helper.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-48.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://ssllogo.twca.com.tw/twcaseal_v3.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-49.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/jquery.sticky.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-50.js"
+  },
+  {
+   "t": "document",
+   "m": "GET",
+   "u": "https://www.vscinemas.com.tw/film/detail.aspx?id=9029",
+   "post": null,
+   "status": 200,
+   "body": "\r\n<!DOCTYPE html>\r\n<html>\r\n  <head><!--[if lt IE 9]>\r\n    <script src=\"../js/html5.js\"></script><![endif]-->\r\n    <!-- mata資訊-->\r\n        <!-- meta [start]-->\r\n        <title>威秀影城 - 哥吉拉-0.0</title>\r\n        <!-- meta [end]-->    \r\n    \r\n    <!-- meta [start]-->\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1, maximum-scale=1, user-scalable=yes\">\r\n    <meta name=\"description\" content=\"威秀影城（VIESHOW CINEMAS），自1998年營業至今，為台灣最大的連鎖影城，全台共計13座據點。威秀影城擁有最出色的播映設備，包括數位IMAX和3D設備，也是全台首座結合商場而成的複合式影城，也因影城多角化經營而讓威秀影城成為台灣影城界的領導品牌。\">\r\n    <meta name=\"keywords\" content=\"威秀,電影訂票,電影,影城,戲院\">\r\n    <meta name=\"author\" content=\"威秀影城 - VIESHOW CINEMAS\">\r\n    <meta name=\"copyright\" content=\"威秀影城 - VIESHOW CINEMAS\">\r\n    <meta name=\"Robots\" content=\"all\">\r\n    <meta http-equiv=\"content-language\" content=\"zh-TW\">\r\n    <meta name=\"revisit-after\" content=\"7 days\">\r\n    <meta name=\"distribution\" content=\"GLOBAL\">\r\n    <meta name=\"GOOGLEBOT\" content=\"index, follow\">\r\n    <meta property=\"og:title\" content=\"威秀影城 - VIESHOW CINEMAS\">\r\n    <meta property=\"og:description\" content=\"威秀影城（VIESHOW CINEMAS），自1998年營業至今，為台灣最大的連鎖影城，全台共計13座據點。威秀影城擁有最出色的播映設備，包括數位IMAX和3D設備，也是全台首座結合商場而成的複合式影城，也因影城多角化經營而讓威秀影城成為台灣影城界的領導品牌。\">\r\n    <meta property=\"og:site_name\" content=\"威秀影城 - VIESHOW CINEMAS\">\r\n    <meta property=\"og:type\" content=\"company\">\r\n    <meta property=\"og:image\" content=\"https://www.unicornpopcorn.com.tw/ForVsWeb/images/thumbnail.jpg\">\r\n    <link rel=\"image_src\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/images/thumbnail.jpg\">\r\n    <link rel=\"shortcut icon\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/images/favicon.ico\">\r\n    <link rel=\"icon\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/images/favicon.ico\">\r\n    <!-- meta [end]-->\r\n    <!-- Source [jquery] (lib)-->\r\n    <script type=\"text/javascript\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/jquery-2.1.0.min.js\"></script>\r\n    <!-- Jssor Slider-->\r\n    <script type=\"text/javascript\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/jssor.slider/jssor.slider.min.js\"></script>\r\n    <!-- Photo Swipe [photo display ]-->\r\n    <link rel=\"stylesheet\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/photoSwipe/photoswipe.css\">\r\n    <link rel=\"stylesheet\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/photoSwipe/default-skin/default-skin.css\">\r\n    <script type=\"text/javascript\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/photoSwipe/photoswipe.min.js\"></script>\r\n    <script type=\"text/javascript\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/photoSwipe/photoswipe-ui-default.min.js\"></script>\r\n    <!--SEO hreflang -->\r\n    <link rel=\"alternate\" href=\"http://www.vscinemas.com.tw/\" hreflang=\"zh-TW\" />\r\n    <link rel=\"alternate\" href=\"https://www.vscinemas.com.tw/\" hreflang=\"zh-TW\" />\r\n    <!-- form check-->\r\n    <link rel=\"stylesheet\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/validation/validationEngine.jquery.css\">\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/validation/jquery-migrate-1.1.0.js\"></script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/validation/languages/jquery.validationEngine-zh_TW.js\"></script>\r\n    <script type=\"text/javascript\" charset=\"utf-8\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/validation/jquery.validationEngine.js\"></script>\r\n    <!-- Code-->\r\n    <script type=\"text/javascript\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/share.js\"></script>\r\n    <script type=\"text/javascript\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/inside.js\"></script>\r\n    <!-- Style-->\r\n    <link rel=\"stylesheet\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/css/styles.css\">\r\n    <link rel=\"stylesheet\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/css/reset.css\">\r\n    <link rel=\"stylesheet\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/css/share.css?v=2026053002\">\r\n    <link rel=\"stylesheet\" href=\"https://www.unicornpopcorn.com.tw/ForVsWeb/css/inside.css\">\r\n    <!--scrolltop [toTop]-->\r\n    <script type=\"text/javascript\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/scrolltopcontrol.js\"></script>\r\n    <!-- Sticky-->\r\n    <script type=\"text/javascript\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/jquery.sticky.js\"></script>\r\n    <!-- For Movie Detail Act-->\r\n    <script type=\"text/javascript\" src=\"https://www.unicornpopcorn.com.tw/ForVsWeb/js/movieDetail.js\"></script>\r\n  \n                                <script>!function(e){var n=\"https://s.go-mpulse.net/boomerang/\";if(\"False\"==\"True\")e.BOOMR_config=e.BOOMR_config||{},e.BOOMR_config.PageParams=e.BOOMR_config.PageParams||{},e.BOOMR_config.PageParams.pci=!0,n=\"https://s2.go-mpulse.net/boomerang/\";if(window.BOOMR_API_key=\"GURTP-F59LV-UKQPY-NC5XF-CJNMC\",function(){function e(){if(!i){var e=document.createElement(\"script\");e.id=\"boomr-scr-as\",e.src=window.BOOMR.url,e.async=!0,o.parentNode.appendChild(e),i=!0}}function t(e){i=!0;var n,t,a,r,d=document,O=window;if(window.BOOMR.snippetMethod=e?\"if\":\"i\",t=function(e,n){var t=d.createElement(\"script\");t.id=n||\"boomr-if-as\",t.src=window.BOOMR.url,BOOMR_lstart=(new Date).getTime(),e=e||d.body,e.appendChild(t)},!window.addEventListener&&window.attachEvent&&navigator.userAgent.match(/MSIE [67]\\./))return window.BOOMR.snippetMethod=\"s\",void t(o.parentNode,\"boomr-async\");a=document.createElement(\"IFRAME\"),a.src=\"about:blank\",a.title=\"\",a.role=\"presentation\",a.loading=\"eager\",r=(a.frameElement||a).style,r.width=0,r.height=0,r.border=0,r.display=\"none\",o.parentNode.appendChild(a);try{O=a.contentWindow,d=O.document.open()}catch(_){n=document.domain,a.src=\"javascript:var d=document.open();d.domain='\"+n+\"';void(0);\",O=a.contentWindow,d=O.document.open()}if(n)d._boomrl=function(){this.domain=n,t()},d.write(\"<bo\"+\"dy onload='document._boomrl();'>\");else if(O._boomrl=function(){t()},O.addEventListener)O.addEventListener(\"load\",O._boomrl,!1);else if(O.attachE"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/time-range.js?639313143881755976",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-51.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/movieDetail.js",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-52.js"
+  },
+  {
+   "t": "script",
+   "m": "GET",
+   "u": "https://s.go-mpulse.net/boomerang/GURTP-F59LV-UKQPY-NC5XF-CJNMC",
+   "post": null,
+   "status": 200,
+   "body": "out/js/vs_films-53.js"
+  },
+  {
+   "t": "fetch",
+   "m": "GET",
+   "u": "https://www.unicornpopcorn.com.tw/ForVsWeb/js/time-range.json?_=1795688788885",
+   "post": null,
+   "status": 200,
+   "body": "{\"specialRange\":{\"start\":\"2026-11-25T10:30:30\",\"end\":\"2026-11-25T12:59:45\"},\"weeklyRange\":{\"week\":3,\"start\":\"11:30\",\"end\":\"13:00\"}}"
+  },
+  {
+   "t": "xhr",
+   "m": "GET",
+   "u": "https://www.vscinemas.com.tw/api/GetLstDicCinema",
+   "post": null,
+   "status": 200,
+   "body": "[\r\n  {\r\n    \"strText\": \"台北信義威秀影城\",\r\n    \"strValue\": \"1|TP\"\r\n  },\r\n  {\r\n    \"strText\": \"MUVIE CINEMAS 台北松仁\",\r\n    \"strValue\": \"21|MU\"\r\n  },\r\n  {\r\n    \"strText\": \"MUVIE CINEMAS 台北松仁(MUCROWN)\",\r\n    \"strValue\": \"21|MUC\"\r\n  },\r\n  {\r\n    \"strText\": \"台北南港 LaLaport威秀影城\",\r\n    \"strValue\": \"35|NL\"\r\n  },\r\n  {\r\n    \"strText\": \"台北京站威秀影城\",\r\n    \"strValue\": \"12|QS\"\r\n  },\r\n  {\r\n    \"strText\": \"台北西門威秀影城\",\r\n    \"strValue\": \"34|TX\"\r\n  },\r\n  {\r\n    \"strText\": \"板橋大遠百威秀影城\",\r\n    \"strValue\": \"16|BQ\"\r\n  },\r\n  {\r\n    \"strText\": \"中和環球威秀影城\",\r\n    \"strValue\": \"30|GM\"\r\n  },\r\n  {\r\n    \"strText\": \"新店裕隆城威秀影城\",\r\n    \"strValue\": \"32|HU\"\r\n  },\r\n  {\r\n    \"strText\": \"林口MITSUI OUTLET PARK威秀影城\",\r\n    \"strValue\": \"19|LK\"\r\n  },\r\n  {\r\n    \"strText\": \"桃園統領威秀影城\",\r\n    \"strValue\": \"20|TY\"\r\n  },\r\n  {\r\n    \"strText\": \"桃園桃知道威秀影城\",\r\n    \"strValue\": \"33|TG\"\r\n  },\r\n  {\r\n    \"strText\": \"新竹大遠百威秀影城\",\r\n    \"strValue\": \"2|HS\"\r\n  },\r\n  {\r\n    \"strText\": \"新竹大遠百威秀影城(Gold Class)\",\r\n    \"strValue\": \"2|HSGC\"\r\n  },\r\n  {\r\n    \"strText\": \"新竹巨城威秀影城\",\r\n    \"strValue\": \"14|BC\"\r\n  },\r\n  {\r\n    \"strText\": \"頭份尚順威秀影城\",\r\n    \"strValue\": \"18|TF\"\r\n  },\r\n  {\r\n    \"strText\": \"台中大遠百威秀影城\",\r\n    \"strValue\": \"15|TZ\"\r\n  },\r\n  {\r\n    \"strText\": \"MUVIE CINEMAS 台中TIGER CITY\",\r\n    \"strValue\": \"3|TT01\"\r\n  },\r\n  {\r\n    \"strText\": \"MUVIE CINEMAS 台中TIGER CITY(Gold Class)\",\r\n    \"strValue\": \"3|TT02\"\r\n  },\r\n  {\r\n    \"strText\": \"台中iFG 遠雄廣場威秀影城\",\r\n    \"strValue\": \"31|MM\"\r\n  },\r\n  {\r\n    \"strText\": \"台南大遠百威秀影城\",\r\n    \"strValue\": \"5|TN\"\r\n  },\r\n  {\r\n    \"strText\": \"台南FOCUS威秀影城\",\r\n    \"strValue\": \"25|FC\"\r\n  },\r\n  {\r\n    \"strText\": \"台南南紡威秀影城\",\r\n    \"strValue\": \"17|NF\"\r\n  },\r\n  {\r\n    \"strText\": \"台南南紡威秀影城(Gold Class)\",\r\n    \"strValue\": \"17|NFGC\"\r\n  },\r\n  {\r\n    \"strText\": \"高雄大遠百威秀影城\",\r\n    \"strValue\": \"6|KS\"\r\n  },\r\n  {\r\n    \"strText\": \"高雄大遠百威秀影城(Gold Class)\",\r\n    \"strValue\": \"6|KSGC\"\r\n  },\r\n  {\r\n    \"strText\": \"花蓮新天堂樂園威秀影城\",\r\n    \"strValue\": \"22|HL\"\r\n  }\r\n]"
+  },
+  {
+   "t": "xhr",
+   "m": "GET",
+   "u": "https://www.vscinemas.com.tw/api/GetLstDicArea",
+   "post": null,
+   "status": 200,
+   "body": "[\r\n  {\r\n    \"strText\": \"雙北\",\r\n    \"strValue\": 1\r\n  },\r\n  {\r\n    \"strText\": \"桃竹苗\",\r\n    \"strValue\": 2\r\n  },\r\n  {\r\n    \"strText\": \"中部\",\r\n    \"strValue\": 3\r\n  },\r\n  {\r\n    \"strText\": \"南部\",\r\n    \"strValue\": 4\r\n  },\r\n  {\r\n    \"strText\": \"東部\",\r\n    \"strValue\": 5\r\n  }\r\n]"
+  },
+  {
+   "t": "xhr",
+   "m": "GET",
+   "u": "https://c.go-mpulse.net/api/config.json?key=GURTP-F59LV-UKQPY-NC5XF-CJNMC&d=www.vscinemas.com.tw&t=5985629&v=1.792.0&sl=0&si=951ecb4b-330b-4b14-803c-cfbd6247a763-tp3uc4&plugins=AK,ConfigOverride,Continuity,PageParams,IFrameDelay,AutoXHR,SPA,History,Angular,Backbone,Ember,RT,CrossDomain,BW,PaintTiming,NavigationTiming,ResourceTiming,Memory,CACHE_RELOAD,Errors,TPAnalytics,UserTiming,Akamai,Early,EventTiming,BFCache,LOGN&acao=&ak.ai=1259628",
+   "post": null,
+   "status": 200,
+   "body": "{\"h.key\":\"GURTP-F59LV-UKQPY-NC5XF-CJNMC\",\"h.d\":\"arlid:1259628\",\"h.t\":1795688789142,\"h.cr\":\"6294575c406df40bc6cc1515a4dbc22156c0e7b7-1b6431c-3bbd02b3\",\"session_id\":\"67946f1e-045b-4f76-87ff-f4205457697d\",\"site_domain\":\"arlid:1259628\",\"beacon_url\":\"//ace8bc71.akstat.io/\",\"autorun\":true,\"BW\":{\"enabled\":false},\"RT\":{\"cookie\":null,\"session_exp\":1800},\"ResourceTiming\":{\"enabled\":true,\"splitAtPath\":true},\"PageParams\":{\"xhr\":\"none\",\"pageGroups\":[],\"customMetrics\":[],\"customTimers\":[],\"customDimensions\":[],\"urlPatterns\":[],\"params\":true},\"Akamai\":{\"enabled\":true,\"dns_prefetch_enabled\":true},\"user_ip\":\"b1371e4d9\"}"
+  }
+ ]
+}
