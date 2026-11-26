@@ -63,7 +63,7 @@ for (const code of ['t03505', 't03508', 't03510']) {
 const movies = new Map();   // norm 片名 → 電影
 const movieOf = (title, extra = {}) => {
   const k = norm(title);
-  if (!movies.has(k)) movies.set(k, { key: k, title, en: '', rating: '', runtime: 0, release: '', zhPosters: [], vsId: '', bwPid: '' });
+  if (!movies.has(k)) movies.set(k, { key: k, title, en: '', rating: '', runtime: 0, release: '', intro: '', director: '', cast: '', genre: '', zhPosters: [], vsId: '', bwPid: '' });
   const m = movies.get(k);
   for (const [f, v] of Object.entries(extra)) {
     if (!v) continue;
@@ -78,7 +78,7 @@ const bgStat = {};
 for (const d of vsDetails) for (const s of d.sessions) { const k = `${s.cls}|${s.bg}|${s.status}`; bgStat[k] = (bgStat[k] || 0) + 1; }
 log(`威秀時段底色統計：${JSON.stringify(bgStat)}`);
 for (const d of vsDetails) {
-  const m = movieOf(d.zh, { en: d.en, runtime: d.runtime, release: d.release, poster: d.poster, vsId: d.id });
+  const m = movieOf(d.zh, { en: d.en, runtime: d.runtime, release: d.release, poster: d.poster, vsId: d.id, intro: d.intro, director: d.director, cast: d.cast, genre: d.genre });
   for (const s of d.sessions) {
     const cinema = Object.keys(VS).find(c => VS[c].theaterIds.includes(s.theater));
     const k = `${cinema}|${s.date}|${s.time}|${m.key}`;
@@ -113,7 +113,7 @@ for (const [k, list] of vsIndex) for (const det of list) {
 }
 
 for (const s of bw.sessions) {
-  const m = movieOf(s.title, { en: s.en, rating: s.rating, runtime: s.runtime, release: s.release, poster: s.poster, bwPid: s.pid });
+  const m = movieOf(s.title, { en: s.en, rating: s.rating, runtime: s.runtime, release: s.release, poster: s.poster, bwPid: s.pid, intro: s.intro, director: s.director, cast: s.cast });
   sessions.push({
     m: m.key, c: 'shown', d: s.date, t: s.time, v: [s.version, s.hallname].filter(Boolean).join(' '),
     st: s.disabled ? 'closed' : (s.total && s.free === 0 ? 'soldout' : (s.total && s.free / s.total < 0.15 ? 'few' : '')),
@@ -138,9 +138,9 @@ for (const m of movies.values()) {
   const slug = id || 'n' + [...m.key].reduce((h, ch) => (h * 31 + ch.codePointAt(0)) >>> 0, 7).toString(36);
   finalKey.set(m.key, slug);
   const en = /[a-z]/.test(m.en) ? m.en : m.en.toLowerCase().replace(/(^|[\s:\-(])([a-z])/g, (x, a, b) => a + b.toUpperCase());
-  const o = outMovies[slug] || (outMovies[slug] = { title: m.title, en, rating: m.rating, runtime: m.runtime, release: m.release, vs: m.vsId, bw: m.bwPid, imdb: id ? { id, r: ratings[id]?.r || 0, v: ratings[id]?.v || 0 } : null, _zh: [], _imdbImg: '' });
+  const o = outMovies[slug] || (outMovies[slug] = { title: m.title, en, rating: m.rating, runtime: m.runtime, release: m.release, intro: (m.intro || '').slice(0, 1500), director: m.director, cast: m.cast, genre: m.genre, vs: m.vsId, bw: m.bwPid, imdb: id ? { id, r: ratings[id]?.r || 0, v: ratings[id]?.v || 0 } : null, _zh: [], _imdbImg: '' });
   if (!o.en && en) o.en = en;
-  for (const f of ['rating', 'runtime', 'release']) if (!o[f] && m[f]) o[f] = m[f];
+  for (const f of ['rating', 'runtime', 'release', 'intro', 'director', 'cast', 'genre']) if (!o[f] && m[f]) o[f] = m[f];
   if (!o.vs && m.vsId) o.vs = m.vsId;
   if (!o.bw && m.bwPid) o.bw = m.bwPid;
   o._zh.push(...m.zhPosters);

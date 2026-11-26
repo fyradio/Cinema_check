@@ -19,6 +19,7 @@ export async function broadway({ seatDays, today, log }) {
     sessions.push({
       pid: m.programid, title: m.cname, en: m.ename || '', rating: RATING[m.CodeName] ?? '', runtime: +m.ShowTimes || 0,
       release: (m.ReleaseDate || '').slice(0, 10), poster: m.image || '',
+      intro: (m.Introduction || '').replace(/\r/g, '').replace(/\n{2,}/g, '\n').trim(), director: m.Director || '', cast: (m.Actors || '').replace(/\s+/g, '、'),
       date: s.showdate, time: s['時間'], version: (s.SubName2 || '').replace('/', ' '), hall: s.hall, hallname: s.hallname, disabled: !!s.disable
     });
   }

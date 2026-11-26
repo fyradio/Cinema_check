@@ -78,6 +78,14 @@ main{max-width:1240px;margin:0 auto;padding:18px max(5vw,16px) 40px}
 .fl{gap:6px}.fl .lbl{font-size:13px;opacity:.85;margin-left:4px}
 .fc{border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;padding:2px 12px;min-height:36px;font-size:14px}
 .fc[aria-pressed=true]{background:#fff;color:#241015;border-color:#fff;font-weight:700}
+.intro{margin-top:8px;font-size:14px}
+.intro summary{cursor:pointer;display:inline-flex;align-items:center;gap:4px;min-height:32px;padding:2px 12px;border-radius:999px;background:var(--chip);font-weight:700;font-size:13px;list-style:none;user-select:none}
+.intro summary::-webkit-details-marker{display:none}
+.intro summary::after{content:"▾";font-size:11px;transition:transform .2s}.intro[open] summary::after{transform:rotate(180deg)}
+.intro p{margin:10px 0 6px;white-space:pre-line;line-height:1.75;max-width:62ch}
+.facts{display:grid;gap:2px;margin-top:10px;color:var(--mute);font-size:13px}.facts b{color:var(--ink);font-weight:700;margin-right:8px}
+.ilinks{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px}.ilinks a{color:var(--red2);font-weight:700}
+@media(prefers-reduced-motion:reduce){.intro summary::after{transition:none}}
 .lines{grid-column:1/-1}
 .line{display:grid;grid-template-columns:7.6em minmax(0,1fr);gap:4px 10px;padding:8px 0;border-top:1px dashed var(--line)}
 .who{font-size:14px;font-weight:700;display:flex;flex-direction:column;gap:2px}
@@ -213,6 +221,16 @@ function released(m, short) {
   const wk = days < 7 ? (days === 0 ? '今天首映' : `上映第 ${days + 1} 天`) : `上映第 ${Math.floor(days / 7) + 1} 週`;
   return `<span class="rel">${d} 上映${short ? '' : `<small>・${wk}</small>`}</span>`;
 }
+function introBlock(m, opened) {
+  const facts = [m.genre && `<span><b>類型</b>${esc(m.genre)}</span>`, m.director && `<span><b>導演</b>${esc(m.director)}</span>`, m.cast && `<span><b>演員</b>${esc(m.cast)}</span>`].filter(Boolean).join('');
+  if (!m.intro && !facts) return '';
+  const links = [
+    `<a href="https://www.youtube.com/results?search_query=${encodeURIComponent(m.title + ' 預告')}" target="_blank" rel="noopener">看預告片</a>`,
+    m.vs ? `<a href="https://www.vscinemas.com.tw/film/detail.aspx?id=${encodeURIComponent(m.vs)}" target="_blank" rel="noopener">威秀電影介紹</a>` : '',
+    m.bw ? `<a href="https://www.broadway-cineplex.com.tw/book.html?obj=Zhubei&pid=${encodeURIComponent(m.bw)}" target="_blank" rel="noopener">百老匯電影介紹</a>` : ''
+  ].filter(Boolean).join('');
+  return `<details class="intro"${opened ? ' open' : ''}><summary>簡介</summary>${facts ? `<div class="facts">${facts}</div>` : ''}${m.intro ? `<p>${esc(m.intro)}</p>` : ''}<div class="ilinks">${links}</div></details>`;
+}
 const votes = v => v >= 1e4 ? (v / 1e4).toFixed(v >= 1e5 ? 0 : 1) + ' 萬票' : v + ' 票';
 
 async function load() {
@@ -299,7 +317,7 @@ function viewMovie(list) {
     const keys = Object.keys(lines).sort((a, b) => THEATERS.findIndex(t => t.key === a.split('|')[0]) - THEATERS.findIndex(t => t.key === b.split('|')[0]) || (a.includes('|一般/') ? 0 : 1) - (b.includes('|一般/') ? 0 : 1) || a.localeCompare(b));
     return `<article class="card mv">${poster(g.id, g.m)}<div>
       <h2>${esc(g.m.title)}</h2>${g.m.en ? `<div class="en">${esc(g.m.en)}</div>` : ''}
-      <div class="meta">${rate(g.m)}${imdb(g.m)}<span>${esc(dur(g.m.runtime))}</span>${released(g.m)}<span>${g.ss.length} 場</span></div></div>
+      <div class="meta">${rate(g.m)}${imdb(g.m)}<span>${esc(dur(g.m.runtime))}</span>${released(g.m)}<span>${g.ss.length} 場</span></div>${introBlock(g.m)}</div>
       <div class="lines">${keys.map(k => { const c = k.split('|')[0], b = badges(lines[k][0].v); return `<div class="line"><div class="who" style="--c:var(--c-${c})"><b>${esc(TH[c].short)}</b><span class="vbs">${b || '<span class="vb plain">一般</span>'}</span></div><div class="times">${lines[k].map(s => chip(s, g.next)).join('')}</div></div>`; }).join('')}</div>
     </article>`;
   }).join('') + '</div>';
@@ -395,6 +413,7 @@ function openSession(s) {
     <div class="big num">${dayName(s.d)} ${md(s.d)}（${wd(s.d)}）${esc(s.t)}${end ? `<span style="font-size:20px;color:var(--mute)"> → ${end} 散場</span>` : ''}</div>
     <div class="seat" style="color:var(--${col})">${esc(seat)}</div>
     <div class="btns">${s.b ? `<a class="btn main" href="${esc(s.b)}" target="_blank" rel="noopener">訂票</a>` : ''}${s.s ? `<a class="btn" href="${esc(s.s)}" target="_blank" rel="noopener">看座位圖</a>` : ''}${m.imdb && m.imdb.id ? `<a class="btn" href="https://www.imdb.com/title/${esc(m.imdb.id)}/" target="_blank" rel="noopener">IMDb</a>` : ''}</div>
+    ${introBlock(m)}
     <div class="note">${s.c === 'shown' ? '百老匯的訂票頁要再選一次日期和場次，並需要登入會員。' : '威秀的訂票頁會直接帶到這一場；訂票與座位圖人多時可能要排隊。'}</div></div>`;
   $('dlg').showModal();
 }
@@ -403,7 +422,7 @@ function openPoster(id) {
   const big = p.zh || p.hd;
   const name = m.title.replace(/[\\/:*?"<>|]/g, '');
   $('dlgBody').innerHTML = `<div class="lb" style="position:relative"><img src="${esc(big)}" alt="${esc(m.title)} 海報"><button class="close" data-close aria-label="關閉" style="color:#fff">×</button>
-    <div class="sheet"><h3>${esc(m.title)}</h3>${m.en ? `<div class="en">${esc(m.en)}</div>` : ''}<div class="meta">${released(m)}</div>
+    <div class="sheet"><h3>${esc(m.title)}</h3>${m.en ? `<div class="en">${esc(m.en)}</div>` : ''}<div class="meta">${released(m)}</div>${introBlock(m, true)}
     <div class="btns">${p.zh ? `<a class="btn main" href="${esc(p.zh)}" download="${esc(name)}-中文海報.${esc(p.zh.split('.').pop())}">下載中文海報 <span class="num" style="font-weight:400;margin-left:6px">${esc(p.zhSize)}</span></a>` : ''}${p.hd ? `<a class="btn ${p.zh ? '' : 'main'}" href="${esc(p.hd)}" download="${esc(name)}-高畫質.${esc(p.hd.split('.').pop())}">下載高畫質原版 <span class="num" style="font-weight:400;margin-left:6px">${esc(p.hdSize)}</span></a>` : ''}</div>
     <div class="note">海報原圖存在這個網站上；手機若沒有直接下載，長按圖片也可以存到相簿。</div></div></div>`;
   $('dlg').showModal();

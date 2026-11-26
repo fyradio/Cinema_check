@@ -50,8 +50,16 @@ export function extractDetail(theaterIds) {
     sessions: []
   };
   for (const tr of document.querySelectorAll('.infoArea tr')) {
-    if (/片長/.test(tr.textContent)) { const m = tr.textContent.match(/(\d+)\s*時\s*(\d+)\s*分/); if (m) out.runtime = +m[1] * 60 + +m[2]; }
+    const tds = tr.querySelectorAll('td'); if (tds.length < 2) continue;
+    const k = T(tds[0].textContent), cell = tds[1];
+    const v = [...cell.querySelectorAll('p')].length ? cell.innerText.split(/\n+/).map(T).filter(Boolean).join('、') : T(cell.textContent);
+    if (/片長/.test(k)) { const m = v.match(/(\d+)\s*時\s*(\d+)\s*分/); if (m) out.runtime = +m[1] * 60 + +m[2]; }
+    else if (/導演/.test(k)) out.director = v;
+    else if (/演員/.test(k)) out.cast = v;
+    else if (/類型/.test(k)) out.genre = v;
   }
+  const story = document.querySelector('.movieStory .bbsArticle');
+  out.intro = story ? story.innerText.split(/\n+/).map(T).filter(Boolean).join('\n') : '';
   const rgb = s => (s.match(/\d+(\.\d+)?/g) || []).map(Number);
   for (const v of document.querySelectorAll('.versionList > li')) {
     const label = T(v.querySelector('a.versionFirst')?.textContent);
