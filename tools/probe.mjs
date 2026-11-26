@@ -18,13 +18,14 @@ for (const s of sess.slice(0, 60)) {
   for (const row of r.Data || []) for (const c of row.cols || []) { const key = c.seatkind + '/' + c.choice + '/' + (c.colname ? 'n' : '-'); k[key] = (k[key] || 0) + 1; if (!samples[c.seatkind]) samples[c.seatkind] = c; }
   res.bw.push({ name: s.name, date: s.showdate, time: s['時間'], hall: s.hallname, k, samples });
 }
+fs.writeFileSync('out3/res.json', JSON.stringify(res, null, 1));
 const b = await chromium.launch({ executablePath: '/usr/bin/google-chrome', headless: true });
 const ctx = await b.newContext({ locale: 'zh-TW', userAgent: UA });
 const pg = await ctx.newPage();
 // 找 '-' 或 '9' 最多的一場，畫出座位圖看 class
 const pick = [...res.bw].sort((a, b) => ((b.k['-/N/-'] || 0) + (b.k['-/N/n'] || 0) + (b.k['9/N/n'] || 0) + (b.k['9/N/-'] || 0)) - ((a.k['-/N/-'] || 0) + (a.k['-/N/n'] || 0) + (a.k['9/N/n'] || 0) + (a.k['9/N/-'] || 0)))[0];
 const ps = sess.find(s => s.name === pick.name && s.showdate === pick.date && s['時間'] === pick.time);
-await pg.goto(BW + `quick-view.html?obj=Zhubei,${ps.pid},${ps.showdate},${ps['時間'].replace(':', '-')},${ps.hall}`, { waitUntil: 'networkidle' });
+await pg.goto(BW + `quick-view.html?obj=Zhubei,${ps.pid},${ps.showdate},${ps['時間'].replace(':', '-')},${ps.hall}`, { waitUntil: 'load', timeout: 60000 });
 await pg.waitForTimeout(2000);
 res.bwRendered = await pg.evaluate(() => { const c = {}; for (const el of document.querySelectorAll('.td-block')) { const k = el.className + '|' + el.textContent.trim().replace(/\d+/g, 'N'); c[k] = (c[k] || 0) + 1; } return { c, html: document.querySelector('.table')?.innerHTML.slice(0, 4000) }; });
 res.bwPick = pick;
