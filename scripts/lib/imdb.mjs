@@ -12,7 +12,8 @@ export async function resolveImdb(movie, cache, log) {
   const hit = cache[ck];
   // 找到過就沿用；沒找到的一天後再試
   if (hit && (hit.id || Date.now() - (hit.checked || 0) < 864e5)) return hit;
-  const queries = [...new Set([movie.en, movie.en?.replace(/\s*[:\-–].*$/, '')].filter(q => q && q.length > 1))];
+  const en = String(movie.en || '').replace(/^disney'?s\s+/i, '');
+  const queries = [...new Set([movie.en, en, en.replace(/\s*[:\-–].*$/, '')].filter(q => q && q.length > 1))];
   let best = null;
   for (const q of queries) {
     let res;
@@ -33,6 +34,14 @@ export async function resolveImdb(movie, cache, log) {
       if (!best || score > best.score) best = { score, id: c.id, title: c.l, year: c.y || 0, image: c.i?.imageUrl || '' };
     }
     if (best && best.score >= 30) break;
+  }
+  // 英文片名查不到時，用開眼給的編號（開眼的電影代碼就是 IMDb 編號）向 IMDb 確認
+  if ((!best || best.score < 15) && movie.hint) {
+    try {
+      const r = await getJSON(`https://v3.sg.media-imdb.com/suggestion/t/${movie.hint}.json`, {}, 2);
+      const c = (r.d || []).find(x => x.id === movie.hint);
+      if (c) best = { score: 50, id: c.id, title: c.l, year: c.y || 0, image: c.i?.imageUrl || '' };
+    } catch (e) { log(`IMDb 確認 ${movie.hint} 失敗：${e.message}`); }
   }
   const rec = best && best.score >= 15 ? { id: best.id, title: best.title, year: best.year, image: best.image, checked: Date.now() } : { id: '', checked: Date.now() };
   cache[ck] = rec;

@@ -28,16 +28,14 @@ export async function broadway({ seatDays, today, log }) {
   const targets = sessions.filter(s => !s.disabled && s.date <= lastSeatDay);
   await pool(targets, 4, async s => {
     const r = await getJSON(BW + `Movie/GetSeatView/${SITE}/${s.pid}/${s.date}/${s.time.replace(':', '-')}/${s.hall}`);
-    let free = 0, sold = 0, wheel = 0;
+    // 實測：'0' 空位、'1' 已售出（同一廳每場 0+1 的總數固定）、'-' 不開放的格子、'+' 走道
+    let free = 0, sold = 0;
     for (const row of r.Data || []) for (const c of row.cols || []) {
       const k = `${c.seatkind}/${c.choice}`; kinds[k] = (kinds[k] || 0) + 1;
-      if (c.seatkind === '+' ) continue;                 // 走道、空格
-      if (!c.col && !c.colname) continue;
-      if (c.choice === 'Y' || !['0', '1', '-'].includes(c.seatkind)) sold++;
-      else if (c.seatkind === '1') wheel++;
-      else free++;
+      if (c.seatkind === '0') free++;
+      else if (c.seatkind === '1' || c.choice === 'Y') sold++;
     }
-    s.free = free; s.total = free + sold + wheel;
+    s.free = free; s.total = free + sold;
   });
   log(`百老匯：${movies.length} 部、${sessions.length} 場，算了 ${targets.length} 場座位；座位代碼統計 ${JSON.stringify(kinds)}`);
   return { sessions, seatKinds: kinds };

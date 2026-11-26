@@ -1,33 +1,43 @@
 # 新竹電影場次
 
-一頁看完新竹三家影城的今日場次：
+一頁看完新竹三家影城未來一週的場次、IMDb 評分、剩餘座位與訂票連結：
 
-- 新竹大遠百威秀影城
+- 新竹大遠百威秀影城（含 Gold Class）
 - 新竹巨城威秀影城
 - 享平方 百老匯影城竹北店
 
 網址：https://fyradio.github.io/Cinema_check/
 
-## 怎麼運作
+## 資料從哪來
 
-1. GitHub Actions（`.github/workflows/update.yml`）在台灣時間 07:17～23:17 每小時跑一次 `scripts/scrape.mjs`，
-   到開眼電影網抓三家的當日場次，存成 `data/showtimes.json`（內容有變才 commit）。
-2. 網頁 `index.html` 打開時讀 `data/showtimes.json`。如果資料不是今天的，或按「重新抓取」，
-   會改用公開的 CORS 代理即時去開眼抓。
-3. `parser.js` 是解析器，網頁和抓取腳本共用。它不看網頁的 class，只看內容順序
-   （片名連結 → 分級圖 → 片長 → 版本 → 時間 → 「其他戲院」），開眼改版面時比較不容易壞。
+GitHub Actions（`.github/workflows/update.yml`）在台灣時間 07:17～23:17 每小時跑一次 `scripts/scrape.mjs`：
+
+| 來源 | 拿什麼 | 怎麼抓 |
+|---|---|---|
+| 威秀 `ShowTimes/GetShowTimes`（HS、HSGC、BC） | 一週場次、中英文片名、分級 | 一般 POST |
+| 威秀電影頁 `film/detail.aspx?id=…` | 每一場的訂票連結、座位圖連結、快售完／完售（底色）、海報、片長 | 有防爬蟲，用真的 Chrome（playwright-core）開 |
+| 百老匯 `Movie/GetMovieList`、`GetMovieAlltime` | 竹北店一週場次、海報 | JSON |
+| 百老匯 `Movie/GetSeatView` | 未來兩天每場的空位數（`0` 空位、`1` 已售） | JSON |
+| IMDb 搜尋建議 API ＋ 開眼電影代碼 | IMDb 編號 | 英文片名搜尋；開眼的電影代碼就是 IMDb 編號，用來確認 |
+| IMDb 官方資料檔 `title.ratings.tsv.gz` | 評分與票數 | 每次下載 |
+
+產出：
+
+- `data/showtimes.json`：網頁讀的資料（電影＋場次）
+- `posters/full/`：海報原圖（`-zh` 影城的中文海報、`-imdb` IMDb 原版高畫質）
+- `posters/thumb/`：列表用的小縮圖（360px webp）
+- `data/imdb-cache.json`、`data/posters.json`：快取，避免重複查詢、重複下載
+- `data/last-run.log`：最後一次執行的紀錄
 
 ## 手動更新
 
-- GitHub 上：Actions → 更新場次 → Run workflow
-- 本機：`node scripts/scrape.mjs`（需要 Node 18 以上）
-
-## 新增影城
-
-在 `theaters.json` 和 `index.html` 裡的 `THEATERS` 各加一筆；`code` 是開眼戲院網址裡的代碼
-（例如 `https://www.atmovies.com.tw/showtime/t03508/a35/` 的 `t03508`）。
+GitHub 上：Actions → 更新場次 → Run workflow。
 
 ## 限制
 
-- 開眼只提供當天場次，明天以後請到影城官網查。
-- 場次與訂票以影城官網為準。
+- 威秀官網只標示「即將售完／完售」，沒有確切空位數；確切座位要點「看座位圖」。
+- 百老匯的訂票頁要登入，而且要在頁面上再選一次場次。
+- 威秀新場次通常週三中午公布到下週四，所以有時候只看得到幾天。
+- 場次、座位、票價以影城為準。
+
+`parser.js` 是開眼電影網的解析器（現在只用來拿 IMDb 編號提示）。

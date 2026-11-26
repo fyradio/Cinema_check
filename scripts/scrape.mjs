@@ -31,7 +31,7 @@ for (const [cinema, conf] of Object.entries(VS)) {
   for (const [code, tag] of Object.entries(conf.codes)) {
     try {
       const rows = await weekSchedule(code, today);
-      for (const r of rows) vsWeek.push({ ...r, cinema, version: [tag, r.version].filter(Boolean).join(' ') });
+      for (const r of rows) vsWeek.push({ ...r, cinema, version: tag ? (/\bGC\b/.test(r.version) ? r.version.replace(/\bGC\b/, tag) : [tag, r.version].filter(Boolean).join(' ')) : r.version });
       log(`威秀 ${code}：${rows.length} 場`);
     } catch (e) { errors.push(`威秀 ${code}：${e.message}`); log(`威秀 ${code} 失敗：${e.message}`); }
   }
@@ -74,6 +74,9 @@ const movieOf = (title, extra = {}) => {
 };
 
 const vsIndex = new Map();
+const bgStat = {};
+for (const d of vsDetails) for (const s of d.sessions) { const k = `${s.cls}|${s.bg}|${s.status}`; bgStat[k] = (bgStat[k] || 0) + 1; }
+log(`威秀時段底色統計：${JSON.stringify(bgStat)}`);
 for (const d of vsDetails) {
   const m = movieOf(d.zh, { en: d.en, runtime: d.runtime, release: d.release, poster: d.poster, vsId: d.id });
   for (const s of d.sessions) {
@@ -106,7 +109,7 @@ for (const [k, list] of vsIndex) for (const det of list) {
   if (usedDetail.has(det)) continue;
   const [cinema, date, time, mk] = k.split('|');
   const cc = VS[cinema].cinemacode;
-  sessions.push({ m: mk, c: cinema, d: date, t: time, v: det.version.replace(/\s*\/\s*/, ' '), st: det.status, b: bookUrl(cc, det.sid), s: seatUrl(cc, det.sid) });
+  sessions.push({ m: mk, c: cinema, d: date, t: time, v: det.version.replace(/\s*\/\s*/, ' ').replace(/\bGC\b/, 'Gold Class'), st: det.status, b: bookUrl(cc, det.sid), s: seatUrl(cc, det.sid) });
 }
 
 for (const s of bw.sessions) {
@@ -134,8 +137,10 @@ for (const m of movies.values()) {
   const id = m.imdb?.id || '';
   const slug = id || 'n' + [...m.key].reduce((h, ch) => (h * 31 + ch.codePointAt(0)) >>> 0, 7).toString(36);
   finalKey.set(m.key, slug);
-  const o = outMovies[slug] || (outMovies[slug] = { title: m.title, en: m.en, rating: m.rating, runtime: m.runtime, release: m.release, vs: m.vsId, bw: m.bwPid, imdb: id ? { id, r: ratings[id]?.r || 0, v: ratings[id]?.v || 0 } : null, _zh: [], _imdbImg: '' });
-  for (const f of ['en', 'rating', 'runtime', 'release']) if (!o[f] && m[f]) o[f] = m[f];
+  const en = /[a-z]/.test(m.en) ? m.en : m.en.toLowerCase().replace(/(^|[\s:\-(])([a-z])/g, (x, a, b) => a + b.toUpperCase());
+  const o = outMovies[slug] || (outMovies[slug] = { title: m.title, en, rating: m.rating, runtime: m.runtime, release: m.release, vs: m.vsId, bw: m.bwPid, imdb: id ? { id, r: ratings[id]?.r || 0, v: ratings[id]?.v || 0 } : null, _zh: [], _imdbImg: '' });
+  if (!o.en && en) o.en = en;
+  for (const f of ['rating', 'runtime', 'release']) if (!o[f] && m[f]) o[f] = m[f];
   if (!o.vs && m.vsId) o.vs = m.vsId;
   if (!o.bw && m.bwPid) o.bw = m.bwPid;
   o._zh.push(...m.zhPosters);
