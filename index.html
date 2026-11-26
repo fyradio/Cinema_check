@@ -71,6 +71,13 @@ main{max-width:1240px;margin:0 auto;padding:18px max(5vw,16px) 40px}
 .imdb b{background:#f5c518;color:#000;font-size:11px;font-weight:900;padding:0 5px;border-radius:4px;font-family:Arial,sans-serif}
 .imdb small{font-weight:400;color:var(--mute)}
 .rel{white-space:nowrap}.rel small{font-size:inherit;color:var(--mute)}.rel.soon{background:var(--pop);color:var(--popInk);font-weight:700;padding:1px 7px;border-radius:6px;font-size:12px}
+.vbs{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.vb{display:inline-block;font-size:11px;font-weight:800;line-height:1.5;padding:0 6px;border-radius:5px;color:#fff;background:#6b5a5e;letter-spacing:.02em;white-space:nowrap;vertical-align:1px}
+.vb.imax{background:#0a5bd3}.vb.gold{background:linear-gradient(135deg,#a8790b,#e0b23a);color:#2a1d00}.vb.vip{background:#5e2a8c}.vb.giant{background:#b3261e}.vb.fdx{background:#e06c00}.vb.three{background:#00897b}.vb.sp{background:#455a64}
+.vb.lang{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}.vb.plain{background:transparent;color:var(--mute);box-shadow:inset 0 0 0 1px var(--line)}
+.fl{gap:6px}.fl .lbl{font-size:13px;opacity:.85;margin-left:4px}
+.fc{border:1px solid rgba(255,255,255,.4);background:transparent;color:#fff;padding:2px 12px;min-height:36px;font-size:14px}
+.fc[aria-pressed=true]{background:#fff;color:#241015;border-color:#fff;font-weight:700}
 .lines{grid-column:1/-1}
 .line{display:grid;grid-template-columns:7.6em minmax(0,1fr);gap:4px 10px;padding:8px 0;border-top:1px dashed var(--line)}
 .who{font-size:14px;font-weight:700;display:flex;flex-direction:column;gap:2px}
@@ -117,7 +124,7 @@ dialog::backdrop{background:rgba(20,5,10,.6)}
 .close{position:absolute;top:8px;right:8px;border:0;background:transparent;color:var(--mute);font-size:26px;width:44px;height:44px;min-height:44px;border-radius:50%}
 .lb img{display:block;width:100%;max-height:72vh;object-fit:contain;background:#000;border-radius:18px 18px 0 0}
 .note{font-size:13px;color:var(--mute);margin-top:10px}
-@media(max-width:600px){.line,.mini .line{grid-template-columns:minmax(0,1fr)}.mv{grid-template-columns:80px minmax(0,1fr)}.post{width:80px}.wall .post{width:100%}.today{font-size:13px}.tl li{grid-template-columns:max-content 40px minmax(0,1fr)}.tl img,.tl .ph{width:40px;height:60px}.tl .soon{grid-column:3;text-align:left}.tl .soon b{display:inline;margin-right:6px}.tl .big{font-size:26px}.wall{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.fl{flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}.fl>*{flex:none}.line,.mini .line{grid-template-columns:minmax(0,1fr)}.mv{grid-template-columns:80px minmax(0,1fr)}.post{width:80px}.wall .post{width:100%}.today{font-size:13px}.tl li{grid-template-columns:max-content 40px minmax(0,1fr)}.tl img,.tl .ph{width:40px;height:60px}.tl .soon{grid-column:3;text-align:left}.tl .soon b{display:inline;margin-right:6px}.tl .big{font-size:26px}.wall{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
@@ -133,6 +140,7 @@ dialog::backdrop{background:rgba(20,5,10,.6)}
     <div class="days" id="days" role="group" aria-label="選擇日期"></div>
     <div class="row"><input type="search" id="q" placeholder="搜尋片名或版本，例如：哥吉拉、IMAX、Gold Class" aria-label="搜尋片名或版本"></div>
     <div class="row" id="cins" role="group" aria-label="選擇影城"></div>
+    <div class="row fl" id="fmts" role="group" aria-label="選擇版本"></div>
     <div class="row">
       <div class="seg" role="group" aria-label="檢視方式">
         <button data-view="movie">依電影</button><button data-view="time">依時間</button><button data-view="cinema">依影城</button><button data-view="wall">海報</button>
@@ -180,7 +188,7 @@ const state = {
   on: store.get('on', THEATERS.map(t => t.key)),
   view: store.get('view2', 'movie'),
   hidePast: store.get('hidePast', true), hideFull: store.get('hideFull', false),
-  sort: store.get('sort2', 'next'), q: ''
+  sort: store.get('sort2', 'next'), q: '', fmt: '', lang: ''
 };
 
 function now() {
@@ -223,6 +231,21 @@ function dates() {
   return [...new Set(state.data.sessions.map(s => s.d))].filter(d => d >= t).sort();
 }
 
+// 版本：把「Gold Class 數位 英」「3D 數位 英」「巨幕 英文 巨幕廳」拆成 廳別／3D／語言／廳號
+const FMT_ORDER = ['IMAX', 'Gold Class', 'VIP', '巨幕', '4DX', '3D', '特別場', '直播'];
+function ver(v) {
+  v = v || '';
+  const fmt = /IMAX/i.test(v) ? 'IMAX' : /Gold Class|\bGC\b/i.test(v) ? 'Gold Class' : /VIP/i.test(v) ? 'VIP' : /巨幕/.test(v) ? '巨幕' : /4DX/i.test(v) ? '4DX' : /特別場/.test(v) ? '特別場' : /LIVE|直播/i.test(v) ? '直播' : '';
+  const is3d = /3D/i.test(v);
+  const lang = /國|中文/.test(v) ? '國語' : /英/.test(v) ? '英語' : /日/.test(v) ? '日語' : /韓/.test(v) ? '韓語' : '';
+  const hall = (v.match(/(\S+廳)$/) || [])[1] || '';
+  const tags = [fmt, is3d ? '3D' : ''].filter(Boolean);
+  return {fmt, is3d, lang, hall, tags, key: [fmt || '一般', is3d ? '3D' : '2D', lang].join('/')};
+}
+const VC = {'IMAX': 'imax', 'Gold Class': 'gold', 'VIP': 'vip', '巨幕': 'giant', '4DX': 'fdx', '3D': 'three', '特別場': 'sp', '直播': 'sp'};
+const badges = (v, withLang = true) => { const x = ver(v); return [...x.tags.map(t => `<span class="vb ${VC[t] || ''}">${esc(t)}</span>`), withLang && x.lang ? `<span class="vb lang">${esc(x.lang)}</span>` : ''].join(''); };
+const fmtOf = s => { const x = ver(s.v); return x.tags.length ? x.tags : ['一般']; };
+
 function filtered() {
   const D = state.data, n = now(), q = state.q.trim().toLowerCase();
   return D.sessions.filter(s => {
@@ -232,6 +255,8 @@ function filtered() {
     s.past = s.d === n.date && toMin(s.t) < n.mins;
     if (state.hidePast && s.past) return false;
     if (state.hideFull && (s.st === 'soldout' || s.st === 'closed')) return false;
+    if (state.fmt && !fmtOf(s).includes(state.fmt)) return false;
+    if (state.lang && ver(s.v).lang !== state.lang) return false;
     return true;
   }).sort((a, b) => toMin(a.t) - toMin(b.t));
 }
@@ -270,12 +295,12 @@ function viewMovie(list) {
   if (!groups.length) return empty();
   return '<div class="grid">' + groups.map(g => {
     const lines = {};
-    for (const s of g.ss) (lines[s.c + '|' + s.v] = lines[s.c + '|' + s.v] || []).push(s);
-    const keys = Object.keys(lines).sort((a, b) => THEATERS.findIndex(t => t.key === a.split('|')[0]) - THEATERS.findIndex(t => t.key === b.split('|')[0]) || a.localeCompare(b));
+    for (const s of g.ss) { const k = s.c + '|' + ver(s.v).key; (lines[k] = lines[k] || []).push(s); }
+    const keys = Object.keys(lines).sort((a, b) => THEATERS.findIndex(t => t.key === a.split('|')[0]) - THEATERS.findIndex(t => t.key === b.split('|')[0]) || (a.includes('|一般/') ? 0 : 1) - (b.includes('|一般/') ? 0 : 1) || a.localeCompare(b));
     return `<article class="card mv">${poster(g.id, g.m)}<div>
       <h2>${esc(g.m.title)}</h2>${g.m.en ? `<div class="en">${esc(g.m.en)}</div>` : ''}
       <div class="meta">${rate(g.m)}${imdb(g.m)}<span>${esc(dur(g.m.runtime))}</span>${released(g.m)}<span>${g.ss.length} 場</span></div></div>
-      <div class="lines">${keys.map(k => { const [c, v] = k.split('|'); return `<div class="line"><div class="who" style="--c:var(--c-${c})"><b>${esc(TH[c].short)}</b>${v ? `<span>${esc(v)}</span>` : ''}</div><div class="times">${lines[k].map(s => chip(s, g.next)).join('')}</div></div>`; }).join('')}</div>
+      <div class="lines">${keys.map(k => { const c = k.split('|')[0], b = badges(lines[k][0].v); return `<div class="line"><div class="who" style="--c:var(--c-${c})"><b>${esc(TH[c].short)}</b><span class="vbs">${b || '<span class="vb plain">一般</span>'}</span></div><div class="times">${lines[k].map(s => chip(s, g.next)).join('')}</div></div>`; }).join('')}</div>
     </article>`;
   }).join('') + '</div>';
 }
@@ -291,7 +316,7 @@ function viewTime(list) {
     const img = m.poster && m.poster.thumb ? `<img src="${esc(m.poster.thumb)}" alt="" loading="lazy">` : '<span class="ph"></span>';
     return `<li data-s="${i}" class="${left !== null && !s.past && left <= 30 ? 'hot' : ''}"${s.past ? ' style="opacity:.45"' : ''}>
       <span class="big num">${esc(s.t)}</span>${img}
-      <span class="what">${esc(m.title)} ${rate(m)}<span class="where" style="--c:var(--c-${s.c})"><i></i>${esc(TH[s.c].short)}${s.v ? '・' + esc(s.v) : ''}${m.runtime ? '・散場 ' + fromMin(toMin(s.t) + m.runtime) : ''}・${released(m, true)}</span></span>
+      <span class="what">${esc(m.title)} ${rate(m)} ${badges(s.v)}<span class="where" style="--c:var(--c-${s.c})"><i></i>${esc(TH[s.c].short)}${ver(s.v).hall ? '・' + esc(ver(s.v).hall) : ''}${m.runtime ? '・散場 ' + fromMin(toMin(s.t) + m.runtime) : ''}・${released(m, true)}</span></span>
       <span class="soon">${lab ? `<b class="t ${seatClass(s)}" style="all:unset;font-weight:700;color:var(--${s.st === 'soldout' ? 'out' : s.st === 'few' ? 'few' : 'ok'})">${esc(lab)}</b>` : ''}${esc(soon)}</span></li>`;
   }).join('') + '</ul>';
 }
@@ -301,10 +326,10 @@ function viewCinema(list) {
   for (const t of THEATERS) {
     if (!state.on.includes(t.key)) continue;
     const mine = list.filter(s => s.c === t.key), by = {};
-    for (const s of mine) (by[s.m + '|' + s.v] = by[s.m + '|' + s.v] || []).push(s);
+    for (const s of mine) { const k = s.m + '|' + ver(s.v).key; (by[k] = by[k] || []).push(s); }
     html += `<div class="sec" style="--c:var(--c-${t.key})"><h2>${esc(t.name)}</h2><a href="${t.official}" target="_blank" rel="noopener">官網</a></div>`;
     const keys = Object.keys(by);
-    html += keys.length ? `<div class="card mini">${keys.map(k => { const [id, v] = k.split('|'), m = D.movies[id]; return `<div class="line"><div class="who" style="--c:var(--c-${t.key})"><b>${esc(m.title)} ${rate(m)}</b><span>${esc([v, dur(m.runtime)].filter(Boolean).join('・'))} ${released(m, true)}</span></div><div class="times">${by[k].map(s => chip(s)).join('')}</div></div>`; }).join('')}</div>`
+    html += keys.length ? `<div class="card mini">${keys.map(k => { const id = k.split('|')[0], m = D.movies[id]; return `<div class="line"><div class="who" style="--c:var(--c-${t.key})"><b>${esc(m.title)} ${rate(m)}</b><span class="vbs">${badges(by[k][0].v)} ${esc(dur(m.runtime))} ${released(m, true)}</span></div><div class="times">${by[k].map(s => chip(s)).join('')}</div></div>`; }).join('')}</div>`
       : '<div class="card empty">這天沒有符合的場次</div>';
   }
   return html || empty();
@@ -329,6 +354,14 @@ function renderHeader() {
   const mc = {};
   for (const s of D.sessions) if (s.d === state.day) (mc[s.c] = mc[s.c] || new Set()).add(s.m);
   $('cins').innerHTML = THEATERS.map(t => `<button class="cin" data-key="${t.key}" aria-pressed="${state.on.includes(t.key)}" style="--c:var(--c-${t.key})"><i></i>${esc(t.short)}${mc[t.key] ? ` <small>${mc[t.key].size} 部</small>` : ''}</button>`).join('');
+  const daySs = D.sessions.filter(s => s.d === state.day && state.on.includes(s.c));
+  const fc = {}, lc = {};
+  for (const s of daySs) { for (const f of fmtOf(s)) fc[f] = (fc[f] || 0) + 1; const l = ver(s.v).lang; if (l) lc[l] = (lc[l] || 0) + 1; }
+  const fl = ['一般', ...FMT_ORDER].filter(f => fc[f]);
+  if (state.fmt && !fc[state.fmt]) state.fmt = '';
+  if (state.lang && !lc[state.lang]) state.lang = '';
+  $('fmts').innerHTML = `<span class="lbl">版本</span>` + ['', ...fl].map(f => `<button class="fc ${VC[f] || ''}" data-fmt="${esc(f)}" aria-pressed="${state.fmt === f}">${f ? esc(f) : '全部'}</button>`).join('')
+    + `<span class="lbl">語言</span>` + ['', ...['國語', '英語', '日語', '韓語'].filter(l => lc[l])].map(l => `<button class="fc" data-lang="${esc(l)}" aria-pressed="${state.lang === l}">${l ? esc(l) : '全部'}</button>`).join('');
   document.querySelectorAll('.seg button').forEach(b => b.setAttribute('aria-pressed', b.dataset.view === state.view));
   $('hidePast').setAttribute('aria-pressed', state.hidePast);
   $('hideFull').setAttribute('aria-pressed', state.hideFull);
@@ -358,7 +391,7 @@ function openSession(s) {
   else seat = s.c === 'shown' ? '座位數量只算未來兩天的場次，可以點「看座位圖」' : '目前還有位子（威秀只標示快售完／完售）';
   const col = s.st === 'soldout' || s.st === 'closed' ? 'out' : s.st === 'few' ? 'few' : 'ok';
   $('dlgBody').innerHTML = `<div class="sheet" style="position:relative"><button class="close" data-close aria-label="關閉">×</button>
-    <h3>${esc(m.title)}</h3><div class="en">${esc(t.name)}${s.v ? '・' + esc(s.v) : ''}</div><div class="meta">${rate(m)}${esc(dur(m.runtime))}${released(m)}</div>
+    <h3>${esc(m.title)}</h3><div class="en">${esc(t.name)}${ver(s.v).hall ? '・' + esc(ver(s.v).hall) : ''}</div><div class="meta vbs">${badges(s.v) || '<span class="vb plain">一般廳</span>'}<span>${esc(s.v)}</span></div><div class="meta">${rate(m)}${esc(dur(m.runtime))}${released(m)}</div>
     <div class="big num">${dayName(s.d)} ${md(s.d)}（${wd(s.d)}）${esc(s.t)}${end ? `<span style="font-size:20px;color:var(--mute)"> → ${end} 散場</span>` : ''}</div>
     <div class="seat" style="color:var(--${col})">${esc(seat)}</div>
     <div class="btns">${s.b ? `<a class="btn main" href="${esc(s.b)}" target="_blank" rel="noopener">訂票</a>` : ''}${s.s ? `<a class="btn" href="${esc(s.s)}" target="_blank" rel="noopener">看座位圖</a>` : ''}${m.imdb && m.imdb.id ? `<a class="btn" href="https://www.imdb.com/title/${esc(m.imdb.id)}/" target="_blank" rel="noopener">IMDb</a>` : ''}</div>
@@ -386,6 +419,12 @@ $('cins').addEventListener('click', e => {
   store.set('on', state.on); render();
 });
 document.querySelector('.seg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; state.view = b.dataset.view; store.set('view2', state.view); render(); });
+$('fmts').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.fmt !== undefined) state.fmt = b.dataset.fmt;
+  if (b.dataset.lang !== undefined) state.lang = b.dataset.lang;
+  render();
+});
 $('hidePast').addEventListener('click', () => { state.hidePast = !state.hidePast; store.set('hidePast', state.hidePast); render(); });
 $('hideFull').addEventListener('click', () => { state.hideFull = !state.hideFull; store.set('hideFull', state.hideFull); render(); });
 $('sort').addEventListener('change', e => { state.sort = e.target.value; store.set('sort2', state.sort); render(); });
