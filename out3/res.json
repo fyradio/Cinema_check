@@ -1,0 +1,2994 @@
+{
+ "today": "2026-11-26",
+ "bw": [
+  {
+   "name": "沙丘：第三部",
+   "date": "2026-12-15",
+   "time": "15:00",
+   "hall": "10廳",
+   "k": {
+    "+/N/-": 88,
+    "-/N/-": 2,
+    "0/N/n": 73,
+    "1/N/n": 2
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "9",
+     "colname": "09",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 7,
+     "row": "4",
+     "col": "7",
+     "colname": "07",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "6",
+     "arrayX": "7"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "沙丘：第三部",
+   "date": "2026-12-15",
+   "time": "17:55",
+   "hall": "10廳",
+   "k": {
+    "+/N/-": 88,
+    "-/N/-": 2,
+    "0/N/n": 75
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "9",
+     "colname": "09",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "沙丘：第三部",
+   "date": "2026-12-15",
+   "time": "20:50",
+   "hall": "10廳",
+   "k": {
+    "+/N/-": 88,
+    "-/N/-": 2,
+    "0/N/n": 67,
+    "1/N/n": 8
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "9",
+     "colname": "09",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 6,
+     "row": "5",
+     "col": "8",
+     "colname": "08",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "7",
+     "arrayX": "6"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "沙丘：第三部",
+   "date": "2026-12-16",
+   "time": "11:10",
+   "hall": "10廳",
+   "k": {
+    "+/N/-": 88,
+    "-/N/-": 2,
+    "0/N/n": 72,
+    "1/N/n": 3
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "9",
+     "colname": "09",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 7,
+     "row": "5",
+     "col": "7",
+     "colname": "07",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "7",
+     "arrayX": "7"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "沙丘：第三部",
+   "date": "2026-12-16",
+   "time": "14:05",
+   "hall": "10廳",
+   "k": {
+    "+/N/-": 88,
+    "-/N/-": 2,
+    "0/N/n": 71,
+    "1/N/n": 4
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "9",
+     "colname": "09",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 5,
+     "row": "5",
+     "col": "9",
+     "colname": "09",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "7",
+     "arrayX": "5"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "沙丘：第三部",
+   "date": "2026-12-16",
+   "time": "17:00",
+   "hall": "10廳",
+   "k": {
+    "+/N/-": 88,
+    "-/N/-": 2,
+    "0/N/n": 73,
+    "1/N/n": 2
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "9",
+     "colname": "09",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 6,
+     "row": "4",
+     "col": "8",
+     "colname": "08",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "6",
+     "arrayX": "6"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "沙丘：第三部",
+   "date": "2026-12-16",
+   "time": "20:00",
+   "hall": "10廳",
+   "k": {
+    "+/N/-": 88,
+    "-/N/-": 2,
+    "0/N/n": 69,
+    "1/N/n": 6
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "9",
+     "colname": "09",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 6,
+     "row": "5",
+     "col": "8",
+     "colname": "08",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "7",
+     "arrayX": "6"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "門當父不對之親家駕到",
+   "date": "2026-11-27",
+   "time": "13:10",
+   "hall": "13廳",
+   "k": {
+    "+/N/-": 88,
+    "0/N/n": 75,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "門當父不對之親家駕到",
+   "date": "2026-11-27",
+   "time": "15:15",
+   "hall": "13廳",
+   "k": {
+    "+/N/-": 88,
+    "0/N/n": 75,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "門當父不對之親家駕到",
+   "date": "2026-11-27",
+   "time": "17:20",
+   "hall": "13廳",
+   "k": {
+    "+/N/-": 88,
+    "0/N/n": 75,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "門當父不對之親家駕到",
+   "date": "2026-11-27",
+   "time": "19:25",
+   "hall": "13廳",
+   "k": {
+    "+/N/-": 88,
+    "0/N/n": 75,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "門當父不對之親家駕到",
+   "date": "2026-11-27",
+   "time": "21:30",
+   "hall": "13廳",
+   "k": {
+    "+/N/-": 88,
+    "0/N/n": 75,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "門當父不對之親家駕到",
+   "date": "2026-11-28",
+   "time": "11:10",
+   "hall": "13廳",
+   "k": {
+    "+/N/-": 88,
+    "0/N/n": 75,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "門當父不對之親家駕到",
+   "date": "2026-11-28",
+   "time": "13:10",
+   "hall": "13廳",
+   "k": {
+    "+/N/-": 88,
+    "0/N/n": 75,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "門當父不對之親家駕到",
+   "date": "2026-11-28",
+   "time": "15:15",
+   "hall": "13廳",
+   "k": {
+    "+/N/-": 88,
+    "0/N/n": 75,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "門當父不對之親家駕到",
+   "date": "2026-11-28",
+   "time": "17:20",
+   "hall": "13廳",
+   "k": {
+    "+/N/-": 88,
+    "0/N/n": 75,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "門當父不對之親家駕到",
+   "date": "2026-11-28",
+   "time": "19:25",
+   "hall": "13廳",
+   "k": {
+    "+/N/-": 88,
+    "0/N/n": 75,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "門當父不對之親家駕到",
+   "date": "2026-11-28",
+   "time": "21:30",
+   "hall": "13廳",
+   "k": {
+    "+/N/-": 88,
+    "0/N/n": 75,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "大搜查線 N.E.W.",
+   "date": "2026-11-27",
+   "time": "13:20",
+   "hall": "14廳",
+   "k": {
+    "+/N/-": 87,
+    "0/N/n": 65,
+    "-/N/-": 2,
+    "1/N/n": 6
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "1": {
+     "order": 3,
+     "row": "4",
+     "col": "11",
+     "colname": "11",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "6",
+     "arrayX": "3"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "大搜查線 N.E.W.",
+   "date": "2026-11-27",
+   "time": "16:05",
+   "hall": "14廳",
+   "k": {
+    "+/N/-": 87,
+    "0/N/n": 65,
+    "-/N/-": 2,
+    "1/N/n": 6
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "1": {
+     "order": 3,
+     "row": "4",
+     "col": "11",
+     "colname": "11",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "6",
+     "arrayX": "3"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "大搜查線 N.E.W.",
+   "date": "2026-11-27",
+   "time": "18:50",
+   "hall": "14廳",
+   "k": {
+    "+/N/-": 87,
+    "0/N/n": 65,
+    "-/N/-": 2,
+    "1/N/n": 6
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "1": {
+     "order": 3,
+     "row": "4",
+     "col": "11",
+     "colname": "11",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "6",
+     "arrayX": "3"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "大搜查線 N.E.W.",
+   "date": "2026-11-27",
+   "time": "21:35",
+   "hall": "14廳",
+   "k": {
+    "+/N/-": 87,
+    "0/N/n": 65,
+    "-/N/-": 2,
+    "1/N/n": 6
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "1": {
+     "order": 3,
+     "row": "4",
+     "col": "11",
+     "colname": "11",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "6",
+     "arrayX": "3"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "大搜查線 N.E.W.",
+   "date": "2026-11-28",
+   "time": "13:20",
+   "hall": "14廳",
+   "k": {
+    "+/N/-": 87,
+    "0/N/n": 65,
+    "-/N/-": 2,
+    "1/N/n": 6
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "1": {
+     "order": 3,
+     "row": "4",
+     "col": "11",
+     "colname": "11",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "6",
+     "arrayX": "3"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "大搜查線 N.E.W.",
+   "date": "2026-11-28",
+   "time": "16:05",
+   "hall": "14廳",
+   "k": {
+    "+/N/-": 87,
+    "0/N/n": 65,
+    "-/N/-": 2,
+    "1/N/n": 6
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "1": {
+     "order": 3,
+     "row": "4",
+     "col": "11",
+     "colname": "11",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "6",
+     "arrayX": "3"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "大搜查線 N.E.W.",
+   "date": "2026-11-28",
+   "time": "18:50",
+   "hall": "14廳",
+   "k": {
+    "+/N/-": 87,
+    "0/N/n": 65,
+    "-/N/-": 2,
+    "1/N/n": 6
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "1": {
+     "order": 3,
+     "row": "4",
+     "col": "11",
+     "colname": "11",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "6",
+     "arrayX": "3"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "大搜查線 N.E.W.",
+   "date": "2026-11-28",
+   "time": "21:35",
+   "hall": "14廳",
+   "k": {
+    "+/N/-": 87,
+    "0/N/n": 65,
+    "-/N/-": 2,
+    "1/N/n": 6
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "1": {
+     "order": 3,
+     "row": "4",
+     "col": "11",
+     "colname": "11",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "6",
+     "arrayX": "3"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "晚窒息",
+   "date": "2026-11-27",
+   "time": "13:10",
+   "hall": "11廳",
+   "k": {
+    "+/N/-": 87,
+    "0/N/n": 71,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "1",
+     "colname": "01",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "11",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "晚窒息",
+   "date": "2026-11-27",
+   "time": "15:05",
+   "hall": "11廳",
+   "k": {
+    "+/N/-": 87,
+    "0/N/n": 71,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "1",
+     "colname": "01",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "11",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "晚窒息",
+   "date": "2026-11-27",
+   "time": "19:00",
+   "hall": "11廳",
+   "k": {
+    "+/N/-": 87,
+    "0/N/n": 71,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "1",
+     "colname": "01",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "11",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "晚窒息",
+   "date": "2026-11-27",
+   "time": "21:00",
+   "hall": "11廳",
+   "k": {
+    "+/N/-": 87,
+    "0/N/n": 71,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "1",
+     "colname": "01",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "11",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "晚窒息",
+   "date": "2026-11-28",
+   "time": "13:10",
+   "hall": "11廳",
+   "k": {
+    "+/N/-": 87,
+    "0/N/n": 71,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "1",
+     "colname": "01",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "11",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "晚窒息",
+   "date": "2026-11-28",
+   "time": "15:05",
+   "hall": "11廳",
+   "k": {
+    "+/N/-": 87,
+    "0/N/n": 71,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "1",
+     "colname": "01",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "11",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "晚窒息",
+   "date": "2026-11-28",
+   "time": "19:00",
+   "hall": "11廳",
+   "k": {
+    "+/N/-": 87,
+    "0/N/n": 71,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "1",
+     "colname": "01",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "11",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "晚窒息",
+   "date": "2026-11-28",
+   "time": "21:00",
+   "hall": "11廳",
+   "k": {
+    "+/N/-": 87,
+    "0/N/n": 71,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "1",
+     "colname": "01",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "11",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "庫洛魔法使 劇場版：被封印的卡片",
+   "date": "2026-11-27",
+   "time": "10:50",
+   "hall": "5廳",
+   "k": {
+    "+/N/-": 87,
+    "-/N/-": 2,
+    "0/N/n": 74,
+    "1/N/n": 2
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "4",
+     "colname": "04",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 7,
+     "row": "6",
+     "col": "6",
+     "colname": "06",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "8",
+     "arrayX": "7"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "1",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "庫洛魔法使 劇場版：被封印的卡片",
+   "date": "2026-11-27",
+   "time": "16:00",
+   "hall": "5廳",
+   "k": {
+    "+/N/-": 87,
+    "-/N/-": 2,
+    "0/N/n": 76
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "4",
+     "colname": "04",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "1",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "庫洛魔法使 劇場版：被封印的卡片",
+   "date": "2026-11-27",
+   "time": "18:00",
+   "hall": "5廳",
+   "k": {
+    "+/N/-": 87,
+    "-/N/-": 2,
+    "0/N/n": 71,
+    "1/N/n": 5
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "4",
+     "colname": "04",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 8,
+     "row": "4",
+     "col": "7",
+     "colname": "07",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "6",
+     "arrayX": "8"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "1",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "庫洛魔法使 劇場版：被封印的卡片",
+   "date": "2026-11-28",
+   "time": "10:50",
+   "hall": "5廳",
+   "k": {
+    "+/N/-": 87,
+    "-/N/-": 2,
+    "0/N/n": 74,
+    "1/N/n": 2
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "4",
+     "colname": "04",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 7,
+     "row": "5",
+     "col": "6",
+     "colname": "06",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "7",
+     "arrayX": "7"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "1",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "庫洛魔法使 劇場版：被封印的卡片",
+   "date": "2026-11-28",
+   "time": "16:00",
+   "hall": "5廳",
+   "k": {
+    "+/N/-": 87,
+    "-/N/-": 2,
+    "0/N/n": 72,
+    "1/N/n": 4
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "4",
+     "colname": "04",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 7,
+     "row": "5",
+     "col": "6",
+     "colname": "06",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "7",
+     "arrayX": "7"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "1",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "庫洛魔法使 劇場版：被封印的卡片",
+   "date": "2026-11-28",
+   "time": "18:00",
+   "hall": "5廳",
+   "k": {
+    "+/N/-": 87,
+    "-/N/-": 2,
+    "0/N/n": 76
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "4",
+     "colname": "04",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "1",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "我們不是陌生人",
+   "date": "2026-11-27",
+   "time": "15:30",
+   "hall": "9廳",
+   "k": {
+    "+/N/-": 88,
+    "0/N/n": 75,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 1,
+     "row": "1",
+     "col": "1",
+     "colname": "01",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "1"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 11,
+     "row": "1",
+     "col": "11",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "11"
+    }
+   }
+  },
+  {
+   "name": "我們不是陌生人",
+   "date": "2026-11-27",
+   "time": "18:30",
+   "hall": "9廳",
+   "k": {
+    "+/N/-": 88,
+    "0/N/n": 75,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 1,
+     "row": "1",
+     "col": "1",
+     "colname": "01",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "1"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 11,
+     "row": "1",
+     "col": "11",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "11"
+    }
+   }
+  },
+  {
+   "name": "我們不是陌生人",
+   "date": "2026-11-28",
+   "time": "13:10",
+   "hall": "9廳",
+   "k": {
+    "+/N/-": 88,
+    "0/N/n": 75,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 1,
+     "row": "1",
+     "col": "1",
+     "colname": "01",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "1"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 11,
+     "row": "1",
+     "col": "11",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "11"
+    }
+   }
+  },
+  {
+   "name": "我們不是陌生人",
+   "date": "2026-11-28",
+   "time": "18:40",
+   "hall": "9廳",
+   "k": {
+    "+/N/-": 88,
+    "0/N/n": 75,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 1,
+     "row": "1",
+     "col": "1",
+     "colname": "01",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "1"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 11,
+     "row": "1",
+     "col": "11",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "11"
+    }
+   }
+  },
+  {
+   "name": "袒裎相見 口碑場",
+   "date": "2026-11-27",
+   "time": "20:00",
+   "hall": "5廳",
+   "k": {
+    "+/N/-": 87,
+    "-/N/-": 2,
+    "0/N/n": 74,
+    "1/N/n": 2
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "4",
+     "colname": "04",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 10,
+     "row": "7",
+     "col": "10",
+     "colname": "10",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "9",
+     "arrayX": "10"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "1",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "袒裎相見 口碑場",
+   "date": "2026-11-28",
+   "time": "20:00",
+   "hall": "5廳",
+   "k": {
+    "+/N/-": 87,
+    "-/N/-": 2,
+    "0/N/n": 76
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "4",
+     "colname": "04",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "1",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "神隱少女",
+   "date": "2026-11-27",
+   "time": "13:10",
+   "hall": "10廳",
+   "k": {
+    "+/N/-": 88,
+    "-/N/-": 2,
+    "0/N/n": 67,
+    "1/N/n": 8
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "9",
+     "colname": "09",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 9,
+     "row": "4",
+     "col": "5",
+     "colname": "05",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "6",
+     "arrayX": "9"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "神隱少女",
+   "date": "2026-11-27",
+   "time": "18:00",
+   "hall": "10廳",
+   "k": {
+    "+/N/-": 88,
+    "-/N/-": 2,
+    "0/N/n": 57,
+    "1/N/n": 18
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "9",
+     "colname": "09",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 6,
+     "row": "4",
+     "col": "8",
+     "colname": "08",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "6",
+     "arrayX": "6"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "神隱少女",
+   "date": "2026-11-28",
+   "time": "10:50",
+   "hall": "10廳",
+   "k": {
+    "+/N/-": 88,
+    "-/N/-": 2,
+    "0/N/n": 73,
+    "1/N/n": 2
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "9",
+     "colname": "09",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 6,
+     "row": "5",
+     "col": "8",
+     "colname": "08",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "7",
+     "arrayX": "6"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "神隱少女",
+   "date": "2026-11-28",
+   "time": "13:15",
+   "hall": "10廳",
+   "k": {
+    "+/N/-": 88,
+    "-/N/-": 2,
+    "0/N/n": 69,
+    "1/N/n": 6
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "9",
+     "colname": "09",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 7,
+     "row": "5",
+     "col": "7",
+     "colname": "07",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "7",
+     "arrayX": "7"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "神隱少女",
+   "date": "2026-11-28",
+   "time": "18:00",
+   "hall": "10廳",
+   "k": {
+    "+/N/-": 88,
+    "-/N/-": 2,
+    "0/N/n": 67,
+    "1/N/n": 8
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "9",
+     "colname": "09",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 7,
+     "row": "5",
+     "col": "7",
+     "colname": "07",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "7",
+     "arrayX": "7"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "歡迎光臨魔法秘境",
+   "date": "2026-11-26",
+   "time": "20:00",
+   "hall": "3廳",
+   "k": {
+    "+/N/-": 97,
+    "0/N/n": 87,
+    "-/N/-": 2,
+    "1/N/n": 1
+   },
+   "samples": {
+    "0": {
+     "order": 1,
+     "row": "1",
+     "col": "13",
+     "colname": "13",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "1"
+    },
+    "1": {
+     "order": 8,
+     "row": "5",
+     "col": "7",
+     "colname": "07",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "7",
+     "arrayX": "8"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 4,
+     "row": "1",
+     "col": "11",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "4"
+    }
+   }
+  },
+  {
+   "name": "歡迎光臨魔法秘境",
+   "date": "2026-11-26",
+   "time": "20:30",
+   "hall": "12廳",
+   "k": {
+    "+/N/-": 91,
+    "0/N/n": 87,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 2,
+     "row": "1",
+     "col": "12",
+     "colname": "12",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 12,
+     "row": "1",
+     "col": "2",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "12"
+    }
+   }
+  },
+  {
+   "name": "歡迎光臨魔法秘境",
+   "date": "2026-11-26",
+   "time": "21:35",
+   "hall": "1廳",
+   "k": {
+    "+/N/-": 107,
+    "-/N/-": 2,
+    "0/N/n": 93,
+    "1/N/n": 2
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "10",
+     "colname": "10",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 14,
+     "row": "8",
+     "col": "2",
+     "colname": "02",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "10",
+     "arrayX": "14"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "13",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "歡迎光臨魔法秘境",
+   "date": "2026-11-27",
+   "time": "10:20",
+   "hall": "1廳",
+   "k": {
+    "+/N/-": 107,
+    "-/N/-": 2,
+    "0/N/n": 93,
+    "1/N/n": 2
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "10",
+     "colname": "10",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 14,
+     "row": "8",
+     "col": "2",
+     "colname": "02",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "10",
+     "arrayX": "14"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "13",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "歡迎光臨魔法秘境",
+   "date": "2026-11-27",
+   "time": "10:50",
+   "hall": "3廳",
+   "k": {
+    "+/N/-": 97,
+    "0/N/n": 88,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 1,
+     "row": "1",
+     "col": "13",
+     "colname": "13",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "1"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 4,
+     "row": "1",
+     "col": "11",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "4"
+    }
+   }
+  },
+  {
+   "name": "歡迎光臨魔法秘境",
+   "date": "2026-11-27",
+   "time": "13:05",
+   "hall": "3廳",
+   "k": {
+    "+/N/-": 97,
+    "0/N/n": 88,
+    "-/N/-": 2
+   },
+   "samples": {
+    "0": {
+     "order": 1,
+     "row": "1",
+     "col": "13",
+     "colname": "13",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "1"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 4,
+     "row": "1",
+     "col": "11",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "4"
+    }
+   }
+  },
+  {
+   "name": "歡迎光臨魔法秘境",
+   "date": "2026-11-27",
+   "time": "14:50",
+   "hall": "1廳",
+   "k": {
+    "+/N/-": 107,
+    "-/N/-": 2,
+    "0/N/n": 93,
+    "1/N/n": 2
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "10",
+     "colname": "10",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 14,
+     "row": "8",
+     "col": "2",
+     "colname": "02",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "10",
+     "arrayX": "14"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "13",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "歡迎光臨魔法秘境",
+   "date": "2026-11-27",
+   "time": "15:50",
+   "hall": "2廳",
+   "k": {
+    "+/N/-": 107,
+    "-/N/-": 2,
+    "0/N/n": 93,
+    "1/N/n": 2
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "10",
+     "colname": "10",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 14,
+     "row": "8",
+     "col": "2",
+     "colname": "02",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "10",
+     "arrayX": "14"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "13",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  },
+  {
+   "name": "歡迎光臨魔法秘境",
+   "date": "2026-11-27",
+   "time": "17:05",
+   "hall": "1廳",
+   "k": {
+    "+/N/-": 107,
+    "-/N/-": 2,
+    "0/N/n": 93,
+    "1/N/n": 2
+   },
+   "samples": {
+    "0": {
+     "order": 5,
+     "row": "1",
+     "col": "10",
+     "colname": "10",
+     "seatkind": "0",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "5"
+    },
+    "1": {
+     "order": 14,
+     "row": "8",
+     "col": "2",
+     "colname": "02",
+     "seatkind": "1",
+     "choice": "N",
+     "arrayY": "10",
+     "arrayX": "14"
+    },
+    "+": {
+     "order": 0,
+     "row": "",
+     "col": "",
+     "colname": null,
+     "seatkind": "+",
+     "choice": "N",
+     "arrayY": "0",
+     "arrayX": "0"
+    },
+    "-": {
+     "order": 2,
+     "row": "1",
+     "col": "13",
+     "colname": null,
+     "seatkind": "-",
+     "choice": "N",
+     "arrayY": "3",
+     "arrayX": "2"
+    }
+   }
+  }
+ ],
+ "vs": {
+  "rules": [
+   "ERR https://www.unicornpopcorn.com.tw/ForVsWeb/js/photoSwipe/photoswipe.css",
+   "ERR https://www.unicornpopcorn.com.tw/ForVsWeb/js/photoSwipe/default-skin/default-skin.css",
+   "ERR https://www.unicornpopcorn.com.tw/ForVsWeb/js/validation/validationEngine.jquery.css",
+   "ERR https://www.unicornpopcorn.com.tw/ForVsWeb/css/styles.css",
+   "ERR https://www.unicornpopcorn.com.tw/ForVsWeb/css/reset.css",
+   "ERR https://www.unicornpopcorn.com.tw/ForVsWeb/css/share.css?v=2026053002",
+   "ERR https://www.unicornpopcorn.com.tw/ForVsWeb/css/inside.css",
+   "ERR https://www.unicornpopcorn.com.tw/ForVsWeb/css/modal.css?2025060613"
+  ],
+  "lis": {
+   "|rgba(0, 0, 0, 0)|rgb(239, 239, 239)": 716
+  },
+  "title": "威秀影城 - 哥吉拉-0.0"
+ },
+ "bwRendered": {
+  "c": {
+   "td-block|": 96,
+   "td-block|N": 14,
+   "td-block td-seat accessibility|": 2,
+   "td-block td-seat|N": 75
+  },
+  "html": "<div class=\"table-tr\"><div class=\"table-td\"><div class=\"td-block\">\n                                        \n                                    </div></div> <div class=\"table-td\"><div class=\"td-block\"><span class=\"svg-icons i-wheel-chair\" style=\"display: none;\"></span>\n                                        \n                                    </div></div><div class=\"table-td\"><div class=\"td-block\"><span class=\"svg-icons i-wheel-chair\" style=\"display: none;\"></span>\n                                        \n                                    </div></div><div class=\"table-td\"><div class=\"td-block\"><span class=\"svg-icons i-wheel-chair\" style=\"display: none;\"></span>\n                                        \n                                    </div></div><div class=\"table-td\"><div class=\"td-block\"><span class=\"svg-icons i-wheel-chair\" style=\"display: none;\"></span>\n                                        \n                                    </div></div><div class=\"table-td\"><div class=\"td-block\"><span class=\"svg-icons i-wheel-chair\" style=\"display: none;\"></span>\n                                        \n                                    </div></div><div class=\"table-td\"><div class=\"td-block\"><span class=\"svg-icons i-wheel-chair\" style=\"display: none;\"></span>\n                                        \n                                    </div></div><div class=\"table-td\"><div class=\"td-block\"><span class=\"svg-icons i-wheel-chair\" style=\"display: none;\"></span>\n                                        \n                                    </div></div><div class=\"table-td\"><div class=\"td-block\"><span class=\"svg-icons i-wheel-chair\" style=\"display: none;\"></span>\n                                        \n                                    </div></div><div class=\"table-td\"><div class=\"td-block\"><span class=\"svg-icons i-wheel-chair\" style=\"display: none;\"></span>\n                                        \n                                    </div></div><div class=\"table-td\"><div class=\"td-block\"><span class=\"svg-icons i-wheel-chair\" style=\"display: none;\"></span>\n                                        \n                                    </div></div><div class=\"table-td\"><div class=\"td-block\"><span class=\"svg-icons i-wheel-chair\" style=\"display: none;\"></span>\n                                        \n                                    </div></div><div class=\"table-td\"><div class=\"td-block\"><span class=\"svg-icons i-wheel-chair\" style=\"display: none;\"></span>\n                                        \n                                    </div></div><div class=\"table-td\"><div class=\"td-block\"><span class=\"svg-icons i-wheel-chair\" style=\"display: none;\"></span>\n                                        \n                                    </div></div><div class=\"table-td\"><div class=\"td-block\"><span class=\"svg-icons i-wheel-chair\" style=\"display: none;\"></span>\n                                        \n                                    </div></div><div class=\"table-td\"><div class=\"td-block\"><span class=\"svg-icons i-wheel-chair\" style=\"display: none;\"></span>\n                                        \n                                    </div></div> <div class=\"table-td\"><div class=\"td-block\">\n                                        \n                                    </div></div></div><div class=\"table-tr\"><div class=\"table-td\"><div class=\"td-block\">\n                                        \n                                    </div></div> <div class=\"table-td\"><div class=\"td-block\"><span class=\"svg-icons i-wheel-chair\" style=\"display: none;\"></span>\n                                        \n                                    </div></div><div class=\"table-td\"><div class=\"td-block\"><span class=\"svg-icons i-wheel-chair\" style=\"display: none;\"></span>\n                                        \n                                    </div></div><div class=\"table-td\"><div class=\"td-block\"><span class=\"svg-icons i-wheel-chair\" style=\"display: none;\"></span"
+ },
+ "bwPick": {
+  "name": "沙丘：第三部",
+  "date": "2026-12-15",
+  "time": "15:00",
+  "hall": "10廳",
+  "k": {
+   "+/N/-": 88,
+   "-/N/-": 2,
+   "0/N/n": 73,
+   "1/N/n": 2
+  },
+  "samples": {
+   "0": {
+    "order": 5,
+    "row": "1",
+    "col": "9",
+    "colname": "09",
+    "seatkind": "0",
+    "choice": "N",
+    "arrayY": "3",
+    "arrayX": "5"
+   },
+   "1": {
+    "order": 7,
+    "row": "4",
+    "col": "7",
+    "colname": "07",
+    "seatkind": "1",
+    "choice": "N",
+    "arrayY": "6",
+    "arrayX": "7"
+   },
+   "+": {
+    "order": 0,
+    "row": "",
+    "col": "",
+    "colname": null,
+    "seatkind": "+",
+    "choice": "N",
+    "arrayY": "0",
+    "arrayX": "0"
+   },
+   "-": {
+    "order": 2,
+    "row": "1",
+    "col": "12",
+    "colname": null,
+    "seatkind": "-",
+    "choice": "N",
+    "arrayY": "3",
+    "arrayX": "2"
+   }
+  }
+ }
+}
