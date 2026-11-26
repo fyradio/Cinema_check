@@ -687,5 +687,34 @@
   },
   "thumb": "posters/thumb/tt42289343.webp",
   "thumbFrom": "posters/full/tt42289343-zh.jpg"
+ },
+ "tt38077943": {
+  "zh": {
+   "file": "posters/full/tt38077943-zh.jpg",
+   "w": 4134,
+   "h": 5906,
+   "bytes": 396012,
+   "src": "https://www.unicornpopcorn.com.tw/ForVsWeb/upload/film/film_20261028044.jpg"
+  },
+  "imdb": {
+   "file": "posters/full/tt38077943-imdb.jpg",
+   "w": 1086,
+   "h": 1610,
+   "bytes": 315758,
+   "src": "https://m.media-amazon.com/images/M/MV5BOWM2YjUxMGUtMWNmYi00N2ZjLWI3MWEtMDJjNWQ0ZmYzMmYwXkEyXkFqcGc@._V1_.jpg"
+  },
+  "thumb": "posters/thumb/tt38077943.webp",
+  "thumbFrom": "posters/full/tt38077943-zh.jpg"
+ },
+ "tt49610505": {
+  "zh": {
+   "file": "posters/full/tt49610505-zh.jpg",
+   "w": 685,
+   "h": 993,
+   "bytes": 376231,
+   "src": "https://www.unicornpopcorn.com.tw/ForVsWeb/upload/film/film_20261109025.jpg"
+  },
+  "thumb": "posters/thumb/tt49610505.webp",
+  "thumbFrom": "posters/full/tt49610505-zh.jpg"
  }
 }
