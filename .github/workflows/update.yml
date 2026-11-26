@@ -5,15 +5,12 @@ on:
     # 台灣時間 07:17～23:17 每小時一次（UTC 23:17～15:17）
     - cron: '17 23,0-15 * * *'
   workflow_dispatch:
-  push:
-    branches: [v2]
-    paths: ['scripts/**', '.github/workflows/update.yml']
 
 permissions:
   contents: write
 
 concurrency:
-  group: update-showtimes-${{ github.ref }}
+  group: update-showtimes
   cancel-in-progress: false
 
 jobs:
