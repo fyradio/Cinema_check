@@ -1,0 +1,23 @@
+[
+  {
+    "key": "fe21",
+    "name": "新竹大遠百威秀影城",
+    "short": "大遠百威秀",
+    "code": "t03505",
+    "official": "https://www.vscinemas.com.tw/theater/detail.aspx?id=7"
+  },
+  {
+    "key": "bigcity",
+    "name": "新竹巨城威秀影城",
+    "short": "巨城威秀",
+    "code": "t03508",
+    "official": "https://www.vscinemas.com.tw/theater/detail.aspx?id=9"
+  },
+  {
+    "key": "shown",
+    "name": "享平方 百老匯影城竹北店",
+    "short": "享平方百老匯",
+    "code": "t03510",
+    "official": "https://www.broadway-cineplex.com.tw/"
+  }
+]

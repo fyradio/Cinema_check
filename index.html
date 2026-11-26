@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#9e1430">
+<title>新竹電影場次</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* VOICE: 影城大廳的場次看板，快速、清楚、一眼找到下一場
+   IDEA: 戲院門口那塊紅絲絨底的場次牌
+   PICTURE: 場次清單本身；最近的一場用爆米花黃點亮
+   COLOUR and TYPE: 絲絨紅主色、暖白底、爆米花黃強調；Noto Sans TC + Barlow Condensed 數字
+   LAYOUT: 紅色頂帶放日期與篩選，下方一欄卡片，寬螢幕兩欄 */
+:root{color-scheme:light dark;
+--bg:light-dark(#fbf8f6,#140a0d);--card:light-dark(#ffffff,#22131a);--ink:light-dark(#241015,#f5ecee);
+--mute:light-dark(#7a6468,#b49ea4);--line:light-dark(#eadfe1,#3a2730);--red:#9e1430;--red2:#c21f3f;
+--pop:#ffcc33;--popInk:#3a2a00;--chip:light-dark(#f4ecee,#2e1b24);
+--c-fe21:#0e8a8c;--c-bigcity:#7048a8;--c-shown:#d9661a}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Noto Sans TC",system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+.num{font-family:"Barlow Condensed","Noto Sans TC",sans-serif;font-variant-numeric:tabular-nums}
+header{background:radial-gradient(120% 140% at 85% -20%,#d8304f 0,var(--red) 45%,#6d0c20 100%);color:#fff;padding:22px max(5vw,16px) 18px}
+.top{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:8px 16px}
+h1{margin:0;font-size:clamp(30px,6vw,46px);line-height:1.05;font-weight:900;letter-spacing:.02em}
+.today{font-size:17px;opacity:.92;margin-top:6px}
+.clock{font-size:clamp(40px,8vw,60px);line-height:1;font-weight:700;color:var(--pop)}
+.ctrl{max-width:1240px;margin:16px auto 0;display:grid;gap:10px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+input[type=search]{flex:1 1 220px;font:inherit;font-size:16px;padding:11px 14px;border-radius:12px;border:0;background:#fff;color:#241015;min-height:44px}
+input[type=search]:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid var(--pop);outline-offset:2px}
+button,select{font:inherit;font-size:15px;min-height:44px;border-radius:999px;cursor:pointer}
+.cin{border:2px solid rgba(255,255,255,.45);background:transparent;color:#fff;padding:6px 14px;display:inline-flex;align-items:center;gap:8px}
+.cin[aria-pressed=true]{background:#fff;color:#241015;border-color:#fff}
+.cin i{width:11px;height:11px;border-radius:50%;background:var(--c);flex:none;box-shadow:0 0 0 2px #fff}
+.cin small{opacity:.7}
+.seg{display:inline-flex;background:rgba(0,0,0,.25);border-radius:999px;padding:3px}
+.seg button{border:0;background:transparent;color:#fff;padding:6px 16px;min-height:38px}
+.seg button[aria-pressed=true]{background:var(--pop);color:var(--popInk);font-weight:700}
+.tog{border:2px solid rgba(255,255,255,.45);background:transparent;color:#fff;padding:6px 14px}
+.tog[aria-pressed=true]{border-color:var(--pop);color:var(--pop)}
+select{border:0;padding:6px 14px;background:rgba(0,0,0,.25);color:#fff}
+select option{color:#241015}
+main{max-width:1240px;margin:0 auto;padding:18px max(5vw,16px) 40px}
+.status{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;color:var(--mute);font-size:14px;margin-bottom:14px}
+.status button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:4px 14px;min-height:36px}
+.warn{background:light-dark(#fff4d1,#3a2e08);color:light-dark(#5c4300,#ffe08a);border-radius:12px;padding:10px 14px;margin-bottom:14px;font-size:15px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,520px),1fr));gap:14px;align-items:start}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:0 1px 0 rgba(0,0,0,.03),0 8px 24px -18px rgba(80,0,20,.35)}
+.card h2{margin:0;font-size:21px;line-height:1.25;font-weight:900;text-wrap:balance}
+.card h2 a{text-decoration:none}.card h2 a:hover{text-decoration:underline}
+.meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;color:var(--mute);font-size:14px;margin:4px 0 10px}
+.rate{font-size:13px;font-weight:700;padding:1px 8px;border-radius:6px;color:#fff;background:#888}
+.rate.G{background:#2e9b4f}.rate.P{background:#2f6fd0}.rate.F2,.rate.PG{background:#e3a10b}.rate.F5,.rate.PG15{background:#e2671b}.rate.R{background:#d11f2f}
+.line{display:grid;grid-template-columns:7.2em minmax(0,1fr);gap:4px 10px;padding:8px 0;border-top:1px dashed var(--line)}
+.who{font-size:14px;font-weight:700;display:flex;flex-direction:column;gap:2px}
+.who b{display:flex;align-items:center;gap:6px}.who b:before{content:"";width:9px;height:9px;border-radius:50%;background:var(--c);flex:none}
+.who span{font-weight:400;color:var(--mute);font-size:13px}
+.times{display:flex;flex-wrap:wrap;gap:6px}
+.t{font-size:19px;font-weight:500;padding:2px 10px;border-radius:8px;background:var(--chip);white-space:nowrap;line-height:1.5}
+.t.past{opacity:.35;text-decoration:line-through}
+.t.next{background:var(--pop);color:var(--popInk);font-weight:700}
+.t sup{font-family:"Noto Sans TC";font-size:10px;margin-left:2px}
+.sec{margin:26px 0 10px;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline}
+.sec h2{margin:0;font-size:24px;font-weight:900;display:flex;align-items:center;gap:8px}
+.sec h2:before{content:"";width:14px;height:14px;border-radius:50%;background:var(--c)}
+.sec a{font-size:14px;color:var(--mute)}
+.mini{display:grid;grid-template-columns:minmax(0,1fr);gap:0}
+.mini .line{grid-template-columns:minmax(0,13em) minmax(0,1fr)}
+.mini .who{font-size:15px}
+.tl{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.mini .line:first-child{border-top:0}
+.tl li{display:grid;grid-template-columns:max-content minmax(0,1fr) auto;gap:4px 14px;align-items:baseline;padding:12px 4px;border-bottom:1px solid var(--line)}
+.tl .big{font-size:34px;font-weight:700;line-height:1;white-space:nowrap}
+.tl .what{font-weight:700;font-size:17px}
+.tl .where{display:block;font-weight:400;font-size:14px;color:var(--mute)}
+.tl .where i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c);margin-right:5px}
+.tl .soon{font-size:14px;color:var(--mute);text-align:right;white-space:nowrap}
+.tl li.hot .soon{color:var(--red2);font-weight:700}
+.empty{text-align:center;color:var(--mute);padding:50px 10px}
+footer{max-width:1240px;margin:0 auto;padding:10px max(5vw,16px) 40px;color:var(--mute);font-size:14px}
+footer ul{padding-left:1.2em;margin:6px 0}
+.load{height:4px;background:linear-gradient(90deg,transparent,var(--pop),transparent);background-size:200% 100%;animation:sweep 1.2s linear infinite;border-radius:4px;margin-bottom:12px}
+@keyframes sweep{from{background-position:200% 0}to{background-position:-200% 0}}
+@media(prefers-reduced-motion:reduce){.load{animation:none}}
+@media(max-width:600px){.line{grid-template-columns:minmax(0,1fr)}.mini .line{grid-template-columns:minmax(0,1fr)}.tl li{grid-template-columns:max-content minmax(0,1fr);gap:2px 12px}.clock{font-size:34px}.today{font-size:14px}header{padding-top:16px}.tl .soon{grid-column:2;text-align:left}.tl .big{font-size:28px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <div>
+      <h1>新竹電影場次</h1>
+      <div class="today" id="today">大遠百威秀・巨城威秀・享平方百老匯</div>
+    </div>
+    <div class="clock num" id="clock" aria-label="現在時間"></div>
+  </div>
+  <div class="ctrl">
+    <div class="row">
+      <input type="search" id="q" placeholder="搜尋片名，例如：哥吉拉、柯南、IMAX" aria-label="搜尋片名或版本">
+    </div>
+    <div class="row" id="cins" role="group" aria-label="選擇影城"></div>
+    <div class="row">
+      <div class="seg" role="group" aria-label="檢視方式">
+        <button data-view="movie">依電影</button><button data-view="time">依時間</button><button data-view="cinema">依影城</button>
+      </div>
+      <button class="tog" id="hidePast" aria-pressed="true">只看還沒開演</button>
+      <select id="sort" aria-label="電影排序">
+        <option value="next">最快開演的在前</option>
+        <option value="count">場次多的在前</option>
+        <option value="title">依片名</option>
+      </select>
+    </div>
+  </div>
+</header>
+<main>
+  <div id="loading" class="load" hidden></div>
+  <div id="warn"></div>
+  <div class="status" id="status"></div>
+  <div id="out"></div>
+</main>
+<footer>
+  場次資料來自<a href="https://www.atmovies.com.tw/showtime/a35/">開眼電影網</a>，每小時自動更新；實際場次與訂票請以影城官網為準。開眼只提供當天場次，明天以後請到官網查詢：
+  <ul id="links"></ul>
+</footer>
+<script src="parser.js"></script>
+<script>
+{
+const THEATERS = [
+  {key:'fe21', name:'新竹大遠百威秀影城', short:'大遠百威秀', code:'t03505', official:'https://www.vscinemas.com.tw/theater/detail.aspx?id=7'},
+  {key:'bigcity', name:'新竹巨城威秀影城', short:'巨城威秀', code:'t03508', official:'https://www.vscinemas.com.tw/theater/detail.aspx?id=9'},
+  {key:'shown', name:'享平方 百老匯影城竹北店', short:'享平方百老匯', code:'t03510', official:'https://www.broadway-cineplex.com.tw/'}
+];
+const PROXIES = [
+  u => 'https://corsproxy.io/?url=' + encodeURIComponent(u),
+  u => 'https://api.allorigins.win/raw?url=' + encodeURIComponent(u),
+  u => 'https://api.codetabs.com/v1/proxy/?quest=' + encodeURIComponent(u)
+];
+const WEEK = '日一二三四五六';
+const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $ = id => document.getElementById(id);
+const store = {
+  get(k, d) { try { const v = localStorage.getItem('hcm.' + k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+  set(k, v) { try { localStorage.setItem('hcm.' + k, JSON.stringify(v)); } catch (e) {} }
+};
+
+const state = {
+  data: {},            // key -> {date, updated, movies, via}
+  on: store.get('on', THEATERS.map(t => t.key)),
+  view: store.get('view', 'movie'),
+  hidePast: store.get('hidePast', true),
+  sort: store.get('sort', 'next'),
+  q: ''
+};
+
+function taipeiNow() {
+  const p = {};
+  new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Taipei', year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', hourCycle:'h23'})
+    .formatToParts(new Date()).forEach(x => p[x.type] = x.value);
+  const date = `${p.year}-${p.month}-${p.day}`;
+  const wd = new Date(date + 'T12:00:00Z').getUTCDay();
+  return {date, wd, h: +p.hour, m: +p.minute, mins: +p.hour * 60 + +p.minute, hm: `${p.hour}:${p.minute}`};
+}
+// 凌晨 0～5 點的場次算在當天深夜
+const toMin = t => { const [h, m] = t.split(':').map(Number); return (h < 5 ? h + 24 : h) * 60 + m; };
+const fromMin = n => { n = ((n % 1440) + 1440) % 1440; return String(Math.floor(n / 60)).padStart(2, '0') + ':' + String(n % 60).padStart(2, '0'); };
+const dur = n => n ? (n >= 60 ? `${Math.floor(n / 60)}小時${n % 60 ? (n % 60) + '分' : ''}` : n + '分') : '';
+const md = d => { const [, m, day] = d.split('-'); const wd = new Date(d + 'T12:00:00Z').getUTCDay(); return `${+m}/${+day}（${WEEK[wd]}）`; };
+
+async function fetchLive(t) {
+  const url = `https://www.atmovies.com.tw/showtime/${t.code}/a35/`;
+  for (const p of PROXIES) {
+    const ctl = new AbortController(); const timer = setTimeout(() => ctl.abort(), 12000);
+    try {
+      const r = await fetch(p(url), {signal: ctl.signal, cache: 'no-store'});
+      if (!r.ok) throw new Error(r.status);
+      const html = await r.text();
+      const d = AtParser.parse(html);
+      if (d.movies.length) return {...d, via: 'live', fetched: new Date().toISOString()};
+    } catch (e) { /* 換下一個代理 */ } finally { clearTimeout(timer); }
+  }
+  throw new Error('live failed');
+}
+
+async function load(forceLive) {
+  const now = taipeiNow();
+  $('loading').hidden = false;
+  if (!forceLive) {
+    try {
+      const r = await fetch('data/showtimes.json?t=' + Date.now(), {cache: 'no-store'});
+      if (r.ok) { const j = await r.json(); for (const k in j.theaters || {}) state.data[k] = {...j.theaters[k], via: 'saved'}; }
+    } catch (e) {}
+    if (!Object.keys(state.data).length) {
+      const c = store.get('cache', null);
+      if (c) for (const k in c) state.data[k] = {...c[k], via: 'cache'};
+    }
+    render();
+  }
+  const need = THEATERS.filter(t => forceLive || !state.data[t.key] || state.data[t.key].date !== now.date);
+  await Promise.all(need.map(async t => {
+    try { state.data[t.key] = await fetchLive(t); }
+    catch (e) { if (state.data[t.key]) state.data[t.key].liveFailed = true; else state.data[t.key] = {failed: true, movies: []}; }
+  }));
+  const keep = {};
+  for (const k in state.data) if (state.data[k].movies && state.data[k].movies.length) keep[k] = {date: state.data[k].date, updated: state.data[k].updated, movies: state.data[k].movies, fetched: state.data[k].fetched};
+  store.set('cache', keep);
+  $('loading').hidden = true;
+  render();
+}
+
+// 把三家影城的資料攤平成「一部片 × 一家影城 × 一種版本」的列
+function rows() {
+  const now = taipeiNow(), q = state.q.trim().toLowerCase();
+  const out = [];
+  for (const t of THEATERS) {
+    if (!state.on.includes(t.key)) continue;
+    const d = state.data[t.key];
+    if (!d || !d.movies) continue;
+    const isToday = d.date === now.date;
+    const merged = {};
+    for (const m of d.movies) {
+      const k = m.id + '|' + m.version;
+      if (!merged[k]) merged[k] = {...m, times: []};
+      merged[k].times.push(...m.times);
+    }
+    for (const m of Object.values(merged)) {
+      if (q && !(m.title + ' ' + m.version).toLowerCase().includes(q)) continue;
+      const times = [...new Set(m.times)].sort((a, b) => toMin(a) - toMin(b)).map(x => ({
+        x, min: toMin(x), past: isToday && toMin(x) < now.mins, late: +x.slice(0, 2) < 5
+      }));
+      out.push({t, m, times, upcoming: times.filter(s => !s.past)});
+    }
+  }
+  return out;
+}
+
+function chips(r, nextMin) {
+  const list = state.hidePast ? r.upcoming : r.times;
+  if (!list.length) return '<span class="t past">今天已演完</span>';
+  if (nextMin === undefined) nextMin = r.upcoming.length ? r.upcoming[0].min : -1;
+  return list.map(s => {
+    const end = r.m.runtime ? '，散場約 ' + fromMin(s.min + r.m.runtime) : '';
+    const cls = s.past ? 'past' : (s.min === nextMin ? 'next' : '');
+    return `<span class="t num ${cls}" title="${esc(s.x + ' 開演' + end)}">${esc(s.x)}${s.late ? '<sup>深夜</sup>' : ''}</span>`;
+  }).join('');
+}
+const rate = m => m.ratingLabel ? `<span class="rate ${esc(m.rating)}">${esc(m.ratingLabel)}</span>` : '';
+const movieLink = m => `https://www.atmovies.com.tw/movie/${encodeURIComponent(m.id)}/`;
+
+function viewMovie(rs) {
+  const by = {};
+  for (const r of rs) (by[r.m.id] = by[r.m.id] || {m: r.m, lines: []}).lines.push(r);
+  let list = Object.values(by).filter(g => !state.hidePast || g.lines.some(r => r.upcoming.length));
+  const next = g => Math.min(...g.lines.map(r => r.upcoming.length ? r.upcoming[0].min : 9999));
+  const count = g => g.lines.reduce((n, r) => n + (state.hidePast ? r.upcoming : r.times).length, 0);
+  list.sort(state.sort === 'title' ? (a, b) => a.m.title.localeCompare(b.m.title, 'zh-Hant')
+    : state.sort === 'count' ? (a, b) => count(b) - count(a) : (a, b) => next(a) - next(b));
+  if (!list.length) return empty();
+  return '<div class="grid">' + list.map(g => {
+    const lines = g.lines.filter(r => !state.hidePast || r.upcoming.length)
+      .sort((a, b) => THEATERS.indexOf(a.t) - THEATERS.indexOf(b.t) || (a.upcoming[0]?.min ?? 9999) - (b.upcoming[0]?.min ?? 9999));
+    const nx = next(g);
+    return `<article class="card"><h2><a href="${movieLink(g.m)}" target="_blank" rel="noopener">${esc(g.m.title)}</a></h2>
+      <div class="meta">${rate(g.m)}<span>${esc(dur(g.m.runtime))}</span><span>${count(g)} 場</span></div>
+      ${lines.map(r => `<div class="line"><div class="who" style="--c:var(--c-${r.t.key})"><b>${esc(r.t.short)}</b>${r.m.version ? `<span>${esc(r.m.version)}</span>` : ''}</div><div class="times">${chips(r, nx)}</div></div>`).join('')}
+    </article>`;
+  }).join('') + '</div>';
+}
+
+function viewTime(rs) {
+  const now = taipeiNow();
+  const all = [];
+  for (const r of rs) for (const s of (state.hidePast ? r.upcoming : r.times)) all.push({r, s});
+  all.sort((a, b) => a.s.min - b.s.min || a.r.m.title.localeCompare(b.r.m.title, 'zh-Hant'));
+  if (!all.length) return empty();
+  return '<ul class="tl">' + all.map(({r, s}) => {
+    const left = s.min - now.mins;
+    const soon = s.past ? '已開演' : left <= 0 ? '現在' : left < 60 ? `${left} 分後` : `${Math.floor(left / 60)} 小時 ${left % 60} 分後`;
+    const end = r.m.runtime ? `散場 ${fromMin(s.min + r.m.runtime)}` : '';
+    return `<li class="${!s.past && left <= 30 ? 'hot' : ''}"${s.past ? ' style="opacity:.45"' : ''}>
+      <span class="big num">${esc(s.x)}</span>
+      <span class="what">${esc(r.m.title)} ${rate(r.m)}<span class="where" style="--c:var(--c-${r.t.key})"><i></i>${esc(r.t.short)}${r.m.version ? '・' + esc(r.m.version) : ''}${end ? '・' + end : ''}</span></span>
+      <span class="soon">${esc(soon)}</span></li>`;
+  }).join('') + '</ul>';
+}
+
+function viewCinema(rs) {
+  let html = '';
+  for (const t of THEATERS) {
+    if (!state.on.includes(t.key)) continue;
+    const mine = rs.filter(r => r.t === t && (!state.hidePast || r.upcoming.length))
+      .sort((a, b) => (a.upcoming[0]?.min ?? 9999) - (b.upcoming[0]?.min ?? 9999));
+    html += `<div class="sec" style="--c:var(--c-${t.key})"><h2>${esc(t.name)}</h2><a href="${t.official}" target="_blank" rel="noopener">官網訂票</a><a href="https://www.atmovies.com.tw/showtime/${t.code}/a35/" target="_blank" rel="noopener">開眼原始頁面</a></div>`;
+    html += mine.length ? `<div class="card mini">${mine.map(r => `<div class="line"><div class="who" style="--c:var(--c-${t.key})"><b>${esc(r.m.title)} ${rate(r.m)}</b><span>${esc([r.m.version, dur(r.m.runtime)].filter(Boolean).join('・'))}</span></div><div class="times">${chips(r)}</div></div>`).join('')}</div>`
+      : `<div class="card empty">${state.data[t.key]?.failed ? '這家的場次暫時抓不到，請點上面的官網查看。' : '沒有符合的場次'}</div>`;
+  }
+  return html || empty();
+}
+const empty = () => `<div class="empty">${state.q ? '找不到「' + esc(state.q) + '」的場次' : (state.hidePast ? '今天剩下的場次都演完了，可以關掉「只看還沒開演」看全部。' : '沒有場次')}</div>`;
+
+function renderHeader() {
+  const now = taipeiNow();
+  $('clock').textContent = now.hm;
+  $('today').textContent = `${md(now.date)}・大遠百威秀・巨城威秀・享平方百老匯`;
+  const counts = {};
+  for (const t of THEATERS) {
+    const d = state.data[t.key];
+    counts[t.key] = d && d.movies ? new Set(d.movies.map(m => m.id)).size : 0;
+  }
+  $('cins').innerHTML = THEATERS.map(t => `<button class="cin" data-key="${t.key}" aria-pressed="${state.on.includes(t.key)}" style="--c:var(--c-${t.key})"><i></i>${esc(t.short)}${counts[t.key] ? ` <small>${counts[t.key]} 部</small>` : ''}</button>`).join('');
+  document.querySelectorAll('.seg button').forEach(b => b.setAttribute('aria-pressed', b.dataset.view === state.view));
+  $('hidePast').setAttribute('aria-pressed', state.hidePast);
+  $('sort').value = state.sort;
+  $('sort').hidden = state.view !== 'movie';
+}
+
+function renderStatus() {
+  const now = taipeiNow(), warn = [], parts = [];
+  for (const t of THEATERS) {
+    const d = state.data[t.key];
+    if (!d) continue;
+    if (d.failed) { warn.push(`${t.short}：暫時抓不到場次`); continue; }
+    if (d.date && d.date !== now.date) warn.push(`${t.short}：目前只有 ${md(d.date)} 的資料，今天的還沒更新`);
+    else if (d.liveFailed) warn.push(`${t.short}：剛才重新抓取沒成功，先顯示開眼 ${d.updated ? d.updated.slice(11) : ''} 的資料`);
+    if (d.updated) parts.push(`${t.short} ${d.updated.slice(11)}`);
+  }
+  $('warn').innerHTML = warn.length ? `<div class="warn">${warn.map(esc).join('<br>')}</div>` : '';
+  $('status').innerHTML = parts.length ? `<span>開眼更新時間：${esc(parts.join('・'))}</span><button id="reload">重新抓取</button>` : '<span>讀取場次中…</span>';
+  const btn = $('reload'); if (btn) btn.onclick = () => load(true);
+}
+
+function render() {
+  renderHeader(); renderStatus();
+  const rs = rows();
+  $('out').innerHTML = state.view === 'time' ? viewTime(rs) : state.view === 'cinema' ? viewCinema(rs) : viewMovie(rs);
+}
+
+$('links').innerHTML = THEATERS.map(t => `<li><a href="${t.official}" target="_blank" rel="noopener">${esc(t.name)}</a></li>`).join('');
+$('cins').addEventListener('click', e => {
+  const b = e.target.closest('.cin'); if (!b) return;
+  const k = b.dataset.key;
+  state.on = state.on.includes(k) ? state.on.filter(x => x !== k) : [...state.on, k];
+  if (!state.on.length) state.on = [k];
+  store.set('on', state.on); render();
+});
+document.querySelector('.seg').addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  state.view = b.dataset.view; store.set('view', state.view); render();
+});
+$('hidePast').addEventListener('click', () => { state.hidePast = !state.hidePast; store.set('hidePast', state.hidePast); render(); });
+$('sort').addEventListener('change', e => { state.sort = e.target.value; store.set('sort', state.sort); render(); });
+let qt; $('q').addEventListener('input', e => { clearTimeout(qt); qt = setTimeout(() => { state.q = e.target.value; render(); }, 120); });
+
+let lastDate = taipeiNow().date;
+const tick = setInterval(() => {
+  const now = taipeiNow();
+  if (now.date !== lastDate) { lastDate = now.date; load(false); } else render();
+}, 60000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) render(); });
+
+render();
+load(false);
+}
+</script>
+</body>
+</html>
