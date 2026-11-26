@@ -15,33 +15,35 @@ async function fetchImage(url) {
   return { buf, meta };
 }
 
-// 給一部電影存兩種：中文海報（影城官網）＋ IMDb 原版（通常解析度最高）
+// 中文海報（影城官網）存原圖；IMDb 原版不存，只在沒有中文海報時拿來做縮圖
 export async function savePosters(root, slug, { zh = [], imdb = '' }, manifest, log) {
   const rec = manifest[slug] || {};
-  const jobs = [];
-  if (!rec.zh && zh.length) jobs.push(['zh', zh]);
-  if (!rec.imdb && imdb) jobs.push(['imdb', [imdb]]);
-  for (const [kind, urls] of jobs) {
+  delete rec.imdb;
+  if (!rec.zh && zh.length) {
     let best = null;
-    for (const u of urls) {
+    for (const u of zh) {
       try { const img = await fetchImage(u); if (!best || img.meta.width > best.meta.width) best = { ...img, src: u }; }
       catch (e) { log(`海報下載失敗 ${u}：${e.message}`); }
     }
-    if (!best) continue;
-    let { buf, meta } = best;
-    if (buf.length > MAX_BYTES) { buf = await sharp(buf).resize({ width: 3000, height: 3000, fit: 'inside' }).jpeg({ quality: 92 }).toBuffer(); meta = await sharp(buf).metadata(); }
-    const ext = meta.format === 'png' ? 'png' : meta.format === 'webp' ? 'webp' : 'jpg';
-    const full = `posters/full/${slug}-${kind}.${ext}`;
-    await mkdir(new URL('posters/full/', root), { recursive: true });
-    await writeFile(new URL(full, root), buf);
-    rec[kind] = { file: full, w: meta.width, h: meta.height, bytes: buf.length, src: best.src };
+    if (best) {
+      let { buf, meta } = best;
+      if (buf.length > MAX_BYTES) { buf = await sharp(buf).resize({ width: 3000, height: 3000, fit: 'inside' }).jpeg({ quality: 92 }).toBuffer(); meta = await sharp(buf).metadata(); }
+      const ext = meta.format === 'png' ? 'png' : meta.format === 'webp' ? 'webp' : 'jpg';
+      const full = `posters/full/${slug}-zh.${ext}`;
+      await mkdir(new URL('posters/full/', root), { recursive: true });
+      await writeFile(new URL(full, root), buf);
+      rec.zh = { file: full, w: meta.width, h: meta.height, bytes: buf.length, src: best.src };
+    }
   }
-  const thumbSrc = rec.zh || rec.imdb;
+  const from = rec.zh ? rec.zh.file : (imdb ? 'imdb:' + imdb : '');
   const thumb = `posters/thumb/${slug}.webp`;
-  if (thumbSrc && (!rec.thumb || rec.thumbFrom !== thumbSrc.file || !(await exists(new URL(thumb, root))))) {
-    await mkdir(new URL('posters/thumb/', root), { recursive: true });
-    await sharp(new URL(thumbSrc.file, root).pathname).resize({ width: 360 }).webp({ quality: 80 }).toFile(new URL(thumb, root).pathname);
-    rec.thumb = thumb; rec.thumbFrom = thumbSrc.file;
+  if (from && (rec.thumbFrom !== from || !(await exists(new URL(thumb, root))))) {
+    try {
+      const input = rec.zh ? new URL(rec.zh.file, root).pathname : (await fetchImage(imdb)).buf;
+      await mkdir(new URL('posters/thumb/', root), { recursive: true });
+      await sharp(input).resize({ width: 360 }).webp({ quality: 80 }).toFile(new URL(thumb, root).pathname);
+      rec.thumb = thumb; rec.thumbFrom = from;
+    } catch (e) { log(`縮圖失敗 ${slug}：${e.message}`); }
   }
   manifest[slug] = rec;
   return rec;

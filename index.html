@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#9e1430">
-<title>新竹電影場次</title>
+<title>電影場次查詢</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -142,7 +142,7 @@ dialog::backdrop{background:rgba(20,5,10,.6)}
 <header>
   <div class="top">
     <div>
-      <h1>新竹電影場次</h1>
+      <h1>電影場次</h1>
       <div class="today" id="today">大遠百威秀・巨城威秀・享平方百老匯</div>
     </div>
     <div class="clock num" id="clock" aria-label="現在時間"></div>
@@ -206,7 +206,7 @@ const state = {
   sort: store.get('sort2', 'next'), q: '', fmt: '', lang: ''
 };
 
-const inRegion = t => state.region === 'all' || t.region === state.region;
+const inRegion = t => regionsOf(state.region).includes(t.region);
 const isOn = k => !!TH[k] && inRegion(TH[k]) && !state.off.includes(k);
 
 function now() {
@@ -243,17 +243,40 @@ function introBlock(m, opened) {
 }
 const votes = v => v >= 1e4 ? (v / 1e4).toFixed(v >= 1e5 ? 0 : 1) + ' 萬票' : v + ' 票';
 
-async function load() {
+let GROUPS = [{key:'tzm', name:'桃竹苗全部', regions:['hsinchu', 'toufen', 'taoyuan']}];
+const FILES = {};      // 已載入的地區檔
+let INDEX = null;
+const regionsOf = k => (GROUPS.find(g => g.key === k) || {regions: [k]}).regions;
+
+async function getJSON(u) { const r = await fetch(u + '?t=' + Date.now(), {cache: 'no-store'}); if (!r.ok) throw new Error(r.status); return r.json(); }
+
+// 先讀小小的索引（影城、地區），再只讀目前選的地區
+async function load(refresh) {
   try {
-    const r = await fetch('data/showtimes.json?t=' + Date.now(), {cache: 'no-store'});
-    const j = await r.json();
-    if (j.v !== 2) throw new Error('舊格式');
-    state.data = j;
-    if (j.theaters && j.theaters.length) { THEATERS = j.theaters; TH = Object.fromEntries(THEATERS.map(t => [t.key, t])); }
-    if (j.regions && j.regions.length) REGIONS = j.regions;
-    if (state.region !== 'all' && !REGIONS.some(r => r.key === state.region)) state.region = 'hsinchu';
+    INDEX = await getJSON('data/index.json');
+    if (INDEX.theaters && INDEX.theaters.length) { THEATERS = INDEX.theaters; TH = Object.fromEntries(THEATERS.map(t => [t.key, t])); }
+    if (INDEX.regions && INDEX.regions.length) REGIONS = INDEX.regions;
+    if (INDEX.groups) GROUPS = INDEX.groups;
+    if (![...REGIONS, ...GROUPS].some(r => r.key === state.region)) state.region = 'hsinchu';
     $('links').innerHTML = THEATERS.map(t => `<li><a href="${esc(t.official)}" target="_blank" rel="noopener">${esc(t.name)}</a>${t.source === 'atmovies' ? '（只有當天場次）' : ''}</li>`).join('');
+    if (refresh) for (const k in FILES) delete FILES[k];
   } catch (e) { $('status').textContent = '場次資料讀取失敗，請稍後再試。'; return; }
+  await showRegion();
+}
+async function showRegion() {
+  const want = regionsOf(state.region).filter(k => !FILES[k]);
+  if (want.length) {
+    state.data = null; renderHeader();
+    $('out').innerHTML = ''; $('status').textContent = '讀取這個地區的場次中…';
+    try { await Promise.all(want.map(async k => { FILES[k] = await getJSON(`data/regions/${k}.json`); })); }
+    catch (e) { $('status').textContent = '這個地區的場次讀取失敗，請稍後再試。'; return; }
+  }
+  const files = regionsOf(state.region).map(k => FILES[k]).filter(Boolean);
+  state.data = {
+    generated: INDEX.generated, errors: INDEX.errors || [],
+    movies: Object.assign({}, ...files.map(f => f.movies)),
+    sessions: files.flatMap(f => f.sessions)
+  };
   const ds = dates();
   if (!state.day || !ds.includes(state.day)) state.day = ds.includes(now().date) ? now().date : ds[0];
   render();
@@ -264,17 +287,17 @@ function dates() {
 }
 
 // 版本：把「Gold Class 數位 英」「3D 數位 英」「巨幕 英文 巨幕廳」拆成 廳別／3D／語言／廳號
-const FMT_ORDER = ['IMAX', 'Gold Class', 'VIP', '巨幕', '4DX', '3D', '特別場', '直播'];
+const FMT_ORDER = ['IMAX', 'Gold Class', 'MUCROWN', 'TITAN', 'ATMOS', 'VIP', '巨幕', '4DX', 'ScreenX', '3D', '特別場', '直播'];
 function ver(v) {
   v = v || '';
-  const fmt = /IMAX/i.test(v) ? 'IMAX' : /Gold Class|\bGC\b/i.test(v) ? 'Gold Class' : /VIP/i.test(v) ? 'VIP' : /巨幕/.test(v) ? '巨幕' : /4DX/i.test(v) ? '4DX' : /特別場/.test(v) ? '特別場' : /LIVE|直播/i.test(v) ? '直播' : '';
+  const fmt = /IMAX/i.test(v) ? 'IMAX' : /MUCROWN/i.test(v) ? 'MUCROWN' : /TITAN/i.test(v) ? 'TITAN' : /ATMOS/i.test(v) ? 'ATMOS' : /SCREENX/i.test(v) ? 'ScreenX' : /Gold Class|\bGC\b/i.test(v) ? 'Gold Class' : /VIP/i.test(v) ? 'VIP' : /巨幕/.test(v) ? '巨幕' : /4DX/i.test(v) ? '4DX' : /特別場/.test(v) ? '特別場' : /LIVE|直播/i.test(v) ? '直播' : '';
   const is3d = /3D/i.test(v);
   const lang = /國|中文/.test(v) ? '國語' : /英/.test(v) ? '英語' : /日/.test(v) ? '日語' : /韓/.test(v) ? '韓語' : '';
   const hall = (v.match(/(\S+廳)$/) || [])[1] || '';
   const tags = [fmt, is3d ? '3D' : ''].filter(Boolean);
   return {fmt, is3d, lang, hall, tags, key: [fmt || '一般', is3d ? '3D' : '2D', lang].join('/')};
 }
-const VC = {'IMAX': 'imax', 'Gold Class': 'gold', 'VIP': 'vip', '巨幕': 'giant', '4DX': 'fdx', '3D': 'three', '特別場': 'sp', '直播': 'sp'};
+const VC = {'IMAX': 'imax', 'Gold Class': 'gold', 'MUCROWN': 'gold', 'TITAN': 'imax', 'ATMOS': 'vip', 'ScreenX': 'fdx', 'VIP': 'vip', '巨幕': 'giant', '4DX': 'fdx', '3D': 'three', '特別場': 'sp', '直播': 'sp'};
 const badges = (v, withLang = true) => { const x = ver(v); return [...x.tags.map(t => `<span class="vb ${VC[t] || ''}">${esc(t)}</span>`), withLang && x.lang ? `<span class="vb lang">${esc(x.lang)}</span>` : ''].join(''); };
 const fmtOf = s => { const x = ver(s.v); return x.tags.length ? x.tags : ['一般']; };
 
@@ -378,15 +401,17 @@ const empty = () => `<div class="empty">${state.q ? '找不到「' + esc(state.q
 function renderHeader() {
   const n = now(), D = state.data;
   $('clock').textContent = n.hm;
-  $('today').textContent = `${md(n.date)}（${wd(n.date)}）・${state.region === 'all' ? '桃竹苗' : ((REGIONS.find(r => r.key === state.region) || {}).name || '')}地區 ${THEATERS.filter(inRegion).length} 家影城`;
-  if (!D) return;
+  $('today').textContent = `${md(n.date)}（${wd(n.date)}）・${([...REGIONS, ...GROUPS].find(r => r.key === state.region) || {}).name || ''} ${THEATERS.filter(inRegion).length} 家影城`;
+  const rc = k => THEATERS.filter(t => regionsOf(k).includes(t.region)).length;
+  const order = [];
+  for (const r of REGIONS) { order.push(r); for (const g of GROUPS) if (g.regions[g.regions.length - 1] === r.key) order.push(g); }
+  $('regs').innerHTML = order.map(r => `<button class="reg" data-reg="${r.key}" aria-pressed="${state.region === r.key}">${esc(r.name)} <small>${rc(r.key)} 家</small></button>`).join('');
+  if (!D) { $('days').innerHTML = ''; $('cins').innerHTML = THEATERS.filter(inRegion).map(t => `<button class="cin" disabled style="--c:${col(t.key)}"><i></i>${esc(t.short)}</button>`).join(''); return; }
   const ds = dates(), cnt = {};
   for (const s of D.sessions) if (isOn(s.c)) cnt[s.d] = (cnt[s.d] || 0) + 1;
   $('days').innerHTML = ds.map(d => `<button class="day" data-day="${d}" aria-pressed="${d === state.day}"${cnt[d] ? '' : ' disabled'}><b>${dayName(d)}</b><span class="num">${md(d)}（${wd(d)}）</span></button>`).join('');
   const mc = {};
   for (const s of D.sessions) if (s.d === state.day) (mc[s.c] = mc[s.c] || new Set()).add(s.m);
-  const rc = k => THEATERS.filter(t => k === 'all' || t.region === k).length;
-  $('regs').innerHTML = [...REGIONS, {key:'all', name:'桃竹苗全部'}].map(r => `<button class="reg" data-reg="${r.key}" aria-pressed="${state.region === r.key}">${esc(r.name)} <small>${rc(r.key)} 家</small></button>`).join('');
   $('cins').innerHTML = THEATERS.filter(inRegion).map(t => `<button class="cin" data-key="${t.key}" aria-pressed="${isOn(t.key)}" style="--c:${col(t.key)}"><i></i>${esc(t.short)}${t.source === 'atmovies' ? '<sup>今</sup>' : ''}${mc[t.key] ? ` <small>${mc[t.key].size} 部</small>` : ''}</button>`).join('');
   const daySs = D.sessions.filter(s => s.d === state.day && isOn(s.c));
   const fc = {}, lc = {};
@@ -439,12 +464,12 @@ function openSession(s) {
 }
 function openPoster(id) {
   const m = state.data.movies[id], p = m.poster || {};
-  const big = p.zh || p.hd;
+  const big = p.zh || p.thumb || p.hd;
   const name = m.title.replace(/[\\/:*?"<>|]/g, '');
   $('dlgBody').innerHTML = `<div class="lb" style="position:relative"><img src="${esc(big)}" alt="${esc(m.title)} 海報"><button class="close" data-close aria-label="關閉" style="color:#fff">×</button>
     <div class="sheet"><h3>${esc(m.title)}</h3>${m.en ? `<div class="en">${esc(m.en)}</div>` : ''}<div class="meta">${released(m)}</div>${introBlock(m, true)}
-    <div class="btns">${p.zh ? `<a class="btn main" href="${esc(p.zh)}" download="${esc(name)}-中文海報.${esc(p.zh.split('.').pop())}">下載中文海報 <span class="num" style="font-weight:400;margin-left:6px">${esc(p.zhSize)}</span></a>` : ''}${p.hd ? `<a class="btn ${p.zh ? '' : 'main'}" href="${esc(p.hd)}" download="${esc(name)}-高畫質.${esc(p.hd.split('.').pop())}">下載高畫質原版 <span class="num" style="font-weight:400;margin-left:6px">${esc(p.hdSize)}</span></a>` : ''}</div>
-    <div class="note">海報原圖存在這個網站上；手機若沒有直接下載，長按圖片也可以存到相簿。</div></div></div>`;
+    <div class="btns">${p.zh ? `<a class="btn main" href="${esc(p.zh)}" download="${esc(name)}-中文海報.${esc(p.zh.split('.').pop())}">下載中文海報 <span class="num" style="font-weight:400;margin-left:6px">${esc(p.zhSize)}</span></a>` : ''}${p.hd ? `<a class="btn ${p.zh ? '' : 'main'}" href="${esc(p.hd)}" target="_blank" rel="noopener">高畫質原版（IMDb）</a>` : ''}</div>
+    <div class="note">中文海報存在這個網站上；高畫質原版會開 IMDb 的原圖。手機若沒有直接下載，長按圖片也可以存到相簿。</div></div></div>`;
   $('dlg').showModal();
 }
 
@@ -460,7 +485,7 @@ $('regs').addEventListener('click', e => {
   const b = e.target.closest('.reg'); if (!b) return;
   state.region = b.dataset.reg; store.set('region', state.region);
   if (!THEATERS.some(t => isOn(t.key))) { state.off = state.off.filter(k => !inRegion(TH[k] || {})); store.set('off', state.off); }
-  render();
+  showRegion();
 });
 document.querySelector('.seg').addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; state.view = b.dataset.view; store.set('view2', state.view); render(); });
 $('fmts').addEventListener('click', e => {
@@ -480,11 +505,11 @@ $('out').addEventListener('click', e => {
 $('dlg').addEventListener('click', e => { if (e.target.closest('[data-close]') || e.target === $('dlg')) $('dlg').close(); });
 
 let lastDate = now().date;
-setInterval(() => { const n = now(); if (n.date !== lastDate) { lastDate = n.date; state.day = n.date; load(); } else render(); }, 60000);
+setInterval(() => { const n = now(); if (n.date !== lastDate) { lastDate = n.date; state.day = n.date; load(true); } else render(); }, 60000);
 document.addEventListener('visibilitychange', () => { if (!document.hidden && state.data) render(); });
 renderHeader();
 load();
-setInterval(load, 15 * 60000);
+setInterval(() => load(true), 15 * 60000);
 }
 </script>
 </body>

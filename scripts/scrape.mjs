@@ -1,4 +1,4 @@
-// 由 GitHub Actions 定時執行，產生 data/showtimes.json（v2）
+// 由 GitHub Actions 定時執行，產生 data/index.json 與 data/regions/*.json
 //   威秀：一週場次＋訂票連結＋快售完/完售
 //   百老匯竹北：一週場次＋剩餘座位
 //   IMDb 評分、海報原圖與縮圖
@@ -10,7 +10,7 @@ import { VS, weekSchedule, detailPages, bookUrl, seatUrl, filmUrl } from './lib/
 import { broadway, bwBook, bwSeat } from './lib/broadway.mjs';
 import { resolveImdb, loadRatings } from './lib/imdb.mjs';
 import { savePosters } from './lib/posters.mjs';
-import { THEATERS, REGIONS, publicTheaters } from './lib/theaters.mjs';
+import { THEATERS, REGIONS, GROUPS, publicTheaters } from './lib/theaters.mjs';
 
 const require = createRequire(import.meta.url);
 const atParser = require('../parser.js');
@@ -21,7 +21,7 @@ const log = s => { console.log(s); logs.push(s); };
 
 const today = taipeiToday();
 const lastDay = addDays(today, 13);
-const previous = await readJSON('data/showtimes.json', {});
+const previous = await readJSON('data/index.json', {});
 const imdbCache = await readJSON('data/imdb-cache.json', {});
 const posterManifest = await readJSON('data/posters.json', {});
 const errors = [];
@@ -106,9 +106,10 @@ for (const r of vsWeek) {
   if (r.rating && !m.rating) m.rating = r.rating;
   const k = `${r.cinema}|${r.date}|${r.time}|${m.key}`;
   const cands = vsIndex.get(k) || [];
-  const isGC = /gold/i.test(r.version);
+  // 同時段可能有一般廳和特殊廳（Gold Class、MUCROWN、IMAX…），用特殊廳代號配對
+  const tok = v => (/\bGC\b|GOLD/i.test(v) ? 'GC' : (String(v).match(/MUCROWN|IMAX|4DX|TITAN|ATMOS|SCREENX/i) || [''])[0].toUpperCase());
   const free = cands.filter(c => !usedDetail.has(c));
-  const det = free.find(c => /GC|GOLD/i.test(c.version) === isGC) || free[0] || null;
+  const det = free.find(c => tok(c.version) === tok(r.version)) || free[0] || null;
   if (det) usedDetail.add(det);
   const cc = VS[r.cinema].cinemacode;
   sessions.push({
@@ -146,7 +147,7 @@ for (const m of movies.values()) {
 }
 let ratings = {};
 try { ratings = await loadRatings([...movies.values()].map(m => m.imdb?.id).filter(Boolean), log); }
-catch (e) { errors.push(`IMDb 評分：${e.message}`); ratings = Object.fromEntries(Object.values(previous.movies || {}).filter(m => m.imdb?.id && m.imdb.r).map(m => [m.imdb.id, { r: m.imdb.r, v: m.imdb.v }])); }
+catch (e) { errors.push(`IMDb 評分：${e.message}`); ratings = previous.ratings || {}; }
 
 // 同一個 IMDb 編號的不同中文片名合併成一部
 const finalKey = new Map();
@@ -169,7 +170,7 @@ for (const m of movies.values()) {
 for (const [slug, o] of Object.entries(outMovies)) {
   try {
     const rec = await savePosters(root, slug, { zh: o._zh, imdb: o._imdbImg }, posterManifest, log);
-    o.poster = { thumb: rec.thumb || '', zh: rec.zh?.file || '', zhSize: rec.zh ? `${rec.zh.w}×${rec.zh.h}` : '', hd: rec.imdb?.file || '', hdSize: rec.imdb ? `${rec.imdb.w}×${rec.imdb.h}` : '' };
+    o.poster = { thumb: rec.thumb || '', zh: rec.zh?.file || '', zhSize: rec.zh ? `${rec.zh.w}×${rec.zh.h}` : '', hd: o._imdbImg || '' };
   } catch (e) { log(`海報 ${o.title}：${e.message}`); o.poster = {}; }
   delete o._zh; delete o._imdbImg;
 }
@@ -185,9 +186,20 @@ const dedup = outSessions.filter(s => { const k = [s.m, s.c, s.d, s.t, s.v].join
 for (const k of Object.keys(outMovies)) if (!dedup.some(s => s.m === k)) delete outMovies[k];
 
 if (!dedup.length) { console.error('沒有任何場次，不更新檔案'); process.exit(1); }
-const out = { v: 2, generated: new Date().toISOString(), today, errors, regions: REGIONS, theaters: publicTheaters(), movies: outMovies, sessions: dedup };
-await mkdir(new URL('data/', root), { recursive: true });
-await writeFile(new URL('data/showtimes.json', root), JSON.stringify(out) + '\n');
+// 每個地區一個檔，網頁切到哪一區才讀哪一區
+const regionOf = Object.fromEntries(THEATERS.map(t => [t.key, t.region]));
+const generated = new Date().toISOString();
+await mkdir(new URL('data/regions/', root), { recursive: true });
+const counts = {};
+for (const r of REGIONS) {
+  const ss = dedup.filter(s => regionOf[s.c] === r.key);
+  const ms = {};
+  for (const s of ss) ms[s.m] = outMovies[s.m];
+  counts[r.key] = { sessions: ss.length, movies: Object.keys(ms).length };
+  await writeFile(new URL(`data/regions/${r.key}.json`, root), JSON.stringify({ v: 3, region: r.key, generated, today, movies: ms, sessions: ss }) + '\n');
+}
+const usedRatings = Object.fromEntries(Object.values(outMovies).filter(m => m.imdb?.r).map(m => [m.imdb.id, { r: m.imdb.r, v: m.imdb.v }]));
+await writeFile(new URL('data/index.json', root), JSON.stringify({ v: 3, generated, today, errors, regions: REGIONS, groups: GROUPS, theaters: publicTheaters(), counts, ratings: usedRatings }) + '\n');
 await writeFile(new URL('data/imdb-cache.json', root), JSON.stringify(imdbCache, null, 1) + '\n');
 await writeFile(new URL('data/posters.json', root), JSON.stringify(posterManifest, null, 1) + '\n');
 await writeFile(new URL('data/last-run.log', root), logs.join('\n') + '\n');

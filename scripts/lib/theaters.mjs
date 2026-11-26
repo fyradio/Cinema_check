@@ -6,7 +6,13 @@
 export const REGIONS = [
   { key: 'hsinchu', name: '新竹' },
   { key: 'toufen', name: '頭份' },
-  { key: 'taoyuan', name: '桃園' }
+  { key: 'taoyuan', name: '桃園' },
+  { key: 'taipei', name: '雙北' },
+  { key: 'kaohsiung', name: '高雄' }
+];
+// 合併檢視：一次載入幾個地區
+export const GROUPS = [
+  { key: 'tzm', name: '桃竹苗全部', regions: ['hsinchu', 'toufen', 'taoyuan'] }
 ];
 
 export const THEATERS = [
@@ -25,6 +31,16 @@ export const THEATERS = [
   { key: 'in89', region: 'taoyuan', name: '桃園站前 in89 豪華影城', short: 'in89 桃園', color: '#283593', source: 'atmovies', at: 't03307', official: 'https://www.in89.com.tw/film_list.aspx?TheaterId=1' },
   { key: 'skty', region: 'taoyuan', name: '桃園新光影城（中壢）', short: '新光影城', color: '#d84315', source: 'atmovies', at: 't03315', official: 'https://www.skcinemas.com/sessions' },
   { key: 'tyarts', region: 'taoyuan', name: '桃園光影文化館', short: '桃園光影', color: '#558b2f', source: 'atmovies', at: 't03311', official: 'https://www.facebook.com/taoyuanartscinema2/' },
+  { key: 'vstp', region: 'taipei', name: '台北信義威秀影城', short: '信義威秀', color: '#1565c0', source: 'vieshow', codes: { TP: '' }, theaterIds: ['1'], cinemacode: '1', official: 'https://www.vscinemas.com.tw/theater/detail.aspx?id=1' },
+  { key: 'muvie', region: 'taipei', name: 'MUVIE CINEMAS 台北松仁', short: 'MUVIE 松仁', color: '#6a1b9a', source: 'vieshow', codes: { MU: '', MUC: 'MUCROWN' }, theaterIds: ['23'], cinemacode: '21', official: 'https://www.vscinemas.com.tw/theater/detail.aspx?id=23' },
+  { key: 'vsnl', region: 'taipei', name: '台北南港 LaLaport 威秀影城', short: '南港 LaLaport 威秀', color: '#00838f', source: 'vieshow', codes: { NL: '' }, theaterIds: ['34'], cinemacode: '35', official: 'https://www.vscinemas.com.tw/theater/detail.aspx?id=34' },
+  { key: 'vsqs', region: 'taipei', name: '台北京站威秀影城', short: '京站威秀', color: '#c2185b', source: 'vieshow', codes: { QS: '' }, theaterIds: ['2'], cinemacode: '12', official: 'https://www.vscinemas.com.tw/theater/detail.aspx?id=2' },
+  { key: 'vstx', region: 'taipei', name: '台北西門威秀影城', short: '西門威秀', color: '#d84315', source: 'vieshow', codes: { TX: '' }, theaterIds: ['31'], cinemacode: '34', official: 'https://www.vscinemas.com.tw/theater/detail.aspx?id=31' },
+  { key: 'vsbq', region: 'taipei', name: '板橋大遠百威秀影城', short: '板橋大遠百威秀', color: '#2e7d32', source: 'vieshow', codes: { BQ: '' }, theaterIds: ['4'], cinemacode: '16', official: 'https://www.vscinemas.com.tw/theater/detail.aspx?id=4' },
+  { key: 'vsgm', region: 'taipei', name: '中和環球威秀影城', short: '中和環球威秀', color: '#5d4037', source: 'vieshow', codes: { GM: '' }, theaterIds: ['25'], cinemacode: '30', official: 'https://www.vscinemas.com.tw/theater/detail.aspx?id=25' },
+  { key: 'vshu', region: 'taipei', name: '新店裕隆城威秀影城', short: '新店裕隆城威秀', color: '#ad1457', source: 'vieshow', codes: { HU: '' }, theaterIds: ['28'], cinemacode: '32', official: 'https://www.vscinemas.com.tw/theater/detail.aspx?id=28' },
+  { key: 'vslk', region: 'taipei', name: '林口 MITSUI OUTLET PARK 威秀影城', short: '林口三井威秀', color: '#283593', source: 'vieshow', codes: { LK: '' }, theaterIds: ['5'], cinemacode: '19', official: 'https://www.vscinemas.com.tw/theater/detail.aspx?id=5' },
+  { key: 'vsks', region: 'kaohsiung', name: '高雄大遠百威秀影城', short: '高雄大遠百威秀', color: '#0e8a8c', source: 'vieshow', codes: { KS: '', KSGC: 'Gold Class' }, theaterIds: ['18', '19'], cinemacode: '6', official: 'https://www.vscinemas.com.tw/theater/detail.aspx?id=18' },
   { key: 'zlarts', region: 'taoyuan', name: '中壢光影電影館', short: '中壢光影', color: '#827717', source: 'atmovies', at: 't03312', official: 'https://www.facebook.com/TaoyuanArtsCinema/' }
 ];
 
