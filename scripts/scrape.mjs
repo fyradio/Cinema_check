@@ -32,7 +32,7 @@ for (const [cinema, conf] of Object.entries(VS)) {
   for (const [code, tag] of Object.entries(conf.codes)) {
     try {
       const rows = await weekSchedule(code, today);
-      for (const r of rows) vsWeek.push({ ...r, cinema, version: tag ? (/\bGC\b/.test(r.version) ? r.version.replace(/\bGC\b/, tag) : [tag, r.version].filter(Boolean).join(' ')) : r.version });
+      for (const r of rows) vsWeek.push({ ...r, cinema, version: !tag ? r.version : /\bGC\b/.test(r.version) ? r.version.replace(/\bGC\b/, tag) : r.version.toUpperCase().includes(tag.toUpperCase()) ? r.version : [tag, r.version].filter(Boolean).join(' ') });
       log(`威秀 ${code}：${rows.length} 場`);
     } catch (e) { errors.push(`威秀 ${code}：${e.message}`); log(`威秀 ${code} 失敗：${e.message}`); }
   }
