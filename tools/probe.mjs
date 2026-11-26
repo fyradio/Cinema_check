@@ -1,58 +1,42 @@
 import { chromium } from 'playwright-core';
 import fs from 'node:fs';
-fs.rmSync('out', { recursive: true, force: true });
-fs.mkdirSync('out2', { recursive: true });
-const SKIP = /google|facebook|doubleclick|gstatic|clarity|hotjar|criteo|yahoo|line-scdn|tiktok|adsrvr|scorecard|cloudflareinsights|youtube|mpulse|\.png|\.jpg|\.gif|\.woff|\.css/i;
+fs.mkdirSync('out3', { recursive: true });
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
-const b = await chromium.launch({ executablePath: '/usr/bin/google-chrome', headless: true });
-const ctx = await b.newContext({ locale: 'zh-TW', timezoneId: 'Asia/Taipei', viewport: { width: 1280, height: 900 }, userAgent: UA });
-async function probe(name, url, act) {
-  const pg = await ctx.newPage(); const reqs = [];
-  pg.on('requestfinished', async r => {
-    const u = r.url(); if (SKIP.test(u)) return; const t = r.resourceType(); let status = 0, body = '';
-    try { const res = await r.response(); status = res.status(); const s = await res.text();
-      if (t === 'script') { if (/broadway|vscinemas/.test(u)) { const f = `out2/${name}-${u.split('/').pop().split('?')[0]}`; fs.writeFileSync(f, s); body = f; } }
-      else body = s.slice(0, 20000); } catch (e) { body = 'ERR ' + e.message; }
-    reqs.push({ t, m: r.method(), u, post: r.postData(), status, body });
-  });
-  let note = '';
-  try { await pg.goto(url, { waitUntil: 'networkidle', timeout: 45000 }); if (act) note = await act(pg); await pg.waitForTimeout(2500); } catch (e) { note += ' ERROR ' + e.message; }
-  try { fs.writeFileSync(`out2/${name}.html`, await pg.content()); await pg.screenshot({ path: `out2/${name}.png`, fullPage: true }); } catch {}
-  fs.writeFileSync(`out2/${name}.json`, JSON.stringify({ url, final: pg.url(), note, reqs }, null, 1));
-  console.log(name, pg.url(), reqs.length, String(note).slice(0, 300)); await pg.close();
-}
-const get = async u => { const r = await fetch(u, { headers: { 'User-Agent': UA } }); return r.text(); };
-// Broadway
 const BW = 'https://www.broadway-cineplex.com.tw/';
-const list = JSON.parse(await get(BW + 'Movie/GetMovieList/Zhubei'));
-fs.writeFileSync('out2/bw_list.json', JSON.stringify(list, null, 1));
-const withDates = list.Data.filter(m => m.datedata && m.datedata.length);
-let q = null;
-for (const m of withDates.slice(0, 3)) {
-  for (const d of m.datedata.slice(0, 2)) {
-    const t = JSON.parse(await get(BW + `Movie/GetMovieAlltime/Zhubei/${m.programid}/${d.date}`));
-    fs.writeFileSync(`out2/bw_time_${m.programid}_${d.date}.json`, JSON.stringify(t, null, 1));
-    const s = t.Data?.flatMap(x => x.subtimedata || []).find(x => !x.disable);
-    if (s && !q) q = `quick-view.html?obj=Zhubei,${m.programid},${s.showdate},${s['時間'].replace(':', '-')},${s.hall}`;
-  }
+const J = async u => (await fetch(u, { headers: { 'User-Agent': UA } })).json();
+const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Taipei' }).format(new Date());
+const res = { today, bw: [], vs: {} };
+const list = (await J(BW + 'Movie/GetMovieList/Zhubei')).Data;
+const sess = [];
+for (const m of list) for (const d of (m.datedata || []).slice(0, 2)) {
+  const t = await J(BW + `Movie/GetMovieAlltime/Zhubei/${m.programid}/${d.date}`);
+  for (const s of (t.Data || []).flatMap(x => x.subtimedata || [])) if (!s.disable) sess.push({ pid: m.programid, name: m.cname, ...s });
 }
-console.log('quick', q);
-if (q) await probe('bw_quick', BW + q);
-await probe('bw_single', BW + `book.html?obj=Zhubei&pid=${withDates[0]?.programid}`);
-// Vieshow seat page + several film details for li classes
-await probe('vs_seats', 'https://sales.vscinemas.com.tw/VoucherTicketing/SessionSeats.aspx?CinemaCode=14&txtSessionId=673560');
-await probe('vs_booking', 'https://www.vscinemas.com.tw/vsTicketing//ticketing/booking.aspx?cinemacode=14&txtSessionId=673560');
-const classes = {};
-for (const id of [9029, 8941, 9037, 9138, 8985, 9042]) {
-  const h = await get(`https://www.vscinemas.com.tw/film/detail.aspx?id=${id}`);
-  for (const m of h.matchAll(/<li class="([^"]*)"><a href="https:\/\/www\.vscinemas\.com\.tw\/vsTicketing/g)) classes[m[1]] = (classes[m[1]] || 0) + 1;
-  if (id === 9138) fs.writeFileSync('out2/vs_detail_9138.html', h);
+for (const s of sess.slice(0, 60)) {
+  const r = await J(BW + `Movie/GetSeatView/Zhubei/${s.pid}/${s.showdate}/${s['時間'].replace(':', '-')}/${s.hall}`);
+  const k = {}; const samples = {};
+  for (const row of r.Data || []) for (const c of row.cols || []) { const key = c.seatkind + '/' + c.choice + '/' + (c.colname ? 'n' : '-'); k[key] = (k[key] || 0) + 1; if (!samples[c.seatkind]) samples[c.seatkind] = c; }
+  res.bw.push({ name: s.name, date: s.showdate, time: s['時間'], hall: s.hallname, k, samples });
 }
-fs.writeFileSync('out2/vs_li_classes.json', JSON.stringify(classes));
-// css hints
-const css = await get('https://www.unicornpopcorn.com.tw/ForVsWeb/css/style.css').catch(() => '');
-fs.writeFileSync('out2/vs_style_bookList.txt', (css.match(/[^}]*bookList[^}]*}/g) || []).join('\n'));
-// vieshow GetShowTimes direct POST
-const r = await fetch('https://www.vscinemas.com.tw/ShowTimes//ShowTimes/GetShowTimes', { method: 'POST', headers: { 'User-Agent': UA, 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'X-Requested-With': 'XMLHttpRequest' }, body: 'CinemaCode=BC' });
-fs.writeFileSync('out2/vs_getshowtimes_BC.html', await r.text());
+const b = await chromium.launch({ executablePath: '/usr/bin/google-chrome', headless: true });
+const ctx = await b.newContext({ locale: 'zh-TW', userAgent: UA });
+const pg = await ctx.newPage();
+// 找 '-' 或 '9' 最多的一場，畫出座位圖看 class
+const pick = [...res.bw].sort((a, b) => ((b.k['-/N/-'] || 0) + (b.k['-/N/n'] || 0) + (b.k['9/N/n'] || 0) + (b.k['9/N/-'] || 0)) - ((a.k['-/N/-'] || 0) + (a.k['-/N/n'] || 0) + (a.k['9/N/n'] || 0) + (a.k['9/N/-'] || 0)))[0];
+const ps = sess.find(s => s.name === pick.name && s.showdate === pick.date && s['時間'] === pick.time);
+await pg.goto(BW + `quick-view.html?obj=Zhubei,${ps.pid},${ps.showdate},${ps['時間'].replace(':', '-')},${ps.hall}`, { waitUntil: 'networkidle' });
+await pg.waitForTimeout(2000);
+res.bwRendered = await pg.evaluate(() => { const c = {}; for (const el of document.querySelectorAll('.td-block')) { const k = el.className + '|' + el.textContent.trim().replace(/\d+/g, 'N'); c[k] = (c[k] || 0) + 1; } return { c, html: document.querySelector('.table')?.innerHTML.slice(0, 4000) }; });
+res.bwPick = pick;
+await pg.screenshot({ path: 'out3/bw_quick.png', fullPage: true });
+// 威秀：讀樣式表裡跟 bookList 有關的規則，以及熱門片今晚的 li 底色
+await pg.goto('https://www.vscinemas.com.tw/film/detail.aspx?id=9029', { waitUntil: 'domcontentloaded', timeout: 60000 });
+await pg.waitForTimeout(3000);
+res.vs = await pg.evaluate(() => {
+  const rules = [];
+  for (const sh of document.styleSheets) { try { for (const r of sh.cssRules) if (/bookList|soldout|sellout|almost/i.test(r.cssText)) rules.push(r.cssText.slice(0, 300)); } catch (e) { rules.push('ERR ' + sh.href); } }
+  const lis = {}; for (const li of document.querySelectorAll('ul.bookList li')) { const a = li.querySelector('a'); const k = li.className + '|' + getComputedStyle(li).backgroundColor + '|' + (a ? getComputedStyle(a).backgroundColor : ''); lis[k] = (lis[k] || 0) + 1; }
+  return { rules, lis, title: document.title };
+});
+fs.writeFileSync('out3/res.json', JSON.stringify(res, null, 1));
 await b.close();
