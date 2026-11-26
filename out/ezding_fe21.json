@@ -1,6 +1,0 @@
-{
- "url": "https://www.ezding.com.tw/cinemabooking?cinemaid=40288eb0050f542401050f5573651ca2",
- "final": "about:blank",
- "note": " ERROR page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.ezding.com.tw/cinemabooking?cinemaid=40288eb0050f542401050f5573651ca2\nCall log:\n  - navigating to \"https://www.ezding.com.tw/cinemabooking?cinemaid=40288eb0050f542401050f5573651ca2\", waiting until \"networkidle\"\n",
- "reqs": []
-}
