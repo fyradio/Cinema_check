@@ -183,9 +183,9 @@ dialog::backdrop{background:rgba(20,5,10,.6)}
 <script>
 {
 let THEATERS = [
-  {key:'fe21', region:'hsinchu', name:'新竹大遠百威秀影城', short:'大遠百威秀', color:'#0e8a8c', source:'vieshow', official:'https://www.vscinemas.com.tw/theater/detail.aspx?id=7'},
+  {key:'shown', region:'hsinchu', name:'享平方 百老匯影城竹北店', short:'享平方百老匯', color:'#d9661a', source:'broadway', official:'https://www.broadway-cineplex.com.tw/book.html?obj=Zhubei'},
   {key:'bigcity', region:'hsinchu', name:'新竹巨城威秀影城', short:'巨城威秀', color:'#7048a8', source:'vieshow', official:'https://www.vscinemas.com.tw/theater/detail.aspx?id=9'},
-  {key:'shown', region:'hsinchu', name:'享平方 百老匯影城竹北店', short:'享平方百老匯', color:'#d9661a', source:'broadway', official:'https://www.broadway-cineplex.com.tw/book.html?obj=Zhubei'}
+  {key:'fe21', region:'hsinchu', name:'新竹大遠百威秀影城', short:'大遠百威秀', color:'#0e8a8c', source:'vieshow', official:'https://www.vscinemas.com.tw/theater/detail.aspx?id=7'}
 ];
 let REGIONS = [{key:'hsinchu', name:'新竹'}];
 let TH = Object.fromEntries(THEATERS.map(t => [t.key, t]));
@@ -243,7 +243,7 @@ function introBlock(m, opened) {
 }
 const votes = v => v >= 1e4 ? (v / 1e4).toFixed(v >= 1e5 ? 0 : 1) + ' 萬票' : v + ' 票';
 
-let GROUPS = [{key:'tzm', name:'桃竹苗全部', regions:['hsinchu', 'toufen', 'taoyuan']}];
+let GROUPS = [{key:'tzm', name:'桃竹苗全部', regions:['taoyuan', 'hsinchu', 'toufen']}];
 const FILES = {};      // 已載入的地區檔
 let INDEX = null;
 const regionsOf = k => (GROUPS.find(g => g.key === k) || {regions: [k]}).regions;
