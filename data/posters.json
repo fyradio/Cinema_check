@@ -871,5 +871,16 @@
   "thumbFrom": "posters/full/tt7526136-zh.jpg"
  },
  "n1d893ps": {},
- "n13h3r4t": {}
+ "n13h3r4t": {},
+ "tt37874634": {
+  "zh": {
+   "file": "posters/full/tt37874634-zh.jpg",
+   "w": 2067,
+   "h": 2953,
+   "bytes": 391514,
+   "src": "https://www.unicornpopcorn.com.tw/ForVsWeb/upload/film/film_20261111003.jpg"
+  },
+  "thumb": "posters/thumb/tt37874634.webp",
+  "thumbFrom": "posters/full/tt37874634-zh.jpg"
+ }
 }
